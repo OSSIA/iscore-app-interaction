@@ -27,14 +27,14 @@ InspectorWidget::InspectorWidget(
     auto button = new QPushButton{tr("Add banana"), this};
     lay->addWidget(button);
 
+    auto button_rm = new QPushButton{tr("Rm banana"), this};
+    lay->addWidget(button_rm);
+
     // Connection to the command
     connect(button, &QPushButton::pressed,
             this, &Tutorial::InspectorWidget::addBanana);
 
-    auto button_rm = new QPushButton{tr("Rm banana"), this};
-    lay->addWidget(button);
 
-    // Connection to the command
     connect(button_rm, &QPushButton::pressed,
             this, &Tutorial::InspectorWidget::rmBanana);
 
