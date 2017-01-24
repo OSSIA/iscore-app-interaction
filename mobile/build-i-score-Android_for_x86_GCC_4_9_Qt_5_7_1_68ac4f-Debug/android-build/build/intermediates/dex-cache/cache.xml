@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/hvikstrom/mobile/build-i-score-Android_for_x86_GCC_4_9_Qt_5_7_1_68ac4f-Debug/android-build/libs/QtAndroid-bundled.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="279cac7f52b0d85cf8c2b1779bdd8b6584bca6c5">
+        <dex dex="/home/hvikstrom/mobile/build-i-score-Android_for_x86_GCC_4_9_Qt_5_7_1_68ac4f-Debug/android-build/build/intermediates/pre-dexed/debug/QtAndroid-bundled-ffbc3bc30df85b9970151adcb1b55b57b05e7343.jar" />
+    </item>
+    <item
+        jar="/home/hvikstrom/mobile/build-i-score-Android_for_x86_GCC_4_9_Qt_5_7_1_68ac4f-Debug/android-build/libs/QtAndroidBearer-bundled.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="6fd3bdc4a566f55574568baa9c66c220cad5ef6d">
+        <dex dex="/home/hvikstrom/mobile/build-i-score-Android_for_x86_GCC_4_9_Qt_5_7_1_68ac4f-Debug/android-build/build/intermediates/pre-dexed/debug/QtAndroidBearer-bundled-a5d72510de3a39ffaddaddd483cabb38fdc62e92.jar" />
+    </item>
+
+</items>
