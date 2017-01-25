@@ -1,0 +1,23 @@
+{"interactions": [
+    {
+	"name" : "VolumeUI",
+	"icon" : "images/volume_cursor.png",
+	"description" : "Deplacez le curseur vers la droite pour augmenter le volume, et vers la gauche pour le diminuer"
+    },
+    {
+	"name" : "VolumeMove",
+	"icon" : "images/volume_shakeupdown.png",
+	"description" : "Secouez votre dispositif vers le haut pour augmenter le volume, et vers le bas pour le diminuer"
+    },
+    {
+	"name" : "MusicUI",
+	"icon" : "images/music_button.png",
+	"description" : "Appuyez sur le bouton pour lancer ou interrrompre la musique"
+    },
+    {
+	"name" : "ColorMove",
+	"icon" : "images/color_shake.png",
+	"description" : "Secouez votre dispositif pour modifier la couleur des projecteurs"
+    }
+]}
+	
