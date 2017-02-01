@@ -1,7 +1,7 @@
 #pragma once
 #include <iscore/plugins/customfactory/FactoryInterface.hpp>
 #include <iscore/serialization/VisitorCommon.hpp>
-#include <addon_app_interaction_export.h>
+#include <iscore_addon_app_interaction_export.h>
 
 
 namespace AppInteraction

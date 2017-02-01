@@ -18,11 +18,11 @@ AppInteractionPresenter::AppInteractionPresenter(
     const AppInteraction::ProcessModel& p = layer.processModel();
 
     // From model to view :
-    con(p, &ProcessModel::bananasChanged,
-            this, [=] (int b) {
-        m_view->setText("bananas: " + QString::number(b));
-    });
-    m_view->setText("bananas: " + QString::number(p.bananas()));
+ //   con(p, &ProcessModel::bananasChanged,
+ //           this, [=] (int b) {
+ //       m_view->setText("bananas: " + QString::number(b));
+ //   });
+ //   m_view->setText("bananas: " + QString::number(p.bananas()));
 
     // From view to model :
     connect(view, &AppInteractionView::doubleClicked,

@@ -22,10 +22,8 @@ class InspectorWidget final :
                 QWidget* parent);
 
     private:
-        void on_entityAdded(const PolymorphicEntity&);
-        void on_entityRemoved(const PolymorphicEntity&);
-        void addBanana();
-        void rmBanana();
+//        void on_entityAdded(const PolymorphicEntity&);
+//        void on_entityRemoved(const PolymorphicEntity&);
         CommandDispatcher<> m_dispatcher;
 };
 

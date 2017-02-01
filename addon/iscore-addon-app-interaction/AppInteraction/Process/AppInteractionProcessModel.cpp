@@ -13,19 +13,19 @@ ProcessModel::ProcessModel(
     metadata().setInstanceName(*this);
 }
 
-int ProcessModel::bananas() const
-{
-    return m_bananas;
-}
+//int ProcessModel::bananas() const
+//{
+//    return m_bananas;
+//}
 
-void ProcessModel::setBananas(int bananas)
-{
-    if (m_bananas == bananas)
-        return;
+//void ProcessModel::setBananas(int bananas)
+//{
+//    if (m_bananas == bananas)
+//        return;
 
-    m_bananas = bananas;
-    emit bananasChanged(bananas);
-}
+//    m_bananas = bananas;
+//    emit bananasChanged(bananas);
+//}
 
 ProcessModel::ProcessModel(
         const ProcessModel& source,
@@ -123,7 +123,7 @@ void DataStreamReader::read(
     }
 
     // Save a simple data member
-    m_stream << proc.m_bananas;
+    //m_stream << proc.m_bananas;
 
     // Add an element in the stream that will be checked on loading.
     // This is not necessary, but very useful for debugging.
@@ -171,7 +171,7 @@ void DataStreamWriter::write(
     }
 
     // Load a simple data member
-    m_stream >> proc.m_bananas;
+    //m_stream >> proc.m_bananas;
 
     // Check that the stream has not been corrupted.
     checkDelimiter();
@@ -187,7 +187,7 @@ void JSONObjectReader::read(
 {
     obj["SimpleElements"] = toJsonArray(proc.simpleElements);
     obj["PolyElements"] = toJsonArray(proc.polymorphicEntities);
-    obj["Bananas"] = proc.m_bananas;
+    //obj["Bananas"] = proc.m_bananas;
 }
 
 template <>
@@ -217,5 +217,5 @@ void JSONObjectWriter::write(
         }
     }
 
-    proc.m_bananas = obj["Bananas"].toInt();
+    //proc.m_bananas = obj["Bananas"].toInt();
 }

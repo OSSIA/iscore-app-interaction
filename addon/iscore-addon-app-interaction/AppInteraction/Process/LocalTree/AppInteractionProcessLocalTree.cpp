@@ -13,12 +13,12 @@ LocalTreeProcessComponent::LocalTreeProcessComponent(
         QObject* parent_obj):
     Engine::LocalTree::ProcessComponent_T<AppInteraction::ProcessModel>{parent, proc, sys, id, "AppInteractionComponent", parent_obj}
 {
-    m_bananaProperty = Engine::LocalTree::add_property<int>(
-                node(), "bananas", &proc,
-                &AppInteraction::ProcessModel::bananas,
-                &AppInteraction::ProcessModel::setBananas,
-                &AppInteraction::ProcessModel::bananasChanged,
-                this);
+//    m_bananaProperty = Engine::LocalTree::add_property<int>(
+//                node(), "bananas", &proc,
+//                &AppInteraction::ProcessModel::bananas,
+//                &AppInteraction::ProcessModel::setBananas,
+//                &AppInteraction::ProcessModel::bananasChanged,
+//                this);
 }
 
 LocalTreeProcessComponent::~LocalTreeProcessComponent()

@@ -9,7 +9,7 @@ class DocumentPlugin;
 UUID_METADATA(,
     iscore::DocumentPluginFactory,
     AppInteraction::DocumentPlugin,
-    "164843db-345f-4e31-b614-f8de5ca7e94g")
+    "164843db-345f-4e31-b614-f8de5ca7e94e")
 //j'ai changé le numéro - il faudrait en générer un mieux
 
 namespace AppInteraction

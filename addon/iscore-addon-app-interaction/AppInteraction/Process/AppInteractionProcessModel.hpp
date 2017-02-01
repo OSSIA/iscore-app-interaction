@@ -14,7 +14,7 @@ class ProcessModel final : public Process::ProcessModel
         ISCORE_SERIALIZE_FRIENDS
         MODEL_METADATA_IMPL(AppInteraction::ProcessModel)
 
-        Q_PROPERTY(int bananas READ bananas WRITE setBananas NOTIFY bananasChanged)
+//        Q_PROPERTY(int bananas READ bananas WRITE setBananas NOTIFY bananasChanged)
 
         Q_OBJECT
 
@@ -33,11 +33,11 @@ class ProcessModel final : public Process::ProcessModel
         iscore::EntityMap<SimpleElement> simpleElements;
         iscore::EntityMap<PolymorphicEntity> polymorphicEntities;
 
-        int bananas() const;
-        void setBananas(int bananas);
+//        int bananas() const;
+//        void setBananas(int bananas);
 
     signals:
-        void bananasChanged(int bananas);
+        //void bananasChanged(int bananas);
 
     private:
         ProcessModel(const ProcessModel& source,
@@ -58,6 +58,6 @@ class ProcessModel final : public Process::ProcessModel
         void setDurationAndGrow(const TimeValue& newDuration) override;
         void setDurationAndShrink(const TimeValue& newDuration) override;
 
-        int m_bananas{};
+        //int m_bananas{};
 };
 }
