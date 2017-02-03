@@ -7,7 +7,7 @@
 *Dans iscore_addon_tutorial :
 ** AppliPlugin : éléments qui sont tjs là lorsqu'on utilise le logiciel, comme des menus
 ** DocPlugin : éléments propres aux différentes pages du logiciel qu'on ouvre
-**Process/ProcessModel : exemple d'implémentation d'un processus
+** Process/ProcessModel : exemple d'implémentation d'un processus
 /!\ au undo/redo : on ne peut pas juste "set" une variable, il faut pouvoir annuler les commandes exécutées. --> utilisation d'un pattern commant ; on implémente un objet avec undo et redo
 
 ** Panneau de droite avec les infos sur l'objet = Inspector
