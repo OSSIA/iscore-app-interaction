@@ -3,7 +3,14 @@
 #include <Process/Inspector/ProcessInspectorWidgetDelegate.hpp>
 #include <Process/Inspector/ProcessInspectorWidgetDelegateFactory.hpp>
 #include <iscore/command/Dispatchers/CommandDispatcher.hpp>
+#include "../State/Widgets/InteractionTypeWidget.hpp"
 
+#include <State/Unit.hpp>
+
+namespace State
+{
+class UnitWidget;
+}
 namespace AppInteraction
 {
 class ProcessModel;
@@ -24,7 +31,8 @@ class InspectorWidget final :
     private:
 //        void on_entityAdded(const PolymorphicEntity&);
 //        void on_entityRemoved(const PolymorphicEntity&);
-        CommandDispatcher<> m_dispatcher;
+    State::InteractionTypeWidget* m_uw{};
+    CommandDispatcher<> m_dispatcher;
 };
 
 

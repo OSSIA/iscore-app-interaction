@@ -5,6 +5,9 @@
 #include <QFormLayout>
 #include <QLabel>
 #include <QPushButton>
+#include <QWidget>
+//#include <State/Widgets/UnitWidget.hpp>
+#include "../State/Widgets/InteractionTypeWidget.hpp"
 
 namespace AppInteraction
 {
@@ -16,9 +19,15 @@ InspectorWidget::InspectorWidget(
     InspectorWidgetDelegate_T {object, parent},
     m_dispatcher{context.commandStack}
 {
-    // Here we create the GUI for the inspector with Qt widgets.
-//    auto lay = new QFormLayout{this};
 
+    // Here we create the GUI for the inspector with Qt widgets.
+    auto lay = new QFormLayout{this};
+
+    /*m_uw = new State::UnitWidget{{}, this};*/
+    m_uw = new State::InteractionTypeWidget{{}, this};
+   // m_uw->setUnit(process().unit());
+
+    lay->addRow(tr("Interaction Type"), m_uw);
 //    auto banana_label = new QLabel{this};
 //    lay->addRow(tr("Banana count"), banana_label);
 
