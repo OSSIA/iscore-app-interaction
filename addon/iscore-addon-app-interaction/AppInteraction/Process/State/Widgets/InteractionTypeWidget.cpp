@@ -20,6 +20,7 @@ namespace State
     // Fill combobox. Unit is filled each time the dataspace changes
     m_combobox->addItem(tr("None"), QVariant::fromValue(State::Unit{}));
     m_combobox->addItem(tr("Type d'Interaction n°1"), QVariant::fromValue(State::Unit{}));
+    m_combobox->addItem(tr("Type d'Interaction n°2"), QVariant::fromValue(State::Unit{}));
 
     //   m_combobox->addItem(tr("Test"), QVariant::fromValue(State::Unit{}));
 

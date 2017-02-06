@@ -31,7 +31,8 @@ class InspectorWidget final :
     private:
 //        void on_entityAdded(const PolymorphicEntity&);
 //        void on_entityRemoved(const PolymorphicEntity&);
-    State::InteractionTypeWidget* m_uw{};
+    State::InteractionTypeWidget* m_itw{};
+    State::UnitWidget* m_uw{};
     CommandDispatcher<> m_dispatcher;
 };
 
