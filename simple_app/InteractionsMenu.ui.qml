@@ -1,11 +1,13 @@
 import QtQuick 2.5
+//import QtQuick.Controls.Styles 1.4
 
 Rectangle {
     
     width: 360
     height: 360
-    property alias searchArea: searchArea
+    //property alias listView: listView
     property alias mouseArea: mouseArea
+    property alias searchArea: searchArea
     
     MouseArea {
         id: searchArea
@@ -16,6 +18,7 @@ Rectangle {
         anchors.topMargin: 0
         anchors.fill: parent
 
+
         MouseArea {
             id: mouseArea
             x: 0
@@ -25,73 +28,109 @@ Rectangle {
 
             TextInput {
                 id: textInput
-                x: 18
-                y: 15
+                x: 20
+                y: 14
                 width: 321
                 height: 20
-                text: qsTr("Search an interaction")
-                font.pixelSize: 12
-            }
-        }
-    }
-
-    GridView {
-        id: gridView
-        x: 19
-        y: 65
-        width: 322
-        height: 280
-        flickableDirection: Flickable.HorizontalAndVerticalFlick
-        highlightRangeMode: GridView.NoHighlightRange
-        flow: GridView.FlowLeftToRight
-        cellWidth: 65
-        model: ListModel {
-            ListElement {
-                name: "Grey"
-                colorCode: "grey"
+                text: qsTr("Search an interaction...")
+                selectionColor: "#ffffff"
+                font.family: "Arial"
+                font.capitalization: Font.MixedCase
+                renderType: Text.NativeRendering
             }
 
-            ListElement {
-                name: "Red"
-                colorCode: "red"
-            }
+            ListView {
+                id: listView
+                x: 20
+                y: 60
+                width: 278
+                height: 70
+                highlight: Rectangle { color: "transparent"; border.color: "#0000ff"; border.width: 2; z: 1}
+                highlightMoveDuration : 0
+                currentIndex: -1
+                spacing: 10
+                boundsBehavior: Flickable.DragAndOvershootBounds
+                contentHeight: 0
+                contentWidth: 2048
+                orientation: ListView.Horizontal
+                model: ListModel {
+                    ListElement {
+                        eindex: 0
+                        icon: "volume_cursor2.png"
+                        description: "Deplacez le curseur vers la droite pour augmenter le volume, et vers la gauche pour le diminuer"
+                    }
 
-            ListElement {
-                name: "Blue"
-                colorCode: "blue"
-            }
+                    ListElement {
+                        eindex: 1
+                        icon: "volume_shakeupdown2.png"
+                        description: "Secouez votre dispositif vers le haut pour augmenter le volume, et vers le bas pour le diminuer"
+                    }
 
-            ListElement {
-                name: "Green"
-                colorCode: "green"
-            }
-            
-            ListElement {
-                name: "Green"
-                colorCode: "green"
-            }
-        }
-        delegate: Item {
-            x: 5
-            height: 50
-            Column {
-                Rectangle {
-                    width: 40
-                    height: 40
-                    color: colorCode
-                    anchors.horizontalCenter: parent.horizontalCenter
+                    ListElement {
+                        eindex: 2
+                        icon: "music_button2.png"
+                        description: "Appuyez sur le bouton pour lancer ou interrompre la musique"
+                    }
+
+                    ListElement {
+                        eindex: 3
+                        icon: "color_shake2.png"
+                        description: "Secouez votre dispositif pour modifier la couleur des projecteurs"
+                    }
                 }
-
-                Text {
+                /*delegate: Item {
                     x: 5
-                    text: name
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    font.bold: true
+                    width: 80
+                    height: 40
+                    Row {
+                        id: row1
+                        spacing: 10
+                        Image {
+                              id: img
+                              source: icon
+                              fillMode: Image.PreserveAspectFit
+                              asynchronous: false
+                            }
+                    }
+                }*/
+                delegate: Image {
+                    id: img
+                    source: icon
+                    asynchronous: false
+
+                  MouseArea {
+                      id: imgMouseArea
+                      x: 0
+                      y: 0
+                      width: 64
+                      height: 64
+                      onClicked: {
+                                  explan.text = description
+                                  listView.currentIndex = eindex
+                              }
+                  }
                 }
-                spacing: 5
+
             }
+
+            Text {
+                anchors.bottom: parent.bottom
+                id: explan
+                text: qsTr("No interaction selected")
+            }
+
+            Rectangle {
+                id: rectangle
+                x: 20
+                y: 14
+                width: 321
+                height: 20
+                color: "#ffffff"
+                z: -1
+            }
+
+
         }
-        cellHeight: 70
     }
 }
 
