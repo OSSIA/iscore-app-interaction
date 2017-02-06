@@ -19,7 +19,7 @@ class ProcessModel final : public Process::ProcessModel
         Q_OBJECT
 
     public:
-        ProcessModel(const TimeValue& duration,
+        ProcessModel(const TimeVal& duration,
                      const Id<Process::ProcessModel>& id,
                      QObject* parent);
 
@@ -54,9 +54,9 @@ class ProcessModel final : public Process::ProcessModel
         Selection selectedChildren() const override;
         void setSelection(const Selection& s) const override;
 
-        void setDurationAndScale(const TimeValue& newDuration) override;
-        void setDurationAndGrow(const TimeValue& newDuration) override;
-        void setDurationAndShrink(const TimeValue& newDuration) override;
+        void setDurationAndScale(const TimeVal& newDuration) override;
+        void setDurationAndGrow(const TimeVal& newDuration) override;
+        void setDurationAndShrink(const TimeVal& newDuration) override;
 
         //int m_bananas{};
 };

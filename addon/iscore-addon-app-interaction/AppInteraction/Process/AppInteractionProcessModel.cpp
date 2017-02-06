@@ -5,7 +5,7 @@ namespace AppInteraction
 {
 
 ProcessModel::ProcessModel(
-        const TimeValue& duration,
+        const TimeVal& duration,
         const Id<Process::ProcessModel>& id,
         QObject* parent):
     Process::ProcessModel{duration, id, "AppInteractionProcess", parent}
@@ -77,15 +77,15 @@ void ProcessModel::setSelection(const Selection& s) const
 {
 }
 
-void ProcessModel::setDurationAndScale(const TimeValue& newDuration)
+void ProcessModel::setDurationAndScale(const TimeVal& newDuration)
 {
 }
 
-void ProcessModel::setDurationAndGrow(const TimeValue& newDuration)
+void ProcessModel::setDurationAndGrow(const TimeVal& newDuration)
 {
 }
 
-void ProcessModel::setDurationAndShrink(const TimeValue& newDuration)
+void ProcessModel::setDurationAndShrink(const TimeVal& newDuration)
 {
 }
 
