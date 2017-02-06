@@ -3,5 +3,12 @@
         <file>main.qml</file>
         <file>MainForm.ui.qml</file>
         <file>InteractionsMenu.ui.qml</file>
+        <file>GridView.ui.qml</file>
+        <file>interactions.json</file>
+        <file>music_button2.png</file>
+        <file>volume_cursor2.png</file>
+        <file>volume_shakeupdown2.png</file>
+        <file>color_shake2.png</file>
+        <file>SearchArea.ui.qml</file>
     </qresource>
 </RCC>

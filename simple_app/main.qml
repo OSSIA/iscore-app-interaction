@@ -15,9 +15,12 @@ Window {
     }*/
     
     InteractionsMenu {
+        color: "#aaaa7f"
         anchors.fill: parent
         mouseArea.onClicked: {
-            console.log(qsTr('Clicked on background. Text: "' + textEdit.text + '"'))
+            console.log(qsTr('Clicked on background'))
         }
+
+
     }
 }
