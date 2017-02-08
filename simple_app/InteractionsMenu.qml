@@ -1,5 +1,5 @@
-import QtQuick 2.5
-//import QtQuick.Controls.Styles 1.4
+import QtQuick 2.7
+import QtQuick.Controls 1.4
 
 Rectangle {
     
@@ -8,6 +8,8 @@ Rectangle {
     //property alias listView: listView
     property alias mouseArea: mouseArea
     property alias searchArea: searchArea
+    property string passJson: "blankJson"
+    property string content: "blank"
     
     MouseArea {
         id: searchArea
@@ -26,25 +28,27 @@ Rectangle {
             width: 360
             height: 359
 
-            TextInput {
+            TextField {
                 id: textInput
-                x: 20
-                y: 14
-                width: 321
+                anchors.left: parent.left
+                anchors.leftMargin: 20
+                anchors.top: parent.top
+                anchors.topMargin: 20
+                width: 181
                 height: 20
-                text: qsTr("Search an interaction...")
-                selectionColor: "#ffffff"
                 font.family: "Arial"
                 font.capitalization: Font.MixedCase
-                renderType: Text.NativeRendering
+                placeholderText: "Search an interaction..."
+                onEditingFinished: content = text;
+
             }
 
             ListView {
                 id: listView
                 x: 20
                 y: 60
-                width: 278
-                height: 70
+                width: parent.width
+                height: parent.height
                 highlight: Rectangle { color: "transparent"; border.color: "#0000ff"; border.width: 2; z: 1}
                 highlightMoveDuration : 0
                 currentIndex: -1
@@ -53,46 +57,44 @@ Rectangle {
                 contentHeight: 0
                 contentWidth: 2048
                 orientation: ListView.Horizontal
-                model: ListModel {
+                /*model: ListModel {
                     ListElement {
                         eindex: 0
+                        type: "volume"
                         icon: "volume_cursor2.png"
                         description: "Deplacez le curseur vers la droite pour augmenter le volume, et vers la gauche pour le diminuer"
                     }
 
                     ListElement {
                         eindex: 1
+                        type: "volume"
                         icon: "volume_shakeupdown2.png"
                         description: "Secouez votre dispositif vers le haut pour augmenter le volume, et vers le bas pour le diminuer"
                     }
 
                     ListElement {
                         eindex: 2
+                        type: "start and stop music"
                         icon: "music_button2.png"
                         description: "Appuyez sur le bouton pour lancer ou interrompre la musique"
                     }
 
                     ListElement {
                         eindex: 3
+                        type: "color"
                         icon: "color_shake2.png"
                         description: "Secouez votre dispositif pour modifier la couleur des projecteurs"
                     }
-                }
-                /*delegate: Item {
-                    x: 5
-                    width: 80
-                    height: 40
-                    Row {
-                        id: row1
-                        spacing: 10
-                        Image {
-                              id: img
-                              source: icon
-                              fillMode: Image.PreserveAspectFit
-                              asynchronous: false
-                            }
-                    }
                 }*/
+                model: ListModel {
+                    id: listModel
+                    Component.onCompleted: {
+                        //var i;
+                        //for (i=0;i<)
+                        //append({"eindex": 0, "type":"volume", "icon":"volume_cursor2.png", "description":"Deplacez le curseur vers la droite pour augmenter le volume, et vers la gauche pour le diminuer"})
+                    }
+                }
+
                 delegate: Image {
                     id: img
                     source: icon
@@ -119,15 +121,7 @@ Rectangle {
                 text: qsTr("No interaction selected")
             }
 
-            Rectangle {
-                id: rectangle
-                x: 20
-                y: 14
-                width: 321
-                height: 20
-                color: "#ffffff"
-                z: -1
-            }
+
 
 
         }
