@@ -35,6 +35,7 @@ set(HDRS
     AppInteraction/PolymorphicEntity/PolymorphicEntity.hpp
     AppInteraction/PolymorphicEntity/PolymorphicEntityFactory.hpp
     AppInteraction/PolymorphicEntity/Implementation/ConcretePolymorphicEntity.hpp
+    AppInteraction/Connexion/Connexion.hpp
 
     iscore_addon_app_interaction.hpp
 
@@ -61,7 +62,8 @@ set(SRCS
     AppInteraction/PolymorphicEntity/PolymorphicEntity.cpp
     AppInteraction/PolymorphicEntity/PolymorphicEntityFactory.cpp
     AppInteraction/PolymorphicEntity/Implementation/ConcretePolymorphicEntity.cpp
-
+	AppInteraction/Connexion/Connexion.cpp
+    
     iscore_addon_app_interaction.cpp
 )
 
