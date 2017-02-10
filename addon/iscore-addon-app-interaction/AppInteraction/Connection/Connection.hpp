@@ -8,7 +8,7 @@ using namespace ossia;
 using namespace std;
 using namespace KDNSSD;
 
-class Connexion final
+class Connection final
 {
 private:
 // information on the connected device
@@ -16,12 +16,12 @@ private:
 
 
 public:
-    Connexion();
-    ~Connexion();
+    Connection();
+    ~Connection();
 
 	void sendInteraction();
     void updateData();
-    void closeConnexion();
+    void closeConnection();
     void protocol();
 
 };
