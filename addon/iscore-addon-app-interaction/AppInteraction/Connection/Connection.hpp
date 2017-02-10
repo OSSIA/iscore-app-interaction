@@ -8,6 +8,9 @@ using namespace ossia;
 using namespace std;
 using namespace KDNSSD;
 
+namespace connection
+{
+
 class Connection final
 {
 private:
@@ -25,3 +28,4 @@ public:
     void protocol();
 
 };
+}
