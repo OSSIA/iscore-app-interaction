@@ -2,16 +2,23 @@
 
 #include "Connection.hpp"
 
-class ConnectionManager
+#include <qlist.h>
+
+namespace connection
+{
+
+class ConnectionManager final
 {
 private:
-    Connection * ConnectedDevices;
+    int nConnections;
+    QList<Connection> connectedDevices;
 
 public:
     ConnectionManager();
     ~ConnectionManager();
 
     void openConnection();
-    void closeConnection();
+    void closeConnection(Connection c);
 
 };
+}

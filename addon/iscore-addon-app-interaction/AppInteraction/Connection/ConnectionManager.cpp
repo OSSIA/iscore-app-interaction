@@ -1,8 +1,11 @@
 #include "ConnectionManager.hpp"
 
-ConnectionManager::ConnectionManager()
+using namespace connection;
+
+ConnectionManager::ConnectionManager() : nConnections(0),
+                                         connectedDevices(new QList<Connection>)
 {
-    Connection * ConnectedDevices = new Connection[];
+
 }
 
 ConnectionManager::~ConnectionManager()
@@ -14,9 +17,11 @@ ConnectionManager::~ConnectionManager()
 ConnectionManager::openConnection()
 {
     Connection c = new Connection();
+    connectedDevices << c;
+    nConnections++;
 }
 
-ConnectionManager::closeConnection()
+ConnectionManager::closeConnection(Connection c)
 {
-
+    connectedDevices.removeOne(c);
 }

@@ -1,5 +1,7 @@
 #include "Connection.hpp"
 
+using namespace connection;
+
 Connection::Connection()
 {
 // initialize the attributes concerning device data
