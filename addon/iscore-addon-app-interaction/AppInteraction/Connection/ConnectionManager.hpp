@@ -2,7 +2,7 @@
 
 #include "Connection.hpp"
 
-#include <qlist.h>
+using namespace std;
 
 namespace connection
 {
@@ -11,7 +11,7 @@ class ConnectionManager final
 {
 private:
     int nConnections;
-    QList<Connection> connectedDevices;
+    std::vector<Connection> * connectedDevices;
 
 public:
     ConnectionManager();
