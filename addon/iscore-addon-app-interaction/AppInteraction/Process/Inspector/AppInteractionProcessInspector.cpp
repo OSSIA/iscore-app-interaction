@@ -30,6 +30,14 @@ InspectorWidget::InspectorWidget(
 
     lay->addRow(tr("Interaction Type"), m_itw);
     lay->addRow(tr("Unit"), m_uw);
+        
+        /*
+    auto& connectionManager = ctx.plugin<AppInteractionDocumentPlugin>().connectionManager();
+    for(auto interaction : connectionManager.interactions())
+    {
+            m_itw->addLine(interaction.name());
+    }
+    */
 
 //    auto banana_label = new QLabel{this};
 //    lay->addRow(tr("Banana count"), banana_label);
