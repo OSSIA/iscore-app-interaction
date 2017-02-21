@@ -1,23 +1,35 @@
 {"interactions": [
     {
-	"name" : "VolumeUI",
-	"icon" : "images/volume_cursor.png",
-	"description" : "Deplacez le curseur vers la droite pour augmenter le volume, et vers la gauche pour le diminuer"
+            "eindex" : 0,
+            "type" : "volume",
+            "sensor" : null,
+            "name" : "VolumeUI",
+            "icon" : "volume_cursor2.png",
+            "description" : "Deplacez le curseur vers la droite pour augmenter le volume, et vers la gauche pour le diminuer"
     },
     {
-	"name" : "VolumeMove",
-	"icon" : "images/volume_shakeupdown.png",
-	"description" : "Secouez votre dispositif vers le haut pour augmenter le volume, et vers le bas pour le diminuer"
+            "eindex" : 1,
+            "type" : "volume",
+            "sensor" : "AccHautBas",
+            "name" : "VolumeMove",
+            "icon" : "volume_shakeupdown2.png",
+            "description" : "Secouez votre dispositif vers le haut pour augmenter le volume, et vers le bas pour le diminuer"
     },
     {
-	"name" : "MusicUI",
-	"icon" : "images/music_button.png",
-	"description" : "Appuyez sur le bouton pour lancer ou interrrompre la musique"
+            "eindex" : 2,
+            "type" : "start and stop music",
+            "sensor" : null,
+            "name" : "MusicUI",
+            "icon" : "music_button2.png",
+            "description" : "Appuyez sur le bouton pour lancer ou interrompre la musique"
     },
     {
-	"name" : "ColorMove",
-	"icon" : "images/color_shake.png",
-	"description" : "Secouez votre dispositif pour modifier la couleur des projecteurs"
+            "eindex" : 3,
+            "type" : "color",
+            "sensor" : "Acc",
+            "name" : "ColorMove",
+            "icon" : "color_shake2.png",
+            "description" : "Secouez votre dispositif pour modifier la couleur des projecteurs"
     }
 ]}
 	

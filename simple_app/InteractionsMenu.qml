@@ -89,6 +89,21 @@ Rectangle {
                 model: ListModel {
                     id: listModel
                     Component.onCompleted: {
+                        function myParser()
+                        {
+                           if (req.readyState == 4)
+                           {
+                               var doc = eval('(' + req.responseText + ')');
+                               console.log(doc.interactions[0].description);
+                               var i;
+                               for (i=0;i<doc.interactions.length;i++)
+                                   append({"eindex": i, "type":doc.interactions[i].type, "icon":doc.interactions[i].icon, "description":doc.interactions[i].description});
+                           }
+                        }
+                        var req = new XMLHttpRequest();
+                        req.open("GET", "interactions.json", true);
+                        req.onreadystatechange = myParser;
+                        req.send(null);
                         //var i;
                         //for (i=0;i<)
                         //append({"eindex": 0, "type":"volume", "icon":"volume_cursor2.png", "description":"Deplacez le curseur vers la droite pour augmenter le volume, et vers la gauche pour le diminuer"})
