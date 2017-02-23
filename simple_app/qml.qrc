@@ -1,12 +1,12 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>InteractionsMenu.qml</file>
         <file>interactions.json</file>
         <file>music_button2.png</file>
         <file>volume_cursor2.png</file>
         <file>volume_shakeupdown2.png</file>
         <file>color_shake2.png</file>
         <file>SearchArea.ui.qml</file>
+        <file>InteractionsMenu.qml</file>
     </qresource>
 </RCC>

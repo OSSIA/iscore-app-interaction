@@ -5,11 +5,25 @@ Rectangle {
     
     width: 360
     height: 360
-    //property alias listView: listView
     property alias mouseArea: mouseArea
     property alias searchArea: searchArea
-    property string passJson: "blankJson"
-    property string content: "blank"
+    property string feasible: ""
+    Component.onCompleted: {
+        function myParserInit()
+        {
+           if (initReq.readyState == 4)
+           {
+               var doc = eval('(' + initReq.responseText + ')');
+               var i;
+               for (i=0;i<doc.interactions.length;i++)
+                   feasible = feasible + 't';
+           }
+        }
+        var initReq = new XMLHttpRequest();
+        initReq.open("GET", "interactions.json", true);
+        initReq.onreadystatechange = myParserInit;
+        initReq.send(null);
+    }
     
     MouseArea {
         id: searchArea
@@ -39,7 +53,11 @@ Rectangle {
                 font.family: "Arial"
                 font.capitalization: Font.MixedCase
                 placeholderText: "Search an interaction..."
-                onEditingFinished: content = text;
+                onEditingFinished: {
+                    listModel.completeHandler(text);
+                    explan.text = "No interaction selected";
+                    listView.currentIndex = -1;
+                }
 
             }
 
@@ -49,7 +67,7 @@ Rectangle {
                 y: 60
                 width: parent.width
                 height: parent.height
-                highlight: Rectangle { color: "transparent"; border.color: "#0000ff"; border.width: 2; z: 1}
+                highlight: Rectangle { color: "transparent"; border.color: "#0000ff"; border.width: 2}
                 highlightMoveDuration : 0
                 currentIndex: -1
                 spacing: 10
@@ -57,63 +75,48 @@ Rectangle {
                 contentHeight: 0
                 contentWidth: 2048
                 orientation: ListView.Horizontal
-                /*model: ListModel {
-                    ListElement {
-                        eindex: 0
-                        type: "volume"
-                        icon: "volume_cursor2.png"
-                        description: "Deplacez le curseur vers la droite pour augmenter le volume, et vers la gauche pour le diminuer"
-                    }
 
-                    ListElement {
-                        eindex: 1
-                        type: "volume"
-                        icon: "volume_shakeupdown2.png"
-                        description: "Secouez votre dispositif vers le haut pour augmenter le volume, et vers le bas pour le diminuer"
-                    }
-
-                    ListElement {
-                        eindex: 2
-                        type: "start and stop music"
-                        icon: "music_button2.png"
-                        description: "Appuyez sur le bouton pour lancer ou interrompre la musique"
-                    }
-
-                    ListElement {
-                        eindex: 3
-                        type: "color"
-                        icon: "color_shake2.png"
-                        description: "Secouez votre dispositif pour modifier la couleur des projecteurs"
-                    }
-                }*/
                 model: ListModel {
                     id: listModel
-                    Component.onCompleted: {
-                        function myParser()
+                    function completeHandler(string)
+                    {
+                        function myParserSearch()
                         {
-                           if (req.readyState == 4)
-                           {
-                               var doc = eval('(' + req.responseText + ')');
-                               console.log(doc.interactions[0].description);
-                               var i;
-                               for (i=0;i<doc.interactions.length;i++)
-                                   append({"eindex": i, "type":doc.interactions[i].type, "icon":doc.interactions[i].icon, "description":doc.interactions[i].description});
-                           }
+                            if (searchReq.readyState == 4)
+                            {
+                                var doc = eval('(' + searchReq.responseText + ')');
+                                var i;
+                                var counter = 0;
+                                for (i=0;i<doc.interactions.length;i++)
+                                {
+                                    var complete = doc.interactions[i].type;
+                                    if(feasible[i] == 't' && complete.indexOf(string) != -1)
+                                    {
+                                        listModel.append({"eindex": counter, "type":complete, "icon":doc.interactions[i].icon,
+                                               "description":doc.interactions[i].description});
+                                        counter++;
+                                    }
+                                }
+                            }
+
                         }
-                        var req = new XMLHttpRequest();
-                        req.open("GET", "interactions.json", true);
-                        req.onreadystatechange = myParser;
-                        req.send(null);
-                        //var i;
-                        //for (i=0;i<)
-                        //append({"eindex": 0, "type":"volume", "icon":"volume_cursor2.png", "description":"Deplacez le curseur vers la droite pour augmenter le volume, et vers la gauche pour le diminuer"})
+                        listModel.clear();
+                        var searchReq = new XMLHttpRequest();
+                        searchReq.open("GET", "interactions.json", true);
+                        searchReq.onreadystatechange = myParserSearch;
+                        searchReq.send(null);
                     }
+                    Component.onCompleted: {
+                        completeHandler("");
+                    }
+
                 }
 
                 delegate: Image {
                     id: img
                     source: icon
                     asynchronous: false
+                    z: -1
 
                   MouseArea {
                       id: imgMouseArea
@@ -124,6 +127,7 @@ Rectangle {
                       onClicked: {
                                   explan.text = description
                                   listView.currentIndex = eindex
+                                  console.log("current index: "+listView.currentIndex);
                               }
                   }
                 }

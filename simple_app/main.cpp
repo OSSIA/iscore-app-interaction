@@ -12,7 +12,7 @@
 #include <QQmlComponent>
 #include <QQmlProperty>
 
-void readJson()
+/*void readJson()
    {
       QString val;
       QFile file;
@@ -21,14 +21,12 @@ void readJson()
       val = file.readAll();
       file.close();
       //qWarning() << val;
-      //QJsonDocument d = QJsonDocument::fromJson(val.toUtf8());
-      /*QJsonObject sett2 = d.object();
-      QJsonValue value = sett2.value(QString("iscoreApp"));
-      qWarning() << value;
-      QJsonObject item = value.toObject();
-      qWarning() << tr("QJsonObject of description: ") << item;*/
-      //QJsonObject t = d.object();
-      //std::string t = val.toStdString();
+      QJsonDocument d = QJsonDocument::fromJson(val.toUtf8());
+      QJsonObject sett2 = d.object();
+      //QJsonValue value = sett2.value(QString("iscoreApp"));
+      //qWarning() << value;
+      //QJsonObject item = value.toObject();
+      //qWarning() << tr("QJsonObject of description: ") << item;
       QVariant t = QVariant(val);
 
       //ECRITURE VERS QML
@@ -39,21 +37,46 @@ void readJson()
 
       qDebug() << "Property value:" << object->property("passJson").toString();
       //object->setProperty("someNumber", 100);
-   }
+   }*/
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
-    readJson();
+    //readJson();
+    QString val;
+    QFile file;
+    file.setFileName("interactions.json");
+    file.open(QIODevice::ReadOnly); //| QIODevice::Text);
+    val = file.readAll();
+    file.close();
+    //qWarning() << val;
+    QJsonDocument d = QJsonDocument::fromJson(val.toUtf8());
+    QJsonObject sett2 = d.object();
+    //QJsonValue value = sett2.value(QString("iscoreApp"));
+    //qWarning() << value;
+    //QJsonObject item = value.toObject();
+    //qWarning() << tr("QJsonObject of description: ") << item;
+    QVariant t = QVariant(val);
+
+    //ECRITURE VERS QML
+    int length = 42;
+    QQmlEngine wengine;
+    QQmlComponent wcomponent(&wengine, "qrc:/InteractionsMenu.qml");
+    QObject *wobject = wcomponent.create();
+    QQmlProperty::write(wobject, "jsonLength", length);
+
+    qDebug() << "Property value:" << wobject->property("jsonLength").toInt();
+    //object->setProperty("someNumber", 100);
 
     //LECTURE DU QML
-    QQmlEngine textengine;
-    QQmlComponent component(&textengine, "qrc:/InteractionsMenu.qml");
-    QObject *object = component.create();
-    QString entered = QQmlProperty::read(object, "content").toString();
+    /*QQmlEngine rengine;
+    QQmlComponent rcomponent(&rengine, "qrc:/InteractionsMenu.qml");
+    QObject *robject = rcomponent.create();
+    QString entered = QQmlProperty::read(robject, "content").toString();
 
-    qDebug() << "Property value:" << entered;
+    qDebug() << "Property value:" << entered;*/
     return app.exec();
+
 }
