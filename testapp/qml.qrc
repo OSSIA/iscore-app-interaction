@@ -1,9 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>InteractionMenu.qml</file>
-        <file>MainForm.qml</file>
-        <file>Search.qml</file>
-        <file>BusyIndicatorPage.qml</file>
+        <file>CountDown.qml</file>
         <file>images/+material/back.png</file>
         <file>images/+material/back@2x.png</file>
         <file>images/+material/back@3x.png</file>
@@ -40,6 +37,8 @@
         <file>images/qt-logo@2x.png</file>
         <file>images/qt-logo@3x.png</file>
         <file>images/qt-logo@4x.png</file>
+        <file>maine.qml</file>
+        <file>LostConnection.qml</file>
         <file>main.qml</file>
     </qresource>
 </RCC>

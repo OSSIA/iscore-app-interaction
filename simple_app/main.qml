@@ -23,4 +23,8 @@ Window {
 
 
     }
+
+    /*CountDown {
+        anchors.fill: parent
+    }*/
 }

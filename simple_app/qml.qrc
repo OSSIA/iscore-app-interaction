@@ -8,5 +8,9 @@
         <file>color_shake2.png</file>
         <file>SearchArea.ui.qml</file>
         <file>InteractionsMenu.qml</file>
+        <file>LostConnection.qml</file>
+        <file>CountDown.qml</file>
+        <file>maine.qml</file>
+        <file>mainmw.qml</file>
     </qresource>
 </RCC>

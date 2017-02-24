@@ -43,9 +43,9 @@ int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
     QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+    engine.load(QUrl(QStringLiteral("qrc:/mainmw.qml")));
     //readJson();
-    QString val;
+    /*QString val;
     QFile file;
     file.setFileName("interactions.json");
     file.open(QIODevice::ReadOnly); //| QIODevice::Text);
@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
     //object->setProperty("someNumber", 100);
 
     //LECTURE DU QML
-    /*QQmlEngine rengine;
+    QQmlEngine rengine;
     QQmlComponent rcomponent(&rengine, "qrc:/InteractionsMenu.qml");
     QObject *robject = rcomponent.create();
     QString entered = QQmlProperty::read(robject, "content").toString();
