@@ -1,5 +1,6 @@
 #pragma once
 #include <AppInteraction/Process/AppInteractionProcessModel.hpp>
+#include <AppInteraction/Commands/ChangeAddress.hpp>
 #include <Process/Inspector/ProcessInspectorWidgetDelegate.hpp>
 #include <Process/Inspector/ProcessInspectorWidgetDelegateFactory.hpp>
 #include <iscore/command/Dispatchers/CommandDispatcher.hpp>

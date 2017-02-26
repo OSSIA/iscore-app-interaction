@@ -1,5 +1,6 @@
 #include "AppInteractionProcessInspector.hpp"
-#include "../AppInteractionProcessModel.hpp"
+#include "AppInteraction/Process/AppInteractionProcessModel.hpp"
+#include "AppInteraction/Commands/ChangeAddress.hpp"
 
 #include <iscore/document/DocumentContext.hpp>
 #include <Explorer/Widgets/AddressAccessorEditWidget.hpp>
@@ -11,7 +12,8 @@
 //#include <QPushButton>
 #include <QWidget>
 #include <State/Widgets/UnitWidget.hpp>
-#include "../State/Widgets/InteractionTypeWidget.hpp"
+#include "AppInteraction/Process/State/Widgets/InteractionTypeWidget.hpp"
+
 
 namespace AppInteraction
 {
@@ -68,9 +70,10 @@ void InspectorWidget::on_addressChange(const Device::FullAddressAccessorSettings
   if (newAddr.address.address.path.isEmpty())
     return;
 
-  //auto cmd = new ChangeAddress{process(), newAddr};
+  /* A DECOMMENTER POUR POUVOIR CHANGER LES ADRESSES (mais ne fonctionne pas encore)*/
+//  auto cmd = new ChangeAddress{process(), newAddr};
 
-  //m_dispatcher.submitCommand(cmd);
+//  m_dispatcher.submitCommand(cmd);
 }
 
 

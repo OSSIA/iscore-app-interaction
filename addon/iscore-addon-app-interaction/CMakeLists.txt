@@ -30,6 +30,7 @@ set(HDRS
     AppInteraction/DocumentPlugin/AppInteractionDocumentPlugin.hpp
     AppInteraction/Commands/AddEntity.hpp
     AppInteraction/Commands/AppInteractionCommandFactory.hpp
+    AppInteraction/Commands/ChangeAddress.hpp
     AppInteraction/SimpleElement/SimpleElement.hpp
     AppInteraction/SimpleElement/SimpleEntity.hpp
     AppInteraction/PolymorphicEntity/PolymorphicEntity.hpp
@@ -59,6 +60,7 @@ set(SRCS
     AppInteraction/Settings/AppInteractionSettingsPresenter.cpp
     AppInteraction/DocumentPlugin/AppInteractionDocumentPlugin.cpp
     AppInteraction/Commands/AddEntity.cpp
+    AppInteraction/Commands/ChangeAddress.cpp
     AppInteraction/SimpleElement/SimpleEntity.cpp
     AppInteraction/PolymorphicEntity/PolymorphicEntity.cpp
     AppInteraction/PolymorphicEntity/PolymorphicEntityFactory.cpp
