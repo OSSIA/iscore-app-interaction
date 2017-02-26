@@ -5,6 +5,8 @@
 #include <AppInteraction/SimpleElement/SimpleElement.hpp>
 #include <AppInteraction/PolymorphicEntity/PolymorphicEntity.hpp>
 
+#include <State/Address.hpp>
+
 #include <iscore/model/EntityMap.hpp>
 
 namespace AppInteraction
@@ -14,10 +16,9 @@ class ProcessModel final : public Process::ProcessModel
         ISCORE_SERIALIZE_FRIENDS
         MODEL_METADATA_IMPL(AppInteraction::ProcessModel)
 
-//        Q_PROPERTY(int bananas READ bananas WRITE setBananas NOTIFY bananasChanged)
-
         Q_OBJECT
-
+        Q_PROPERTY(::State::AddressAccessor address READ address WRITE setAddress
+                       NOTIFY addressChanged)
     public:
         ProcessModel(const TimeVal& duration,
                      const Id<Process::ProcessModel>& id,
@@ -30,14 +31,15 @@ class ProcessModel final : public Process::ProcessModel
             vis.writeTo(*this);
         }
 
+        ::State::AddressAccessor address() const;
+       void setAddress(const ::State::AddressAccessor& arg);
+
         iscore::EntityMap<SimpleElement> simpleElements;
         iscore::EntityMap<PolymorphicEntity> polymorphicEntities;
 
-//        int bananas() const;
-//        void setBananas(int bananas);
 
     signals:
-        //void bananasChanged(int bananas);
+        void addressChanged(const ::State::AddressAccessor&);
 
     private:
         ProcessModel(const ProcessModel& source,
@@ -58,6 +60,6 @@ class ProcessModel final : public Process::ProcessModel
         void setDurationAndGrow(const TimeVal& newDuration) override;
         void setDurationAndShrink(const TimeVal& newDuration) override;
 
-        //int m_bananas{};
+     ::State::AddressAccessor m_address;
 };
 }

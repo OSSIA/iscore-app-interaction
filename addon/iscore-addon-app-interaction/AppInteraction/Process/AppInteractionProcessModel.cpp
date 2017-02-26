@@ -1,5 +1,6 @@
 #include "AppInteractionProcessModel.hpp"
 #include <AppInteraction/PolymorphicEntity/PolymorphicEntityFactory.hpp>
+#include <State/Address.hpp>
 
 namespace AppInteraction
 {
@@ -13,19 +14,7 @@ ProcessModel::ProcessModel(
     metadata().setInstanceName(*this);
 }
 
-//int ProcessModel::bananas() const
-//{
-//    return m_bananas;
-//}
 
-//void ProcessModel::setBananas(int bananas)
-//{
-//    if (m_bananas == bananas)
-//        return;
-
-//    m_bananas = bananas;
-//    emit bananasChanged(bananas);
-//}
 
 ProcessModel::ProcessModel(
         const ProcessModel& source,
@@ -62,6 +51,25 @@ ProcessStateDataInterface* ProcessModel::endStateData() const
 {
     return nullptr;
 }
+
+::State::AddressAccessor ProcessModel::address() const
+{
+  return m_address;
+}
+
+void ProcessModel::setAddress(const ::State::AddressAccessor& arg)
+{
+  if (m_address == arg)
+  {
+    return;
+  }
+
+  m_address = arg;
+  emit addressChanged(arg);
+  //emit unitChanged(arg.qualifiers.get().unit);
+  //emit m_curve->changed();
+}
+
 
 Selection ProcessModel::selectableChildren() const
 {

@@ -1,6 +1,10 @@
 #include "AppInteractionProcessInspector.hpp"
+#include "../AppInteractionProcessModel.hpp"
 
 #include <iscore/document/DocumentContext.hpp>
+#include <Explorer/Widgets/AddressAccessorEditWidget.hpp>
+#include <Explorer/DocumentPlugin/DeviceDocumentPlugin.hpp>
+#include <Inspector/InspectorWidgetBase.hpp>
 #include <ossia/detail/logger.hpp>
 #include <QFormLayout>
 #include <QLabel>
@@ -19,9 +23,24 @@ InspectorWidget::InspectorWidget(
     InspectorWidgetDelegate_T {object, parent},
     m_dispatcher{context.commandStack}
 {
+  using namespace Explorer;
 
     // Here we create the GUI for the inspector with Qt widgets.
     auto lay = new QFormLayout{this};
+
+    m_lineEdit = new AddressAccessorEditWidget{
+        context.plugin<DeviceDocumentPlugin>().explorer(), this};
+
+    m_lineEdit->setAddress(process().address());
+    con(process(), &ProcessModel::addressChanged, m_lineEdit,
+        &AddressAccessorEditWidget::setAddress);
+
+    connect(
+        m_lineEdit, &AddressAccessorEditWidget::addressChanged, this,
+        &InspectorWidget::on_addressChange);
+
+    lay->addRow(tr("Address"), m_lineEdit);
+
 
     /*m_uw = new State::UnitWidget{{}, this};*/
     m_itw = new State::InteractionTypeWidget{{}, this};
@@ -38,59 +57,21 @@ InspectorWidget::InspectorWidget(
             m_itw->addLine(interaction.name());
     }
     */
-
-//    auto banana_label = new QLabel{this};
-//    lay->addRow(tr("Banana count"), banana_label);
-
-//    auto button = new QPushButton{tr("Add banana"), this};
-//    lay->addWidget(button);
-
-//    auto button_rm = new QPushButton{tr("Rm banana"), this};
-//    lay->addWidget(button_rm);
-
-//    // Connection to the command
-//    connect(button, &QPushButton::pressed,
-//            this, &AppInteraction::InspectorWidget::addBanana);
-
-
-//    connect(button_rm, &QPushButton::pressed,
-//            this, &AppInteraction::InspectorWidget::rmBanana);
-
-//    // When the model changes, this will be called.
-//    con(object, &AppInteraction::ProcessModel::bananasChanged,
-//        this, [=] (int v) {
-//        banana_label->setText(QString::number(v));
-//    });
-
-//    banana_label->setText(QString::number(object.bananas()));
-
-    // Due to a Qt limitation, we have another signal-slot system
-    // for when the EntityMap changes.
-//    auto entity_label = new QLabel{this};
-//    lay->addRow("Entity count", entity_label);
-
-//    object.polymorphicEntities.added.connect<InspectorWidget, &InspectorWidget::on_entityAdded>(this);
-//    object.polymorphicEntities.removing.connect<InspectorWidget, &InspectorWidget::on_entityRemoved>(this);
 }
 
-//void InspectorWidget::on_entityAdded(const PolymorphicEntity& e)
-//{
-//  ossia::logger().info("Entity {} added. PolymorphicEntity::someVirtualMethod() == {}", e.id().val(), e.someVirtualMethod());
-//}
+void InspectorWidget::on_addressChange(const Device::FullAddressAccessorSettings& newAddr)
+{
+  // Various checks
+  if (newAddr.address == process().address())
+    return;
 
-//void InspectorWidget::on_entityRemoved(const PolymorphicEntity& e)
-//{
-//  ossia::logger().info("Entity {} removed", e.id().val());
-//}
+  if (newAddr.address.address.path.isEmpty())
+    return;
 
-//void InspectorWidget::addBanana()
-//{
-//   // m_dispatcher.submitCommand<AddBanana>(process());
-//}
+  //auto cmd = new ChangeAddress{process(), newAddr};
 
-//void InspectorWidget::rmBanana()
-//{
-//   // m_dispatcher.submitCommand<RemoveBanana>(process());
-//}
+  //m_dispatcher.submitCommand(cmd);
+}
+
 
 }

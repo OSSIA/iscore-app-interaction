@@ -11,6 +11,15 @@ namespace State
 {
 class UnitWidget;
 }
+namespace Device
+{
+struct FullAddressAccessorSettings;
+}
+namespace Explorer
+{
+class AddressAccessorEditWidget;
+class DeviceExplorerModel;
+}
 namespace AppInteraction
 {
 class ProcessModel;
@@ -29,8 +38,9 @@ class InspectorWidget final :
                 QWidget* parent);
 
     private:
-//        void on_entityAdded(const PolymorphicEntity&);
-//        void on_entityRemoved(const PolymorphicEntity&);
+    void on_addressChange(const Device::FullAddressAccessorSettings& newText);
+
+    Explorer::AddressAccessorEditWidget* m_lineEdit{};
     State::InteractionTypeWidget* m_itw{};
     State::UnitWidget* m_uw{};
     CommandDispatcher<> m_dispatcher;
