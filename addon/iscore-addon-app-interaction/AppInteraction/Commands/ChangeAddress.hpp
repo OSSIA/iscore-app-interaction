@@ -18,9 +18,9 @@ class ChangeAddress final : public iscore::Command
 {
   ISCORE_COMMAND_DECL(CommandFactoryName(), ChangeAddress, "ChangeAddress")
 public:
-//  ChangeAddress(
+//    ChangeAddress(
 //      const ProcessModel& appinteract, const State::AddressAccessor& newval);
-//  ChangeAddress(
+//    ChangeAddress(
 //      const ProcessModel& appinteract, Device::FullAddressAccessorSettings newval);
     ChangeAddress(
       const ProcessModel& appinteract, const Device::FullAddressSettings& newval);

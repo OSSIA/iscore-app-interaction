@@ -9,7 +9,7 @@
 #include "AppInteraction/Process/AppInteractionProcessModel.hpp"
 //#include <Curve/Point/CurvePointModel.hpp>
 #include <Device/Address/AddressSettings.hpp>
-//#include <Device/Address/Domain.hpp>
+#include <Device/Address/Domain.hpp>
 #include <State/Address.hpp>
 #include <State/Value.hpp>
 #include <State/ValueConversion.hpp>
@@ -19,7 +19,7 @@
 #include <iscore/model/tree/TreeNode.hpp>
 
 #include <ossia/editor/state/destination_qualifiers.hpp>
-//#include <ossia/network/domain/domain.hpp>
+#include <ossia/network/domain/domain.hpp>
 
 namespace AppInteraction
 {
@@ -28,10 +28,10 @@ namespace AppInteraction
 //    : m_path{appinteract}
 //    , m_old{appinteract.address()/*, appinteract.min(), appinteract.max()*/}
 //    , m_new(Explorer::makeFullAddressAccessorSettings(
-//          newval, iscore::IDocument::documentContext(appinteract)/*, 0., 1.*/))
+//          newval, iscore::IDocument::documentContext(appinteract), 0., 1.))
 //{
-// //  Curve::CurveDomain c(m_new.domain.get(), m_new.value);
-// //  m_new.domain.get() = ossia::net::make_domain(c.min, c.max);
+// //   Curve::CurveDomain c(m_new.domain.get(), m_new.value);
+// //   m_new.domain.get() = ossia::net::make_domain(c.min, c.max);
 //}
 
 //ChangeAddress::ChangeAddress(
@@ -49,7 +49,7 @@ ChangeAddress::ChangeAddress(
     : m_path{appinteract}
 {
   m_new.address = newval.address;
-//  m_new.domain = newval.domain;
+  m_new.domain = newval.domain;
 //  Curve::CurveDomain c(m_new.domain.get(), m_new.value);
 //  m_new.domain.get() = ossia::net::make_domain(c.min, c.max);
   m_new.address.qualifiers.get().unit = newval.unit;
@@ -63,7 +63,7 @@ void ChangeAddress::undo() const
   auto& appinteract = m_path.find();
 
   {
-    //auto& dom = m_old.domain.get();
+    auto& dom = m_old.domain.get();
 //    appinteract.setMin(dom.convert_min<double>());
 //    appinteract.setMax(dom.convert_max<double>());
 
@@ -76,7 +76,7 @@ void ChangeAddress::redo() const
   auto& appinteract = m_path.find();
 
   {
-//    auto& dom = m_new.domain.get();
+    auto& dom = m_new.domain.get();
 //    appinteract.setMin(dom.convert_min<double>());
 //    appinteract.setMax(dom.convert_max<double>());
     appinteract.setAddress(m_new.address);
