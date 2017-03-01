@@ -11,6 +11,9 @@
 #include <QQmlEngine>
 #include <QQmlComponent>
 #include <QQmlProperty>
+#include <QTimer>
+
+#define INFINITE 1000
 
 /*void readJson()
    {
@@ -42,8 +45,9 @@
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-    QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("qrc:/mainmw.qml")));
+    /*QQmlApplicationEngine engine;
+    engine.load(QUrl(QStringLiteral("qrc:/Principal.qml")));*/
+    //engine.load(QUrl(QStringLiteral("qrc:/mainmw.qml")));
     //readJson();
     /*QString val;
     QFile file;
@@ -58,25 +62,32 @@ int main(int argc, char *argv[])
     //qWarning() << value;
     //QJsonObject item = value.toObject();
     //qWarning() << tr("QJsonObject of description: ") << item;
-    QVariant t = QVariant(val);
+    QVariant t = QVariant(val);*/
 
     //ECRITURE VERS QML
-    int length = 42;
+    /*int length = 42;
     QQmlEngine wengine;
     QQmlComponent wcomponent(&wengine, "qrc:/InteractionsMenu.qml");
     QObject *wobject = wcomponent.create();
     QQmlProperty::write(wobject, "jsonLength", length);
 
     qDebug() << "Property value:" << wobject->property("jsonLength").toInt();
-    //object->setProperty("someNumber", 100);
+    //object->setProperty("someNumber", 100);*/
 
     //LECTURE DU QML
     QQmlEngine rengine;
-    QQmlComponent rcomponent(&rengine, "qrc:/InteractionsMenu.qml");
+    QQmlComponent rcomponent(&rengine, "qrc:/Principal.qml");
     QObject *robject = rcomponent.create();
-    QString entered = QQmlProperty::read(robject, "content").toString();
-
-    qDebug() << "Property value:" << entered;*/
+    QString entered;
+    int i;
+    for(i=0;i<INFINITE;i++)
+    {
+        QTimer::singleShot(500*i, &app, SLOT(quit()));
+        app.exec();
+        entered = QQmlProperty::read(robject, "login").toString();
+        qDebug() << "Login value:" << entered;
+    }
+    printf("Coucou\n");
     return app.exec();
 
 }

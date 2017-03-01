@@ -82,7 +82,7 @@ ApplicationWindow {
             anchors.verticalCenter: parent.verticalCenter
 
             fillMode: Image.PreserveAspectFit
-            source: "qrc:/images/qt-logo.png"
+            source: "qrc:/volume_cursor.png"
         }
 
         Label {

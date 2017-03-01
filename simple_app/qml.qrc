@@ -9,8 +9,10 @@
         <file>SearchArea.ui.qml</file>
         <file>InteractionsMenu.qml</file>
         <file>LostConnection.qml</file>
-        <file>CountDown.qml</file>
         <file>maine.qml</file>
         <file>mainmw.qml</file>
+        <file>Principal.qml</file>
+        <file>CountDown.qml</file>
+        <file>volume_cursor.png</file>
     </qresource>
 </RCC>

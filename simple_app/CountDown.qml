@@ -3,6 +3,8 @@ import QtQuick.Controls 2.0
 import QtQuick 2.6
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.0
+import QtQuick.Controls 1.2
+import QtQuick.Controls.Styles 1.4
 import QtQuick.Controls.Material 2.0
 import QtQuick.Controls.Universal 2.0
 import Qt.labs.settings 1.0
@@ -15,7 +17,7 @@ Page{
     height: 500
     property int lost: 1
     property int  interactionTime: 15
-
+    property real slidVal : 0
 
     Text {
         x: 83
@@ -61,12 +63,30 @@ Page{
             }
         }
 
-                Slider {
-                    id: slider
-                    x: 95
-                    y: 252
-                    value: 0.5
+        Slider {
+            anchors.centerIn: parent
+            style: SliderStyle {
+                groove: Rectangle {
+                    implicitWidth: 200
+                    implicitHeight: 8
+                    color: "gray"
+                    radius: 8
                 }
+                handle: Rectangle {
+                    anchors.centerIn: parent
+                    color: control.pressed ? "white" : "lightgray"
+                    border.color: "gray"
+                    border.width: 2
+                    implicitWidth: 34
+                    implicitHeight: 34
+                    radius: 12
+                }
+            }
+            onValueChanged: {
+                slidVal = value
+                console.log("valeur " + slidVal)
+            }
+        }
 
 
 
@@ -74,10 +94,10 @@ Page{
     Button {
         x: 137
         y: 416
-        text: "Send Interaction"
+        text: "Finish Interaction"
            onClicked: {
-                connectionError.open();
-                // window.close()
+               // connectionError.open();
+                window.close()
               }
 
     }

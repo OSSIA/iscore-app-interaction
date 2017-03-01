@@ -1,5 +1,9 @@
-import QtQuick 2.7
-import QtQuick.Controls 1.4
+import QtQuick 2.6
+import QtQuick.Layouts 1.3
+import QtQuick.Controls 2.0
+import QtQuick.Controls.Material 2.0
+import QtQuick.Controls.Universal 2.0
+import Qt.labs.settings 1.0
 
 Rectangle {
     
@@ -9,6 +13,7 @@ Rectangle {
     property alias searchArea: searchArea
     property string feasible: ""
     Component.onCompleted: {
+        console.log("Hello "+login);
         function myParserInit()
         {
            if (initReq.readyState == 4)
@@ -49,7 +54,7 @@ Rectangle {
                 anchors.top: parent.top
                 anchors.topMargin: 20
                 width: 181
-                height: 20
+                height: 30
                 font.family: "Arial"
                 font.capitalization: Font.MixedCase
                 placeholderText: "Search an interaction..."
@@ -63,10 +68,11 @@ Rectangle {
 
             ListView {
                 id: listView
-                x: 20
-                y: 60
-                width: parent.width
-                height: parent.height
+                x: 14
+                y: 64
+                width: 329
+                height: 249
+                cacheBuffer: 318
                 highlight: Rectangle { color: "transparent"; border.color: "#0000ff"; border.width: 2}
                 highlightMoveDuration : 0
                 currentIndex: -1
@@ -127,9 +133,17 @@ Rectangle {
                       onClicked: {
                                   explan.text = description
                                   listView.currentIndex = eindex
-                                  console.log("current index: "+listView.currentIndex);
-                              }
+                          console.log("current index: "+listView.currentIndex);
+                      }
                   }
+                }
+
+                Button {
+                    id: button
+                    x: 122
+                    y: 301
+                    text: qsTr("Quit")
+                    onClicked: close()
                 }
 
             }
@@ -137,7 +151,15 @@ Rectangle {
             Text {
                 anchors.bottom: parent.bottom
                 id: explan
+                x: 8
+                y: 331
+                width: 344
+                height: 20
                 text: qsTr("No interaction selected")
+                fontSizeMode: Text.FixedSize
+                anchors.bottomMargin: 8
+                maximumLineCount: 2
+                wrapMode: Text.WordWrap
             }
 
 
@@ -145,6 +167,18 @@ Rectangle {
 
         }
     }
+
+    Button {
+        id: button1
+        x: 8
+        y: 416
+        width: 344
+        height: 40
+        text: qsTr("Simulate an interaction (DEBUG ONLY)")
+        onClicked: stackView.push("qrc:/mainmw.qml")
+    }
+
+
 }
 
 

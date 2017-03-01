@@ -3,8 +3,8 @@ import QtQuick.Window 2.2
 
 Window {
     visible: true
-    width: 640
-    height: 480
+    width: 360
+    height: 520
     title: qsTr("Hello World")
 
     /*MainForm {
@@ -14,17 +14,14 @@ Window {
         }
     }*/
     
-    InteractionsMenu {
-        color: "#aaaa7f"
+    Principal {
+        //color: "#aaaa7f"
+        color: "#ffffff"
         anchors.fill: parent
-        mouseArea.onClicked: {
-            console.log(qsTr('Clicked on background'))
         }
 
 
-    }
-
-    /*CountDown {
-        anchors.fill: parent
-    }*/
 }
+
+
+
