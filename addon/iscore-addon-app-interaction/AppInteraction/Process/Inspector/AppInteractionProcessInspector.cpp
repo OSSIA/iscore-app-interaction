@@ -30,6 +30,7 @@ InspectorWidget::InspectorWidget(
     // Here we create the GUI for the inspector with Qt widgets.
     auto lay = new QFormLayout{this};
 
+
     m_lineEdit = new AddressAccessorEditWidget{
         context.plugin<DeviceDocumentPlugin>().explorer(), this};
 
@@ -44,13 +45,12 @@ InspectorWidget::InspectorWidget(
     lay->addRow(tr("Address"), m_lineEdit);
 
 
-    /*m_uw = new State::UnitWidget{{}, this};*/
     m_itw = new State::InteractionTypeWidget{{}, this};
-    m_uw = new State::UnitWidget{{}, this};
+    //m_uw = new State::UnitWidget{{}, this};
     //m_uw->setUnit(process().unit());
 
     lay->addRow(tr("Interaction Type"), m_itw);
-    lay->addRow(tr("Unit"), m_uw);
+    //lay->addRow(tr("Unit"), m_uw);
         
         /*
     auto& connectionManager = ctx.plugin<AppInteractionDocumentPlugin>().connectionManager();
