@@ -4,8 +4,8 @@ QT += qml quick widgets quickcontrols2
 CONFIG += c++11
 
 SOURCES += \
-    ../../testapp/main.cpp \
-    ../../testapp/Signal.cpp
+    main.cpp \
+    Signal.cpp
 
 RESOURCES += qml.qrc
 
@@ -37,4 +37,4 @@ DISTFILES += \
     ../interactions.json
 
 HEADERS += \
-    ../../testapp/Signal.hpp
+    Signal.hpp
