@@ -42,9 +42,11 @@ ossia::state_element ProcessExecutor::offset(
 ossia::state_element ProcessExecutor::state()
 {
     /* exemple d'envoi de messages (à processing par ex) */
-    qDebug("titi");
-  State::Address address{"OSCDevice", {"a", "banana"}};
+  //qDebug("titi"); //pratique pour debugage
+  State::Address address{"OSCdevice", {"particle", "density"}};
+
   State::Value value = State::Value::fromValue(std::abs(qrand()) % 100);
+
   State::Message m;
   m.address = address;
   m.value = value;
