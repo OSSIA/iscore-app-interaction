@@ -84,7 +84,8 @@ Page{
             }
             onValueChanged: {
                 slidVal = value
-                console.log("valeur " + slidVal)
+                changeSlide(slidVal)
+                //console.log("valeur " + slidVal)
             }
         }
 
