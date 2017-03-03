@@ -17,12 +17,10 @@ namespace State
     m_layout->addWidget(m_combobox);
 
 
-    // Fill combobox. Unit is filled each time the dataspace changes
+    // Fill combobox.
     m_combobox->addItem(tr("None"), QVariant::fromValue(State::Unit{}));
     m_combobox->addItem(tr("Type d'Interaction n°1"), QVariant::fromValue(State::Unit{}));
     m_combobox->addItem(tr("Type d'Interaction n°2"), QVariant::fromValue(State::Unit{}));
-
-    //   m_combobox->addItem(tr("Test"), QVariant::fromValue(State::Unit{}));
 
     //   brigand::for_each<ossia::unit_variant>([=](auto d) {
     //     // For each dataspace, add its text to the combo box
@@ -51,10 +49,10 @@ namespace State
 //  setUnit(u);
 }
 
-State::Unit InteractionTypeWidget::unit() const
-{
-  return m_unit->currentData().value<State::Unit>();
-}
+//State::Unit InteractionTypeWidget::unit() const
+//{
+//  return m_unit->currentData().value<State::Unit>();
+//}
 
 // void InteractionTypeWidget::setUnit(const State::Unit& unit)
 // {

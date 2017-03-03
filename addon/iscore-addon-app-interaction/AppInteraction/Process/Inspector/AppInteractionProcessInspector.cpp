@@ -13,8 +13,8 @@
 #include <QWidget>
 #include <State/Widgets/UnitWidget.hpp>
 #include "AppInteraction/Process/State/Widgets/InteractionTypeWidget.hpp"
-
-
+#include "AppInteraction/Process/State/Widgets/MobileDevicesWidget.hpp"
+#include <State/Unit.hpp>
 namespace AppInteraction
 {
 
@@ -49,6 +49,9 @@ InspectorWidget::InspectorWidget(
 
     lay->addRow(tr("Interaction Type"), m_itw);
 
+    m_mdw = new State::MobileDevicesWidget{{}, this};
+
+    lay->addRow(tr("Mobile Devices"), m_mdw);
         /*
     auto& connectionManager = ctx.plugin<AppInteractionDocumentPlugin>().connectionManager();
     for(auto interaction : connectionManager.interactions())

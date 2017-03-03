@@ -15,6 +15,7 @@ set(HDRS
     AppInteraction/Process/Inspector/AppInteractionProcessInspector.hpp
     AppInteraction/Process/State/AppInteractionProcessState.hpp
     AppInteraction/Process/State/Widgets/InteractionTypeWidget.hpp
+    AppInteraction/Process/State/Widgets/MobileDevicesWidget.hpp
     AppInteraction/Process/AppInteractionProcessModel.hpp
     AppInteraction/Process/AppInteractionProcessMetadata.hpp
     AppInteraction/Process/AppInteractionProcessFactory.hpp
@@ -51,6 +52,7 @@ set(SRCS
     AppInteraction/Process/Inspector/AppInteractionProcessInspector.cpp
     AppInteraction/Process/State/AppInteractionProcessState.cpp
     AppInteraction/Process/State/Widgets/InteractionTypeWidget.cpp
+    AppInteraction/Process/State/Widgets/MobileDevicesWidget.cpp
     AppInteraction/Process/AppInteractionProcessModel.cpp
     AppInteraction/ApplicationPlugin/AppInteractionApplicationPlugin.cpp
     AppInteraction/Panel/AppInteractionPanelDelegate.cpp

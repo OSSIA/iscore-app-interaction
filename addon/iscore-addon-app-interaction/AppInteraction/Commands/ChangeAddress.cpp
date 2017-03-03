@@ -53,7 +53,7 @@ void ChangeAddress::undo() const
   auto& appinteract = m_path.find();
 
   {
-    auto& dom = m_old.domain.get();
+    //auto& dom = m_old.domain.get();
 //    appinteract.setMin(dom.convert_min<double>());
 //    appinteract.setMax(dom.convert_max<double>());
 
@@ -66,7 +66,7 @@ void ChangeAddress::redo() const
   auto& appinteract = m_path.find();
 
   {
-    auto& dom = m_new.domain.get();
+    //auto& dom = m_new.domain.get();
 //    appinteract.setMin(dom.convert_min<double>());
 //    appinteract.setMax(dom.convert_max<double>());
     appinteract.setAddress(m_new.address);

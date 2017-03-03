@@ -5,7 +5,7 @@
 #include <Process/Inspector/ProcessInspectorWidgetDelegateFactory.hpp>
 #include <iscore/command/Dispatchers/CommandDispatcher.hpp>
 #include "../State/Widgets/InteractionTypeWidget.hpp"
-
+#include "../State/Widgets/MobileDevicesWidget.hpp"
 #include <State/Unit.hpp>
 
 namespace State
@@ -43,6 +43,7 @@ class InspectorWidget final :
 
     Explorer::AddressAccessorEditWidget* m_lineEdit{};
     State::InteractionTypeWidget* m_itw{};
+    State::MobileDevicesWidget* m_mdw{};
     //State::UnitWidget* m_uw{};
     CommandDispatcher<> m_dispatcher;
 };
