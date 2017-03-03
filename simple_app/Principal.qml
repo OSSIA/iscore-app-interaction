@@ -14,6 +14,7 @@ ApplicationWindow {
     visible: true
     //title: "Qt Quick Controls 2"
     property string login: ""
+    signal changeSlide(real r)
 
 
 

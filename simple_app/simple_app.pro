@@ -1,9 +1,11 @@
 TEMPLATE = app
 
-QT += qml quick
+QT += qml quick widgets quickcontrols2
 CONFIG += c++11
 
-SOURCES += main.cpp
+SOURCES += \
+    ../../testapp/main.cpp \
+    ../../testapp/Signal.cpp
 
 RESOURCES += qml.qrc
 
@@ -33,3 +35,6 @@ unix:!macx: LIBS += -lGL
 
 DISTFILES += \
     ../interactions.json
+
+HEADERS += \
+    ../../testapp/Signal.hpp
