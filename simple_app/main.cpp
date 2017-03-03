@@ -1,93 +1,66 @@
-#include <QGuiApplication>
+#include <QApplication>
+//#include <QDeclarativeView>
 #include <QQmlApplicationEngine>
-#include <QFile>
-#include <QString>
-#include <QJsonDocument>
-#include <QJsonObject>
-#include <QDebug>
-#include <QJsonArray>
-#include <QQmlContext>
-#include <QTextObject>
-#include <QQmlEngine>
+#include <QtQuick/QQuickView>
 #include <QQmlComponent>
-#include <QQmlProperty>
-#include <QTimer>
-
-#define INFINITE 1000
-
-/*void readJson()
-   {
-      QString val;
-      QFile file;
-      file.setFileName("interactions.json");
-      file.open(QIODevice::ReadOnly); //| QIODevice::Text);
-      val = file.readAll();
-      file.close();
-      //qWarning() << val;
-      QJsonDocument d = QJsonDocument::fromJson(val.toUtf8());
-      QJsonObject sett2 = d.object();
-      //QJsonValue value = sett2.value(QString("iscoreApp"));
-      //qWarning() << value;
-      //QJsonObject item = value.toObject();
-      //qWarning() << tr("QJsonObject of description: ") << item;
-      QVariant t = QVariant(val);
-
-      //ECRITURE VERS QML
-      QQmlEngine engine;
-      QQmlComponent component(&engine, "qrc:/InteractionsMenu.qml");
-      QObject *object = component.create();
-      QQmlProperty::write(object, "passJson", t);
-
-      qDebug() << "Property value:" << object->property("passJson").toString();
-      //object->setProperty("someNumber", 100);
-   }*/
+//#include <QtDeclarative>
+#include <QDebug>
+#include <QObject>
+#include "Signal.hpp"
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication app(argc, argv);
-    /*QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("qrc:/Principal.qml")));*/
-    //engine.load(QUrl(QStringLiteral("qrc:/mainmw.qml")));
-    //readJson();
-    /*QString val;
-    QFile file;
-    file.setFileName("interactions.json");
-    file.open(QIODevice::ReadOnly); //| QIODevice::Text);
-    val = file.readAll();
-    file.close();
-    //qWarning() << val;
-    QJsonDocument d = QJsonDocument::fromJson(val.toUtf8());
-    QJsonObject sett2 = d.object();
-    //QJsonValue value = sett2.value(QString("iscoreApp"));
-    //qWarning() << value;
-    //QJsonObject item = value.toObject();
-    //qWarning() << tr("QJsonObject of description: ") << item;
-    QVariant t = QVariant(val);*/
+    QApplication app(argc, argv);
 
-    //ECRITURE VERS QML
-    /*int length = 42;
-    QQmlEngine wengine;
-    QQmlComponent wcomponent(&wengine, "qrc:/InteractionsMenu.qml");
-    QObject *wobject = wcomponent.create();
-    QQmlProperty::write(wobject, "jsonLength", length);
+    //QQmlApplicationEngine engin;
+    //engin.load(QUrl(QStringLiteral("qrc:/main.qml")));
+    QQmlEngine engine;
+    QQmlComponent component(&engine,QUrl(QStringLiteral("qrc:/Principal.qml")));
+    QObject *object = component.create();
 
-    qDebug() << "Property value:" << wobject->property("jsonLength").toInt();
-    //object->setProperty("someNumber", 100);*/
 
-    //LECTURE DU QML
-    QQmlEngine rengine;
-    QQmlComponent rcomponent(&rengine, "qrc:/Principal.qml");
-    QObject *robject = rcomponent.create();
-    QString entered;
-    int i;
-    for(i=0;i<INFINITE;i++)
-    {
-        QTimer::singleShot(500*i, &app, SLOT(quit()));
-        app.exec();
-        entered = QQmlProperty::read(robject, "login").toString();
-        qDebug() << "Login value:" << entered;
-    }
-    printf("Coucou\n");
+
+    Signal s ;
+
+    qDebug() << "Property value:" << object->property("slidVal").toReal();
+    QObject::connect(object, SIGNAL(changeSlide(double)),
+                         &s, SLOT(handleSig(double)));
+    // qDebug() << "Property value:" << QQmlProperty::read(object, "lost").toInt();
+    //delete object;
+
+    //QQmlEngine engine;
+    //QQmlComponent component(&engine, "CountDown.qml");
+    //QObject *object = component.create();
+    //qDebug() << "Property value:" << QQmlProperty::read(object, "slidVal").toInt();
+    /*QQmlProperty::write(object, "someNumber", 5000);
+    qDebug() << "Property value:" << object->property("someNumber").toInt();
+    object->setProperty("someNumber", 100);
+    */
+
+
+    
+    //QQmlApplicationEngine engine;
+    //engine.load(QUrl(QStringLiteral("qrc:/Principal.qml")));
+
+    //QQmlApplicationEngine engin;
+    //engin.load(QUrl(QStringLiteral("qrc:/main.qml")));
+
+    //QApplication app(argc, argv);
+
+    /*QmlApplicationViewer viewer;
+    viewer.setOrientation(QmlApplicationViewer::ScreenOrientationAuto);
+    viewer.setMainQmlFile(QLatin1String("qml/main.qml"));
+    viewer.showExpanded();
+
+
+
+    QObject *obj = viewer.rootObject();
+    qDebug() << obj->property("slidVal");
+
+*/
     return app.exec();
+
+
+
 
 }
