@@ -13,6 +13,7 @@ ProcessExecutor::ProcessExecutor(
     const Device::DeviceList& devices):
   m_devices{devices}
 {
+    qDebug("tutu");
 }
 
 
@@ -40,7 +41,9 @@ ossia::state_element ProcessExecutor::offset(
 
 ossia::state_element ProcessExecutor::state()
 {
-  State::Address address{"my_device", {"a", "banana"}};
+    /* exemple d'envoi de messages (à processing par ex) */
+    qDebug("titi");
+  State::Address address{"OSCDevice", {"a", "banana"}};
   State::Value value = State::Value::fromValue(std::abs(qrand()) % 100);
   State::Message m;
   m.address = address;

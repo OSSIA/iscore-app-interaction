@@ -20,10 +20,8 @@ class ChangeAddress final : public iscore::Command
 public:
 //    ChangeAddress(
 //      const ProcessModel& appinteract, const State::AddressAccessor& newval);
-//    ChangeAddress(
-//      const ProcessModel& appinteract, Device::FullAddressAccessorSettings newval);
     ChangeAddress(
-      const ProcessModel& appinteract, const Device::FullAddressSettings& newval);
+      const ProcessModel& appinteract, const Device::FullAddressAccessorSettings& newval);
 
 public:
   void undo() const override;

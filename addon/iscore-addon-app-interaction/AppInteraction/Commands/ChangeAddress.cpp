@@ -34,25 +34,15 @@ namespace AppInteraction
 // //   m_new.domain.get() = ossia::net::make_domain(c.min, c.max);
 //}
 
-//ChangeAddress::ChangeAddress(
-//    const ProcessModel& appinteract, Device::FullAddressAccessorSettings newval)
-//    : m_path{appinteract}
-//    , m_old{appinteract.address()/*, appinteract.min(), appinteract.max()*/}
-//    , m_new{std::move(newval)}
-//{
-// //  Curve::CurveDomain c(m_new.domain.get(), m_new.value);
-// //  m_new.domain.get() = ossia::net::make_domain(c.min, c.max);
-//}
 
 ChangeAddress::ChangeAddress(
-    const ProcessModel& appinteract, const Device::FullAddressSettings& newval)
+    const ProcessModel& appinteract, const Device::FullAddressAccessorSettings& newval)
     : m_path{appinteract}
 {
   m_new.address = newval.address;
   m_new.domain = newval.domain;
-//  Curve::CurveDomain c(m_new.domain.get(), m_new.value);
-//  m_new.domain.get() = ossia::net::make_domain(c.min, c.max);
-  m_new.address.qualifiers.get().unit = newval.unit;
+
+
 
   m_old.address = appinteract.address();
 //  m_old.domain = ossia::net::make_domain(appinteract.min(), appinteract.max());

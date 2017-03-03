@@ -71,9 +71,9 @@ void InspectorWidget::on_addressChange(const Device::FullAddressAccessorSettings
     return;
 
   /* A DECOMMENTER POUR POUVOIR CHANGER LES ADRESSES (mais ne fonctionne pas encore)*/
-//  auto cmd = new ChangeAddress{process(), newAddr};
+  auto cmd = new ChangeAddress{process(), newAddr};
 
-//  m_dispatcher.submitCommand(cmd);
+  m_dispatcher.submitCommand(cmd);
 }
 
 
