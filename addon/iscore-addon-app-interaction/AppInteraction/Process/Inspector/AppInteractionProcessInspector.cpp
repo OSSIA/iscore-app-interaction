@@ -46,12 +46,9 @@ InspectorWidget::InspectorWidget(
 
 
     m_itw = new State::InteractionTypeWidget{{}, this};
-    //m_uw = new State::UnitWidget{{}, this};
-    //m_uw->setUnit(process().unit());
 
     lay->addRow(tr("Interaction Type"), m_itw);
-    //lay->addRow(tr("Unit"), m_uw);
-        
+
         /*
     auto& connectionManager = ctx.plugin<AppInteractionDocumentPlugin>().connectionManager();
     for(auto interaction : connectionManager.interactions())
@@ -70,7 +67,6 @@ void InspectorWidget::on_addressChange(const Device::FullAddressAccessorSettings
   if (newAddr.address.address.path.isEmpty())
     return;
 
-  /* A DECOMMENTER POUR POUVOIR CHANGER LES ADRESSES (mais ne fonctionne pas encore)*/
   auto cmd = new ChangeAddress{process(), newAddr};
 
   m_dispatcher.submitCommand(cmd);

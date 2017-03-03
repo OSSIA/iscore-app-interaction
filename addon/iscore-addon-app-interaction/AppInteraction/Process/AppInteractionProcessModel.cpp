@@ -66,8 +66,6 @@ void ProcessModel::setAddress(const ::State::AddressAccessor& arg)
 
   m_address = arg;
   emit addressChanged(arg);
-  //emit unitChanged(arg.qualifiers.get().unit);
-  //emit m_curve->changed();
 }
 
 
@@ -131,7 +129,7 @@ void DataStreamReader::read(
     }
 
     // Save a simple data member
-    //m_stream << proc.m_bananas;
+    m_stream << proc.address();
 
     // Add an element in the stream that will be checked on loading.
     // This is not necessary, but very useful for debugging.
@@ -179,7 +177,7 @@ void DataStreamWriter::write(
     }
 
     // Load a simple data member
-    //m_stream >> proc.m_bananas;
+    m_stream >> proc.address();
 
     // Check that the stream has not been corrupted.
     checkDelimiter();
@@ -195,7 +193,7 @@ void JSONObjectReader::read(
 {
     obj["SimpleElements"] = toJsonArray(proc.simpleElements);
     obj["PolyElements"] = toJsonArray(proc.polymorphicEntities);
-    //obj["Bananas"] = proc.m_bananas;
+    obj[strings.Address] = toJsonObject(proc.address());
 }
 
 template <>
@@ -225,5 +223,8 @@ void JSONObjectWriter::write(
         }
     }
 
-    //proc.m_bananas = obj["Bananas"].toInt();
+    proc.setAddress(
+        fromJsonObject<State::AddressAccessor>(obj[strings.Address]));
+
+
 }

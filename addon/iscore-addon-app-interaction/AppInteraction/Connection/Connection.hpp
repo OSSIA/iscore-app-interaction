@@ -2,6 +2,8 @@
 #include <ossia/ossia.hpp>
 //#include <kdnssd/publicservice.h>
 
+#include <QObject>
+
 using namespace ossia;
 using namespace std;
 using namespace KDNSSD;
@@ -12,14 +14,18 @@ namespace connection
 class Connection final
 {
 private:
-    ossia::net::generic_device mDevice;
+// information on the connected device
+
 
 
 public:
-    Connection(std::string device_name);
+    Connection();
     ~Connection();
 
-    std::vector<ossia::value> sendInteraction(const std::string interaction);
+	void sendInteraction();
+    void updateData();
+    void closeConnection();
+    void protocol();
 
 };
 }
