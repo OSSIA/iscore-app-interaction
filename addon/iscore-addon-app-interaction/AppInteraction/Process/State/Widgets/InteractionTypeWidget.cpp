@@ -3,28 +3,39 @@
 // #include <ossia/editor/dataspace/dataspace_visitors.hpp>
 #include <QComboBox>
 #include <QHBoxLayout>
-#include <brigand/algorithms/for_each.hpp>
 #include <iscore/widgets/MarginLess.hpp>
 #include <iscore/widgets/SignalUtils.hpp>
 #include <qvariant.h>
-#include <string.h>
+
 
 namespace State
 {
 
-  InteractionTypeWidget::InteractionTypeWidget(const State::Unit& u, QWidget* parent) : QWidget{parent}
+  InteractionTypeWidget::InteractionTypeWidget(QWidget* parent) : QWidget{parent}
   {
     m_layout = new iscore::MarginLess<QHBoxLayout>{this};
     m_combobox = new QComboBox{this}; //appelé m_dataspace dans UnitWidget
     m_layout->addWidget(m_combobox);
 
+    //TEMPORARY list for test
+        InteractionTypeList={"InteractionType n°1","InteractionType n°2","InteractionType n°3"};
+
 
     // Fill combobox.
-    m_combobox->addItem(tr("None"), QVariant::fromValue(State::Unit{}));
-    m_combobox->addItem(tr("Type d'Interaction n°1"), QVariant::fromValue(State::Unit{}));
-    m_combobox->addItem(tr("Type d'Interaction n°2"), QVariant::fromValue(State::Unit{}));
+    m_combobox->addItem(tr("None"));
 
-       //brigand::for_each<State::InteractionType_variant>([=](auto d) {
+            for(int i = 0; i < InteractionTypeList.size(); ++i)
+        {
+               m_combobox->addItem(tr(InteractionTypeList[i]));
+        }
+
+
+
+
+
+
+
+    //brigand::for_each<State::InteractionType_variant>([=](auto d) {
         // For each dataspace, add its text to the combo box
     //     using dataspace_type = typename decltype(d)::type;
     //     ossia::string_view text

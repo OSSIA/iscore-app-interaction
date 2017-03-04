@@ -1,7 +1,7 @@
 #include "AppInteractionProcessModel.hpp"
 #include <AppInteraction/PolymorphicEntity/PolymorphicEntityFactory.hpp>
 #include <State/Address.hpp>
-#include<AppInteraction/Process/State/Widgets/InteractionTypeWidget.hpp>
+
 
 namespace AppInteraction
 {
