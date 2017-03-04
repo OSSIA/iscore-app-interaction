@@ -16,12 +16,10 @@ class ISCORE_ADDON_APP_INTERACTION_EXPORT InteractionTypeWidget : public QWidget
  //  State::Unit unit() const;
 //   void setUnit(const State::Unit&);
 
-// signals:
- //  void unitChanged(const State::Unit&);
+//signals:
+//   void interactionTypeChanged(State::InteractionTypeWidget);
 
-// private:
-//   void on_dataspaceChanged(const State::Unit&);
-
+private:
    QHBoxLayout* m_layout{};
    QComboBox* m_combobox{};
 std::vector<const char*> InteractionTypeList;

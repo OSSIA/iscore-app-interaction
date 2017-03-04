@@ -25,5 +25,13 @@ namespace State
        m_combobox->addItem(tr(MobileList[i]));
 }
 
+
+    // Signals
+       connect(
+           m_combobox, SignalUtils::QComboBox_currentIndexChanged_int(), this,
+           [=](int i) {
+              qDebug("Mobile Device n°%d selected",i);
+              /*emit interactionTypeChanged(m_combobox->itemData(i).value<State::InteractionTypeWidget>());*/
+           });
  }
 }
