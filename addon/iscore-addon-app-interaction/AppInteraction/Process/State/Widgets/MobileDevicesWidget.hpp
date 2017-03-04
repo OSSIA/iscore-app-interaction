@@ -1,8 +1,7 @@
 #pragma once
 #include <QWidget>
-#include <State/Unit.hpp>
-
 #include <iscore_addon_app_interaction_export.h>
+
 
  class QComboBox;
  class QHBoxLayout;
@@ -12,11 +11,12 @@ class ISCORE_ADDON_APP_INTERACTION_EXPORT MobileDevicesWidget : public QWidget
  {
    Q_OBJECT
  public:
-   MobileDevicesWidget(const State::Unit& u, QWidget* parent);
-   State::Unit unit() const;
+   MobileDevicesWidget( QWidget* parent);
 
+
+   std::vector<const char*> MobileList;
    QHBoxLayout* m_layout{};
    QComboBox* m_combobox{};
-//   QComboBox* m_unit{};
+
  };
  }

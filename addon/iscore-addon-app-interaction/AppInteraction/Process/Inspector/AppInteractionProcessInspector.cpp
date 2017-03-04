@@ -49,7 +49,7 @@ InspectorWidget::InspectorWidget(
 
     lay->addRow(tr("Interaction Type"), m_itw);
 
-    m_mdw = new State::MobileDevicesWidget{{}, this};
+    m_mdw = new State::MobileDevicesWidget{ this};
 
     lay->addRow(tr("Mobile Devices"), m_mdw);
         /*

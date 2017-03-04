@@ -1,6 +1,7 @@
 #include "AppInteractionProcessModel.hpp"
 #include <AppInteraction/PolymorphicEntity/PolymorphicEntityFactory.hpp>
 #include <State/Address.hpp>
+#include<AppInteraction/Process/State/Widgets/InteractionTypeWidget.hpp>
 
 namespace AppInteraction
 {
@@ -130,6 +131,7 @@ void DataStreamReader::read(
 
     // Save a simple data member
     m_stream << proc.address();
+
 
     // Add an element in the stream that will be checked on loading.
     // This is not necessary, but very useful for debugging.

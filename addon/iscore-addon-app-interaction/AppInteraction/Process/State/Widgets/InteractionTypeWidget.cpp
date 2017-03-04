@@ -3,9 +3,11 @@
 // #include <ossia/editor/dataspace/dataspace_visitors.hpp>
 #include <QComboBox>
 #include <QHBoxLayout>
-// #include <brigand/algorithms/for_each.hpp>
+#include <brigand/algorithms/for_each.hpp>
 #include <iscore/widgets/MarginLess.hpp>
 #include <iscore/widgets/SignalUtils.hpp>
+#include <qvariant.h>
+#include <string.h>
 
 namespace State
 {
@@ -22,16 +24,19 @@ namespace State
     m_combobox->addItem(tr("Type d'Interaction n°1"), QVariant::fromValue(State::Unit{}));
     m_combobox->addItem(tr("Type d'Interaction n°2"), QVariant::fromValue(State::Unit{}));
 
-    //   brigand::for_each<ossia::unit_variant>([=](auto d) {
-    //     // For each dataspace, add its text to the combo box
+       //brigand::for_each<State::InteractionType_variant>([=](auto d) {
+        // For each dataspace, add its text to the combo box
     //     using dataspace_type = typename decltype(d)::type;
     //     ossia::string_view text
     //         = ossia::dataspace_traits<dataspace_type>::text()[0];
 
-    //     m_combobox->addItem(
-    //         QString::fromUtf8(text.data(), text.size()),
-    //         QVariant::fromValue(State::Unit{ossia::unit_t{dataspace_type{}}}));
+  //      m_combobox->addItem(
+    //       QString::fromUtf8(text.data(), text.size()),
+      //       QVariant::fromValue(State::Unit{ossia::unit_t{dataspace_type{}}}));
   //});
+
+
+
 
 //  // Signals
 //  connect(
