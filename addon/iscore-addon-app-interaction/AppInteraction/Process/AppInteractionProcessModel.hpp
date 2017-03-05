@@ -33,8 +33,10 @@ class ProcessModel final : public Process::ProcessModel
 
         ::State::AddressAccessor address() const;
         int interactionType() const;
+        int mobileDevice() const;
         void setAddress(const ::State::AddressAccessor& arg);
         void setInteractionType(int);
+        void setMobileDevice(int);
 
         iscore::EntityMap<SimpleElement> simpleElements;
         iscore::EntityMap<PolymorphicEntity> polymorphicEntities;
@@ -43,6 +45,7 @@ class ProcessModel final : public Process::ProcessModel
     signals:
         void addressChanged(const ::State::AddressAccessor&);
         void interactionTypeChanged(int);
+        void mobileDeviceChanged(int);
 
     private:
         ProcessModel(const ProcessModel& source,
@@ -65,6 +68,7 @@ class ProcessModel final : public Process::ProcessModel
 
      ::State::AddressAccessor m_address;
      int m_interactionType;
+     int m_mobileDevice;
 
 };
 }

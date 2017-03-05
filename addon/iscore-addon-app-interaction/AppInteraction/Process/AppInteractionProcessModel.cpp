@@ -14,6 +14,7 @@ ProcessModel::ProcessModel(
 {
     metadata().setInstanceName(*this);
     m_interactionType = 0;
+    m_mobileDevice = 0;
 }
 
 
@@ -86,6 +87,22 @@ void ProcessModel::setInteractionType(int arg)
   emit interactionTypeChanged(arg);
 }
 
+int ProcessModel::mobileDevice() const
+{
+  return m_mobileDevice;
+}
+
+void ProcessModel::setMobileDevice(int arg)
+{
+  // qDebug("last type : %d, new type : %d\n",m_mobileDevice, arg); //works ok
+  if (m_mobileDevice == arg)
+  {
+    return;
+  }
+  m_mobileDevice = arg;
+  emit mobileDeviceChanged(arg);
+}
+
 Selection ProcessModel::selectableChildren() const
 {
     return {};
@@ -148,6 +165,7 @@ void DataStreamReader::read(
     // Save a simple data member
     m_stream << proc.address();
     m_stream << proc.interactionType();
+    m_stream << proc.mobileDevice();
 
     // Add an element in the stream that will be checked on loading.
     // This is not necessary, but very useful for debugging.
@@ -197,6 +215,7 @@ void DataStreamWriter::write(
     // Load a simple data member
     m_stream >> proc.address();
     m_stream >> proc.interactionType();
+    m_stream >> proc.mobileDevice();
 
     // Check that the stream has not been corrupted.
     checkDelimiter();
@@ -214,6 +233,7 @@ void JSONObjectReader::read(
     obj["PolyElements"] = toJsonArray(proc.polymorphicEntities);
     obj[strings.Address] = toJsonObject(proc.address());
     obj["InteractionType"] = proc.interactionType();
+    obj["MobileDevice"] = proc.mobileDevice();
 }
 
 template <>
@@ -245,6 +265,7 @@ void JSONObjectWriter::write(
 
     proc.setAddress(
         fromJsonObject<State::AddressAccessor>(obj[strings.Address]));
-    proc.setInteractionType((obj["InteractionType"].toInt()));
+    proc.setInteractionType(obj["InteractionType"].toInt());
+    proc.setMobileDevice(obj["MobileDevice"].toInt());
 
 }

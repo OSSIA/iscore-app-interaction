@@ -13,7 +13,6 @@ class ISCORE_ADDON_APP_INTERACTION_EXPORT InteractionTypeWidget : public QWidget
  public:
    InteractionTypeWidget( QWidget* parent);
    void setInteractionType(int);
-   char const* getInteractionType() const;
 
 signals:
    void interactionTypeChanged(int);
@@ -23,6 +22,5 @@ private:
    QHBoxLayout* m_layout{};
    QComboBox* m_combobox{};
    std::vector<const char*> InteractionTypeList;
-   char const* m_type;
  };
  }

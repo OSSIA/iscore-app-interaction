@@ -3,6 +3,7 @@
 #include <QHBoxLayout>
 #include <iscore/widgets/MarginLess.hpp>
 #include <iscore/widgets/SignalUtils.hpp>
+#include <qvariant.h>
 //#include<AppInteraction/Connection/Connection.hpp>
 
 namespace State
@@ -30,8 +31,13 @@ namespace State
        connect(
            m_combobox, SignalUtils::QComboBox_currentIndexChanged_int(), this,
            [=](int i) {
-              qDebug("Mobile Device n°%d selected",i);
-              /*emit interactionTypeChanged(m_combobox->itemData(i).value<State::InteractionTypeWidget>());*/
+           setMobileDevice(i);
+           emit mobileDeviceChanged(i); //déclenche AppInteractionProcessInspector::on_mobileDevicesChange
            });
  }
+  void MobileDevicesWidget::setMobileDevice(int i)
+  {
+    QSignalBlocker b(this);
+    m_combobox->setCurrentIndex(i);
+  }
 }

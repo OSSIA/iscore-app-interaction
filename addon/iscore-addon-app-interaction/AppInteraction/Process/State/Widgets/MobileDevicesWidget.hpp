@@ -12,11 +12,15 @@ class ISCORE_ADDON_APP_INTERACTION_EXPORT MobileDevicesWidget : public QWidget
    Q_OBJECT
  public:
    MobileDevicesWidget( QWidget* parent);
+   void setMobileDevice(int);
 
+signals:
+   void mobileDeviceChanged(int);
 
-   std::vector<const char*> MobileList;
+private:
    QHBoxLayout* m_layout{};
    QComboBox* m_combobox{};
+   std::vector<const char*> MobileList;
 
  };
  }

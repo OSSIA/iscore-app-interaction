@@ -33,6 +33,7 @@ set(HDRS
     AppInteraction/Commands/AppInteractionCommandFactory.hpp
     AppInteraction/Commands/ChangeAddress.hpp
     AppInteraction/Commands/ChangeInteractionType.hpp
+    AppInteraction/Commands/ChangeMobileDevice.hpp
     AppInteraction/SimpleElement/SimpleElement.hpp
     AppInteraction/SimpleElement/SimpleEntity.hpp
     AppInteraction/PolymorphicEntity/PolymorphicEntity.hpp
@@ -65,6 +66,7 @@ set(SRCS
     AppInteraction/Commands/AddEntity.cpp
     AppInteraction/Commands/ChangeAddress.cpp
     AppInteraction/Commands/ChangeInteractionType.cpp
+    AppInteraction/Commands/ChangeMobileDevice.cpp
     AppInteraction/SimpleElement/SimpleEntity.cpp
     AppInteraction/PolymorphicEntity/PolymorphicEntity.cpp
     AppInteraction/PolymorphicEntity/PolymorphicEntityFactory.cpp

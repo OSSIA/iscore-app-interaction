@@ -46,12 +46,7 @@ namespace State
     //qDebug("signal blocker ok...\n");
     m_combobox->setCurrentIndex(i);
      //qDebug("setcurrentindex ok...\n");
-    m_type = InteractionTypeList[i];
     // qDebug("setInteractionType to index %d\n",m_combobox->currentIndex());
   }
 
-  char const* InteractionTypeWidget::getInteractionType() const
-  {
-      return m_type;
-  }
 }

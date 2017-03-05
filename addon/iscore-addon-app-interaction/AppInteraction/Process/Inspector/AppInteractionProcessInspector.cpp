@@ -2,6 +2,7 @@
 #include "AppInteraction/Process/AppInteractionProcessModel.hpp"
 #include "AppInteraction/Commands/ChangeAddress.hpp"
 #include "AppInteraction/Commands/ChangeInteractionType.hpp"
+#include "AppInteraction/Commands/ChangeMobileDevice.hpp"
 
 #include <iscore/document/DocumentContext.hpp>
 #include <Explorer/Widgets/AddressAccessorEditWidget.hpp>
@@ -32,6 +33,7 @@ InspectorWidget::InspectorWidget(
     auto lay = new QFormLayout{this};
 
 
+    // Address:
     m_lineEdit = new AddressAccessorEditWidget{
         context.plugin<DeviceDocumentPlugin>().explorer(), this};
 
@@ -46,13 +48,12 @@ InspectorWidget::InspectorWidget(
     lay->addRow(tr("Address"), m_lineEdit);
 
 
+    //InteractionType:
     m_itw = new State::InteractionTypeWidget{this};
     con(process(), &ProcessModel::interactionTypeChanged, m_itw,
         &State::InteractionTypeWidget::setInteractionType);
 
     m_itw->setInteractionType(process().interactionType());
-
-    // qDebug("Set to %d\n",process().interactionType() );
 
     connect(
         m_itw, &State::InteractionTypeWidget::interactionTypeChanged, this,
@@ -60,10 +61,22 @@ InspectorWidget::InspectorWidget(
 
     lay->addRow(tr("Interaction Type"), m_itw);
 
+
+    //MobileDevice:
     m_mdw = new State::MobileDevicesWidget{this};
 
+    con(process(), &ProcessModel::mobileDeviceChanged, m_mdw,
+        &State::MobileDevicesWidget::setMobileDevice);
+
+    m_mdw->setMobileDevice(process().mobileDevice());
+
+    connect(
+        m_mdw, &State::MobileDevicesWidget::mobileDeviceChanged, this,
+        &InspectorWidget::on_mobileDeviceChange);
+
     lay->addRow(tr("Mobile Devices"), m_mdw);
-        /*
+
+    /*
     auto& connectionManager = ctx.plugin<AppInteractionDocumentPlugin>().connectionManager();
     for(auto interaction : connectionManager.interactions())
     {
@@ -103,5 +116,19 @@ void InspectorWidget::on_interactionTypeChange(int newType)
 
    //qDebug("on_interactionTypeChange OK ! \n");
   }
+
+void InspectorWidget::on_mobileDeviceChange(int newDevice)
+    {
+        // Various checks
+        if (newDevice==0)
+          return;
+
+        if (newDevice == process().mobileDevice())
+          return;
+
+       auto cmd = new ChangeMobileDevice{process(), newDevice};
+       m_dispatcher.submitCommand(cmd);
+
+    }
 
 }
