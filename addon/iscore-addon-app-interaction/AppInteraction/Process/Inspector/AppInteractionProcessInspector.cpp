@@ -1,6 +1,7 @@
 #include "AppInteractionProcessInspector.hpp"
 #include "AppInteraction/Process/AppInteractionProcessModel.hpp"
 #include "AppInteraction/Commands/ChangeAddress.hpp"
+#include "AppInteraction/Commands/ChangeInteractionType.hpp"
 
 #include <iscore/document/DocumentContext.hpp>
 #include <Explorer/Widgets/AddressAccessorEditWidget.hpp>
@@ -11,10 +12,10 @@
 #include <QLabel>
 //#include <QPushButton>
 #include <QWidget>
-#include <State/Widgets/UnitWidget.hpp>
 #include "AppInteraction/Process/State/Widgets/InteractionTypeWidget.hpp"
 #include "AppInteraction/Process/State/Widgets/MobileDevicesWidget.hpp"
-#include <State/Unit.hpp>
+#include <string.h>
+
 namespace AppInteraction
 {
 
@@ -46,6 +47,11 @@ InspectorWidget::InspectorWidget(
 
 
     m_itw = new State::InteractionTypeWidget{this};
+//    con(process(), &ProcessModel::interactionTypeChanged, m_itw,
+//        &State::InteractionTypeWidget::setInteractionType);
+    connect(
+        m_itw, &State::InteractionTypeWidget::interactionTypeChanged, this,
+        &InspectorWidget::on_interactionTypeChange);
 
     lay->addRow(tr("Interaction Type"), m_itw);
 
@@ -75,5 +81,24 @@ void InspectorWidget::on_addressChange(const Device::FullAddressAccessorSettings
   m_dispatcher.submitCommand(cmd);
 }
 
+void InspectorWidget::on_interactionTypeChange(const char* newType)
+{
+    qDebug("on_interactionTypeChange ... \n");
+    // Various checks
+    if (newType==NULL)
+      return;
+
+    qDebug("actuel type : %s\n",process().interactionType());
+     qDebug("new type : %s\n",newType);
+    if (!strcmp(newType, process().interactionType()))
+      return;
+qDebug("cmd : \n");
+
+//çA CRASHE:
+//    auto cmd = new ChangeInteractionType{process(), newType};
+//    m_dispatcher.submitCommand(cmd);
+
+   qDebug("on_interactionTypeChange OK ! \n");
+  }
 
 }

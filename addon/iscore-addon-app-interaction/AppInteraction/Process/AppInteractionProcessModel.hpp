@@ -32,7 +32,9 @@ class ProcessModel final : public Process::ProcessModel
         }
 
         ::State::AddressAccessor address() const;
+        const char* interactionType() const;
        void setAddress(const ::State::AddressAccessor& arg);
+       void setInteractionType(const char *);
 
         iscore::EntityMap<SimpleElement> simpleElements;
         iscore::EntityMap<PolymorphicEntity> polymorphicEntities;
@@ -40,6 +42,7 @@ class ProcessModel final : public Process::ProcessModel
 
     signals:
         void addressChanged(const ::State::AddressAccessor&);
+        void interactionTypeChanged(const char*&);
 
     private:
         ProcessModel(const ProcessModel& source,
@@ -61,5 +64,7 @@ class ProcessModel final : public Process::ProcessModel
         void setDurationAndShrink(const TimeVal& newDuration) override;
 
      ::State::AddressAccessor m_address;
+     char const* m_interactionType;
+
 };
 }

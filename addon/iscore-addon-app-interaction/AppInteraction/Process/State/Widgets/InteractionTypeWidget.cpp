@@ -32,10 +32,29 @@ namespace State
      connect(
          m_combobox, SignalUtils::QComboBox_currentIndexChanged_int(), this,
          [=](int i) {
-            qDebug("Interaction type n°%d selected",i);
-            /*emit interactionTypeChanged(m_combobox->itemData(i).value<State::InteractionTypeWidget>());*/
-         });
+            setInteractionType(i);
+            if (i==0)
+                emit interactionTypeChanged("None");
+            else
+             emit interactionTypeChanged(InteractionTypeList[i-1]); //déclenche AppInteractionProcessInspector::on_interactionTypeChange
+        });
 
     }
 
+  void InteractionTypeWidget::setInteractionType(int i)
+  {
+    //qDebug("setInteractionType...\n");
+
+    QSignalBlocker b(this);
+    //qDebug("signal blocker ok...\n");
+    m_combobox->setCurrentIndex(i);
+     //qDebug("setcurrentindex ok...\n");
+    m_type = InteractionTypeList[i];
+    qDebug("setInteractionType to index %d\n",m_combobox->currentIndex());
+  }
+
+  char const* InteractionTypeWidget::getInteractionType() const
+  {
+      return m_type;
+  }
 }

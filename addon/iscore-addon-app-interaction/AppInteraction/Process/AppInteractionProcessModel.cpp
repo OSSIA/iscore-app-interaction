@@ -13,6 +13,7 @@ ProcessModel::ProcessModel(
     Process::ProcessModel{duration, id, "AppInteractionProcess", parent}
 {
     metadata().setInstanceName(*this);
+    m_interactionType = "None";
 }
 
 
@@ -69,6 +70,22 @@ void ProcessModel::setAddress(const ::State::AddressAccessor& arg)
   emit addressChanged(arg);
 }
 
+const char* ProcessModel::interactionType() const
+{
+  return m_interactionType;
+}
+
+void ProcessModel::setInteractionType(const char * arg)
+{
+    qDebug("%s\n",m_interactionType);
+  if (!strcmp(m_interactionType, arg))
+  {
+    return;
+  }
+qDebug("set type verif ok");
+  m_interactionType = arg;
+  emit interactionTypeChanged(arg);
+}
 
 Selection ProcessModel::selectableChildren() const
 {
