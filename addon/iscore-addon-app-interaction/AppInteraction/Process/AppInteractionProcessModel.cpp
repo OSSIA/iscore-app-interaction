@@ -13,7 +13,7 @@ ProcessModel::ProcessModel(
     Process::ProcessModel{duration, id, "AppInteractionProcess", parent}
 {
     metadata().setInstanceName(*this);
-    m_interactionType = "None";
+    m_interactionType = 0;
 }
 
 
@@ -70,19 +70,18 @@ void ProcessModel::setAddress(const ::State::AddressAccessor& arg)
   emit addressChanged(arg);
 }
 
-const char* ProcessModel::interactionType() const
+int ProcessModel::interactionType() const
 {
   return m_interactionType;
 }
 
-void ProcessModel::setInteractionType(const char * arg)
+void ProcessModel::setInteractionType(int arg)
 {
-    qDebug("%s\n",m_interactionType);
-  if (!strcmp(m_interactionType, arg))
+  // qDebug("last type : %d, new type : %d\n",m_interactionType, arg); //works ok
+  if (m_interactionType == arg)
   {
     return;
   }
-qDebug("set type verif ok");
   m_interactionType = arg;
   emit interactionTypeChanged(arg);
 }
@@ -148,7 +147,7 @@ void DataStreamReader::read(
 
     // Save a simple data member
     m_stream << proc.address();
-
+    m_stream << proc.interactionType();
 
     // Add an element in the stream that will be checked on loading.
     // This is not necessary, but very useful for debugging.
@@ -197,6 +196,7 @@ void DataStreamWriter::write(
 
     // Load a simple data member
     m_stream >> proc.address();
+    m_stream >> proc.interactionType();
 
     // Check that the stream has not been corrupted.
     checkDelimiter();
@@ -213,6 +213,7 @@ void JSONObjectReader::read(
     obj["SimpleElements"] = toJsonArray(proc.simpleElements);
     obj["PolyElements"] = toJsonArray(proc.polymorphicEntities);
     obj[strings.Address] = toJsonObject(proc.address());
+    obj["InteractionType"] = proc.interactionType();
 }
 
 template <>
@@ -244,6 +245,6 @@ void JSONObjectWriter::write(
 
     proc.setAddress(
         fromJsonObject<State::AddressAccessor>(obj[strings.Address]));
-
+    proc.setInteractionType((obj["InteractionType"].toInt()));
 
 }

@@ -13,7 +13,7 @@ class ChangeInteractionType final : public iscore::Command
 {
   ISCORE_COMMAND_DECL(CommandFactoryName(), ChangeInteractionType, "ChangeInteractionType")
 public:
-    ChangeInteractionType(const ProcessModel&, const char*);
+    ChangeInteractionType(const ProcessModel&, int);
 
 public:
   void undo() const override;
@@ -25,7 +25,7 @@ protected:
 
 private:
   Path<ProcessModel> m_path;
-  const char* m_old;
-  const char* m_new;
+  int m_old;
+  int m_new;
 };
 }

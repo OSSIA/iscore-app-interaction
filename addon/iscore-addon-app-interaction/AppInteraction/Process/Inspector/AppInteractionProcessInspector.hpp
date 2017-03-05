@@ -40,7 +40,7 @@ class InspectorWidget final :
 
     private:
     void on_addressChange(const Device::FullAddressAccessorSettings& newText);
-    void on_interactionTypeChange(const char*);
+    void on_interactionTypeChange(int);
     Explorer::AddressAccessorEditWidget* m_lineEdit{};
     State::InteractionTypeWidget* m_itw{};
     State::MobileDevicesWidget* m_mdw{};

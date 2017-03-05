@@ -16,7 +16,7 @@ class ISCORE_ADDON_APP_INTERACTION_EXPORT InteractionTypeWidget : public QWidget
    char const* getInteractionType() const;
 
 signals:
-   void interactionTypeChanged(const char*);
+   void interactionTypeChanged(int);
 
 private:
 

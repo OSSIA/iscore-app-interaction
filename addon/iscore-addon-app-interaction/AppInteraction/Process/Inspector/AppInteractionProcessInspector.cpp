@@ -47,8 +47,13 @@ InspectorWidget::InspectorWidget(
 
 
     m_itw = new State::InteractionTypeWidget{this};
-//    con(process(), &ProcessModel::interactionTypeChanged, m_itw,
-//        &State::InteractionTypeWidget::setInteractionType);
+    con(process(), &ProcessModel::interactionTypeChanged, m_itw,
+        &State::InteractionTypeWidget::setInteractionType);
+
+    m_itw->setInteractionType(process().interactionType());
+
+    // qDebug("Set to %d\n",process().interactionType() );
+
     connect(
         m_itw, &State::InteractionTypeWidget::interactionTypeChanged, this,
         &InspectorWidget::on_interactionTypeChange);
@@ -81,24 +86,22 @@ void InspectorWidget::on_addressChange(const Device::FullAddressAccessorSettings
   m_dispatcher.submitCommand(cmd);
 }
 
-void InspectorWidget::on_interactionTypeChange(const char* newType)
+void InspectorWidget::on_interactionTypeChange(int newType)
 {
-    qDebug("on_interactionTypeChange ... \n");
+//    qDebug("on_interactionTypeChange ... \n");
     // Various checks
-    if (newType==NULL)
+    if (newType==0)
       return;
 
-    qDebug("actuel type : %s\n",process().interactionType());
-     qDebug("new type : %s\n",newType);
-    if (!strcmp(newType, process().interactionType()))
+    //qDebug("actuel type : %d\n",process().interactionType());
+    //qDebug("new type : %d\n",newType);
+    if (newType == process().interactionType())
       return;
-qDebug("cmd : \n");
 
-//çA CRASHE:
-//    auto cmd = new ChangeInteractionType{process(), newType};
-//    m_dispatcher.submitCommand(cmd);
+   auto cmd = new ChangeInteractionType{process(), newType};
+   m_dispatcher.submitCommand(cmd);
 
-   qDebug("on_interactionTypeChange OK ! \n");
+   //qDebug("on_interactionTypeChange OK ! \n");
   }
 
 }

@@ -20,12 +20,13 @@ namespace AppInteraction
 {
 
 ChangeInteractionType::ChangeInteractionType(
-    const ProcessModel& appinteract, const char* newval)
+    const ProcessModel& appinteract, int newval)
     : m_path{appinteract}
 {
+    {
   m_new = newval;
-
   m_old = appinteract.interactionType();
+    }
 }
 
 void ChangeInteractionType::undo() const
@@ -48,11 +49,11 @@ void ChangeInteractionType::redo() const
 
 void ChangeInteractionType::serializeImpl(DataStreamInput& s) const
 {
-//  s << m_path << m_old << m_new;
+  s << m_path << m_old << m_new;
 }
 
 void ChangeInteractionType::deserializeImpl(DataStreamOutput& s)
 {
-//  s >> m_path >> m_old >> m_new;
+  s >> m_path >> m_old >> m_new;
 }
 }
