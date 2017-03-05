@@ -23,17 +23,6 @@
 
 namespace AppInteraction
 {
-//ChangeAddress::ChangeAddress(
-//    const ProcessModel& appinteract, const State::AddressAccessor& newval)
-//    : m_path{appinteract}
-//    , m_old{appinteract.address()/*, appinteract.min(), appinteract.max()*/}
-//    , m_new(Explorer::makeFullAddressAccessorSettings(
-//          newval, iscore::IDocument::documentContext(appinteract), 0., 1.))
-//{
-// //   Curve::CurveDomain c(m_new.domain.get(), m_new.value);
-// //   m_new.domain.get() = ossia::net::make_domain(c.min, c.max);
-//}
-
 
 ChangeAddress::ChangeAddress(
     const ProcessModel& appinteract, const Device::FullAddressAccessorSettings& newval)
@@ -42,10 +31,7 @@ ChangeAddress::ChangeAddress(
   m_new.address = newval.address;
   m_new.domain = newval.domain;
 
-
-
   m_old.address = appinteract.address();
-//  m_old.domain = ossia::net::make_domain(appinteract.min(), appinteract.max());
 }
 
 void ChangeAddress::undo() const
@@ -53,10 +39,6 @@ void ChangeAddress::undo() const
   auto& appinteract = m_path.find();
 
   {
-    //auto& dom = m_old.domain.get();
-//    appinteract.setMin(dom.convert_min<double>());
-//    appinteract.setMax(dom.convert_max<double>());
-
     appinteract.setAddress(m_old.address);
   }
 }
@@ -66,9 +48,6 @@ void ChangeAddress::redo() const
   auto& appinteract = m_path.find();
 
   {
-    //auto& dom = m_new.domain.get();
-//    appinteract.setMin(dom.convert_min<double>());
-//    appinteract.setMax(dom.convert_max<double>());
     appinteract.setAddress(m_new.address);
   }
 }
