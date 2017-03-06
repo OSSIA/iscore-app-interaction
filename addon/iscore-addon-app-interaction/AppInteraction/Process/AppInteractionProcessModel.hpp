@@ -41,6 +41,7 @@ class ProcessModel final : public Process::ProcessModel
         iscore::EntityMap<SimpleElement> simpleElements;
         iscore::EntityMap<PolymorphicEntity> polymorphicEntities;
 
+        QString prettyName() const override;
 
     signals:
         void addressChanged(const ::State::AddressAccessor&);
@@ -52,7 +53,6 @@ class ProcessModel final : public Process::ProcessModel
                      const Id<Process::ProcessModel>& id,
                      QObject* parent);
 
-        QString prettyName() const override;
         void startExecution() override;
         void stopExecution() override;
         void reset() override;

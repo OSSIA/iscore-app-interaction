@@ -32,7 +32,6 @@ InspectorWidget::InspectorWidget(
     // Here we create the GUI for the inspector with Qt widgets.
     auto lay = new QFormLayout{this};
 
-
     // Address:
     m_lineEdit = new AddressAccessorEditWidget{
         context.plugin<DeviceDocumentPlugin>().explorer(), this};

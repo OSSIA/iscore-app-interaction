@@ -10,8 +10,8 @@
                     "CenterOn": [
                         0,
                         0,
-                        764,
-                        602
+                        1082,
+                        866
                     ],
                     "ObjectName": "FullViewConstraintViewModel",
                     "ShownRack": 1,
@@ -74,7 +74,7 @@
                                             "Unit": "none",
                                             "address": {
                                                 "Device": "OSCdevice",
-                                                "Path": "particle/density"
+                                                "Path": "particle/variable_test"
                                             }
                                         },
                                         "Components": [
@@ -188,7 +188,7 @@
                                             "Unit": "none",
                                             "address": {
                                                 "Device": "OSCdevice",
-                                                "Path": "particle/density"
+                                                "Path": "particle/variable_test"
                                             }
                                         },
                                         "Components": [
@@ -216,7 +216,7 @@
                                             "id": 45345
                                         },
                                         "Duration": 4319.0738574319803,
-                                        "Max": 10,
+                                        "Max": 1,
                                         "Metadata": {
                                             "Color": "",
                                             "Comment": "",
@@ -578,7 +578,7 @@
                                                                     }
                                                                 }
                                                             ],
-                                                            "Name": "density",
+                                                            "Name": "variable_test",
                                                             "Previous": [
                                                             ],
                                                             "Priorities": [
@@ -664,13 +664,13 @@
                                                             ],
                                                             "Following": [
                                                             ],
-                                                            "Name": "density",
+                                                            "Name": "variable_test",
                                                             "Previous": [
                                                                 {
                                                                     "Process": 1,
                                                                     "Value": {
                                                                         "Type": "Float",
-                                                                        "Value": 10
+                                                                        "Value": 1
                                                                     }
                                                                 }
                                                             ],
@@ -1239,6 +1239,27 @@
                                 "ioType": ""
                             },
                             "Children": [
+                                {
+                                    "AddressSettings": {
+                                        "ClipMode": "Free",
+                                        "Domain": {
+                                            "Float": {
+                                                "Max": 1,
+                                                "Min": 0
+                                            }
+                                        },
+                                        "Extended": {
+                                        },
+                                        "Name": "variable_test",
+                                        "RepetitionFilter": false,
+                                        "Type": "Float",
+                                        "Unit": "none",
+                                        "Value": 0,
+                                        "ioType": "<->"
+                                    },
+                                    "Children": [
+                                    ]
+                                },
                                 {
                                     "AddressSettings": {
                                         "ClipMode": "Free",

@@ -38,6 +38,7 @@ class AppInteractionPresenter final :
         const Id<Process::ProcessModel>& modelId() const override;
 
     private:
+        void on_nameChanges();
         void on_doubleClicked();
 
         const Layer& m_layer;

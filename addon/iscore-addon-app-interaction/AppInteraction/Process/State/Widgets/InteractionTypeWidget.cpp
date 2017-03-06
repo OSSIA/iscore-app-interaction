@@ -49,4 +49,8 @@ namespace State
     // qDebug("setInteractionType to index %d\n",m_combobox->currentIndex());
   }
 
+  const char* InteractionTypeWidget::getInteractionType()
+  {
+      return InteractionTypeList[m_combobox->currentIndex()];
+  }
 }

@@ -17,6 +17,9 @@ AppInteractionPresenter::AppInteractionPresenter(
 {
     const AppInteraction::ProcessModel& p = layer.processModel();
 
+    con(m_layer.processModel(), &ProcessModel::addressChanged, this,
+        &AppInteractionPresenter::on_nameChanges);
+
     // From view to model :
     connect(view, &AppInteractionView::doubleClicked,
             this, &AppInteractionPresenter::on_doubleClicked);
@@ -58,6 +61,12 @@ const Process::LayerModel& AppInteractionPresenter::layerModel() const
 const Id<Process::ProcessModel>& AppInteractionPresenter::modelId() const
 {
     return m_layer.processModel().id();
+}
+
+void AppInteractionPresenter::on_nameChanges()
+{
+  qDebug("Address changed --> should display new address on the process (%s)");
+  m_view->setDisplayedName(m_layer.processModel().prettyName());
 }
 
 void AppInteractionPresenter::on_doubleClicked()

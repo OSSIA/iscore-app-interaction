@@ -1,5 +1,7 @@
 #pragma once
 #include <Process/LayerView.hpp>
+#include <QString>
+#include <QTextLayout>
 
 namespace AppInteraction
 {
@@ -12,6 +14,7 @@ class AppInteractionView final : public Process::LayerView
         explicit AppInteractionView(QGraphicsItem* parent);
 
         void setText(const QString&);
+        void setDisplayedName(const QString& s);
 
     signals:
         void doubleClicked();
@@ -22,6 +25,6 @@ class AppInteractionView final : public Process::LayerView
         void mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) override;
 
         QString m_text;
-
+        QTextLayout m_textcache;
 };
 }

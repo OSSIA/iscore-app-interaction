@@ -13,6 +13,7 @@ class ISCORE_ADDON_APP_INTERACTION_EXPORT InteractionTypeWidget : public QWidget
  public:
    InteractionTypeWidget( QWidget* parent);
    void setInteractionType(int);
+   const char* getInteractionType();
 
 signals:
    void interactionTypeChanged(int);

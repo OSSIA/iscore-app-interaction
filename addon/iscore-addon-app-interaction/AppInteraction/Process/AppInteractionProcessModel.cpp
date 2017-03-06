@@ -30,7 +30,7 @@ ProcessModel::ProcessModel(
 
 QString ProcessModel::prettyName() const
 {
-    return tr("AppInteraction Process");
+    return m_address.toString();
 }
 
 void ProcessModel::startExecution()
