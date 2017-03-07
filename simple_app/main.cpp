@@ -7,6 +7,9 @@
 #include <QDebug>
 #include <QObject>
 #include "Signal.hpp"
+#include "extract.hpp"
+
+
 
 int main(int argc, char *argv[])
 {
@@ -58,8 +61,11 @@ int main(int argc, char *argv[])
     qDebug() << obj->property("slidVal");
 
 */
-    return app.exec();
-
+    //return app.exec();
+    struct datai* d = extract_data("123:45:");
+    printf("id:%d\n",d->id);
+    printf("duration:%d\n",d->duration);
+    return 0;
 
 
 

@@ -5,7 +5,8 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    Signal.cpp
+    Signal.cpp \
+    extract.cpp
 
 RESOURCES += qml.qrc
 
@@ -37,4 +38,5 @@ DISTFILES += \
     ../interactions.json
 
 HEADERS += \
-    Signal.hpp
+    Signal.hpp \
+    extract.hpp
