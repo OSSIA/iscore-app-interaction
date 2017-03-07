@@ -30,7 +30,7 @@ ProcessModel::ProcessModel(
 
 QString ProcessModel::prettyName() const
 {
-    return m_address.toString();
+    return m_address.toShortString();
 }
 
 void ProcessModel::startExecution()

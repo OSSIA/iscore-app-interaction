@@ -23,6 +23,9 @@ AppInteractionPresenter::AppInteractionPresenter(
     // From view to model :
     connect(view, &AppInteractionView::doubleClicked,
             this, &AppInteractionPresenter::on_doubleClicked);
+
+    m_view->setDisplayedName(m_layer.processModel().prettyName());
+
 }
 
 void AppInteractionPresenter::setWidth(qreal val)
@@ -65,7 +68,6 @@ const Id<Process::ProcessModel>& AppInteractionPresenter::modelId() const
 
 void AppInteractionPresenter::on_nameChanges()
 {
-  qDebug("Address changed --> should display new address on the process (%s)");
   m_view->setDisplayedName(m_layer.processModel().prettyName());
 }
 

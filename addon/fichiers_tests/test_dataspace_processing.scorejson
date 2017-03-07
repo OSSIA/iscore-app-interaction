@@ -10,8 +10,8 @@
                     "CenterOn": [
                         0,
                         0,
-                        1082,
-                        866
+                        619,
+                        602
                     ],
                     "ObjectName": "FullViewConstraintViewModel",
                     "ShownRack": 1,
@@ -90,6 +90,19 @@
                                         "MobileDevice": 5,
                                         "ObjectName": "AppInteractionProcess",
                                         "PolyElements": [
+                                            {
+                                                "Components": [
+                                                ],
+                                                "Metadata": {
+                                                    "Color": "",
+                                                    "Comment": "",
+                                                    "Label": "",
+                                                    "ScriptingName": ""
+                                                },
+                                                "ObjectName": "PolymorphicElement",
+                                                "id": 1,
+                                                "uuid": "e1c02c4c-a4c4-4779-9204-8a00f35e7985"
+                                            }
                                         ],
                                         "SimpleElements": [
                                         ],

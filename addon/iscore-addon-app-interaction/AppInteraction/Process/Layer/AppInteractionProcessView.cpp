@@ -5,6 +5,7 @@
 #include <QGraphicsItem>
 #include <QPainter>
 #include <QFont>
+#include <Process/Style/ProcessFonts.hpp>
 
 namespace AppInteraction
 {
@@ -14,6 +15,12 @@ AppInteractionView::AppInteractionView(
     LayerView{parent}
 {
     setText("AppInteraction");
+
+    auto f = iscore::Skin::instance().SansFont;
+    f.setPointSize(8);
+
+    m_textcache.setFont(f);
+    m_textcache.setCacheEnabled(true);
 }
 
 void AppInteractionView::setText(const QString& txt)
@@ -25,6 +32,7 @@ void AppInteractionView::setText(const QString& txt)
 void AppInteractionView::setDisplayedName(const QString& s)
 {
   m_textcache.setText(s);
+
   m_textcache.beginLayout();
   QTextLine line = m_textcache.createLine();
   line.setPosition(QPointF{0., 0.});
