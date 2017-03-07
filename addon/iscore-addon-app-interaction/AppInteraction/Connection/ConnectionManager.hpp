@@ -10,14 +10,14 @@ namespace connection
 class ConnectionManager final
 {
 private:
-    int nConnections;
-    std::vector<Connection> * connectedDevices;
+    std::vector<Connection> connectedDevices;
 
 public:
     ConnectionManager();
     ~ConnectionManager();
 
-    void openConnection();
+    int getNumConnections();
+    void openConnections();
     void closeConnection(Connection c);
 
 };
