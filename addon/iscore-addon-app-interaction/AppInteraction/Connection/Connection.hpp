@@ -1,10 +1,14 @@
 #pragma once
+#include <algorithm>
+
 #include <ossia/ossia.hpp>
-//#include <publicservice.h>
+
+#if ISCORE_ZEROCONF
+    #include <KDNSSD/DNSSD/publicservice.h>
+#endif
 
 using namespace ossia;
 using namespace std;
-//using namespace DNSSD;
 
 namespace connection
 {
@@ -19,6 +23,11 @@ public:
     Connection(std::string device_name);
     ~Connection();
 
+    /*!
+     * \brief sendInteraction
+     * \param interaction
+     * \return
+     */
     std::vector<ossia::value> sendInteraction(const std::string interaction);
 
 };
