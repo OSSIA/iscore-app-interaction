@@ -32,4 +32,3 @@ std::vector<ossia::value> Connection::sendInteraction(const std::string interact
     return data_list;
 }
 
-
