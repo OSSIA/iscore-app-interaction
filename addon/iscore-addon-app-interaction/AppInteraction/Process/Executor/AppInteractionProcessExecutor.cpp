@@ -9,33 +9,38 @@
 namespace AppInteraction
 {
 
-ProcessExecutor::ProcessExecutor(
+ProcessExecutor::ProcessExecutor(AppInteraction::ProcessModel& element,
     const Device::DeviceList& devices):
   m_devices{devices}
 {
-    qDebug("tutu");
+    m_mobileDevice = element.mobileDevice();
 }
 
 
 void ProcessExecutor::start()
 {
+        qDebug("START");
 }
 
 void ProcessExecutor::stop()
 {
+        qDebug("STOP");
 }
 
 void ProcessExecutor::pause()
 {
+    qDebug("PAUSE");
 }
 
 void ProcessExecutor::resume()
 {
+        qDebug("RESUME");
 }
 
 ossia::state_element ProcessExecutor::offset(
     ossia::time_value off)
 {
+    qDebug("OFFSET");
   return {};
 }
 
@@ -74,7 +79,7 @@ ProcessExecutorComponent::ProcessExecutorComponent(
   ProcessComponent_T{
     parentConstraint, element, ctx, id, "AppInteractionExecutorComponent", parent}
 {
-  m_ossia_process = std::make_shared<ProcessExecutor>(ctx.devices.list());
+  m_ossia_process = std::make_shared<ProcessExecutor>(element, ctx.devices.list());
 }
 
 }

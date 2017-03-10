@@ -19,7 +19,7 @@ class ProcessExecutor final :
         public ossia::time_process
 {
     public:
-        ProcessExecutor(const Device::DeviceList&);
+        ProcessExecutor(AppInteraction::ProcessModel& element, const Device::DeviceList&);
 
         void start() override;
         void stop() override;
@@ -31,6 +31,7 @@ class ProcessExecutor final :
 
     private:
         const Device::DeviceList& m_devices;
+        int m_mobileDevice;
 };
 
 //! Component and bridge between the GUI / Edition thread and the execution thread.
