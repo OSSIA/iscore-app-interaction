@@ -1,7 +1,8 @@
 #pragma once
 #include <QWidget>
 #include <iscore_addon_app_interaction_export.h>
-
+//#include <AppInteraction/Connection/ConnectionManager.hpp>
+//#include <AppInteraction/Connection/Connection.hpp>
 
  class QComboBox;
  class QHBoxLayout;
@@ -20,7 +21,9 @@ signals:
 private:
    QHBoxLayout* m_layout{};
    QComboBox* m_combobox{};
-   std::vector<const char*> MobileList;
-
+  std::vector<const char*> MobileList;
+  /*ConnectionManager& connectionManager;
+   *std::vector<connection::Connection> MobileList;
+   */
  };
  }

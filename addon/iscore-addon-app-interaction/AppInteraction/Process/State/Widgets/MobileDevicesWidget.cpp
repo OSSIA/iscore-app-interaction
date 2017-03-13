@@ -4,7 +4,7 @@
 #include <iscore/widgets/MarginLess.hpp>
 #include <iscore/widgets/SignalUtils.hpp>
 #include <qvariant.h>
-//#include<AppInteraction/Connection/Connection.hpp>
+
 
 namespace State
 {
@@ -16,15 +16,28 @@ namespace State
     m_layout->addWidget(m_combobox);
 
 //TEMPORARY list for test
-    MobileList={"Mobile Device n°1","Mobile Device n°2","Mobile Device n°3","Mobile Device n°4","Mobile Device n°5","Mobile Device n°6"};
+   MobileList={"Mobile Device n°1","Mobile Device n°2","Mobile Device n°3","Mobile Device n°4","Mobile Device n°5","Mobile Device n°6"};
+
+ /*
+  *   MobileList=connectionManager.getDevices();
+  */
 
 
     // Fill combobox. (To be filled with the vector of connected devices recieved from "Connection")
     m_combobox->addItem(tr("None"));
+
     for(int i = 0; i < MobileList.size(); ++i)
 {
        m_combobox->addItem(tr(MobileList[i]));
 }
+
+
+ /*
+  *   for(int i=0; i<connectionManager.getNumConnections();++i)
+  * {
+  *  m_combobox->addItem(tr(MobileList[i].toString()));
+  * }
+  */
 
 
     // Signals
