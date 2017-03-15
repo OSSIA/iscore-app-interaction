@@ -27,7 +27,7 @@ std::vector<ossia::value> ConnectionFaussaire::sendInteraction(const std::string
     qDebug("Type wanted : %d.",type);
     for(int i=0; i<5;i++)
  {   mRetValues.push_back(std::abs(qrand()) % 100);
-     qDebug("RetValue %d:",i);
+
 }
     return mRetValues;
 
