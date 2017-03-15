@@ -11,15 +11,16 @@ namespace State
 
   MobileDevicesWidget::MobileDevicesWidget( QWidget* parent) : QWidget{parent}
   {
+
     m_layout = new iscore::MarginLess<QHBoxLayout>{this};
     m_combobox = new QComboBox{this};
     m_layout->addWidget(m_combobox);
-
+    //&connectionManager=new connection::ConnectionManagerFaussaire();
 //TEMPORARY list for test
    MobileList={"Mobile Device n°1","Mobile Device n°2","Mobile Device n°3","Mobile Device n°4","Mobile Device n°5","Mobile Device n°6"};
 
  /*
-  *   MobileList=connectionManager.getDevices();
+  *   MobileList=connectionManagerFaussaire.getDevices();
   */
 
 
@@ -28,14 +29,15 @@ namespace State
 
     for(int i = 0; i < MobileList.size(); ++i)
 {
-       m_combobox->addItem(tr(MobileList[i]));
+
+        m_combobox->addItem(tr(MobileList[i]));
 }
 
 
  /*
-  *   for(int i=0; i<connectionManager.getNumConnections();++i)
+  *   for(int i=0; i<connectionManagerFaussaire.getNumConnections();++i)
   * {
-  *  m_combobox->addItem(tr(MobileList[i].toString()));
+  *  m_combobox->addItem(tr(MobileList[i].));
   * }
   */
 

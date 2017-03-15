@@ -1,7 +1,7 @@
 #pragma once
 #include <QWidget>
 #include <iscore_addon_app_interaction_export.h>
-//#include <AppInteraction/Connection/ConnectionManager.hpp>
+//#include <AppInteraction/Connection/ConnectionManagerFaussaire.hpp>
 //#include <AppInteraction/Connection/Connection.hpp>
 
  class QComboBox;
@@ -22,8 +22,8 @@ private:
    QHBoxLayout* m_layout{};
    QComboBox* m_combobox{};
   std::vector<const char*> MobileList;
-  /*ConnectionManager& connectionManager;
-   *std::vector<connection::Connection> MobileList;
-   */
+//  connection::ConnectionManagerFaussaire& connectionManager;
+  //std::vector<connection::ConnectionFaussaire> MobileList1;
+
  };
  }

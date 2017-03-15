@@ -80,6 +80,6 @@ ProcessExecutorComponent::ProcessExecutorComponent(
     parentConstraint, element, ctx, id, "AppInteractionExecutorComponent", parent}
 {
   m_ossia_process = std::make_shared<ProcessExecutor>(element, ctx.devices.list());
-}
+ }
 
 }

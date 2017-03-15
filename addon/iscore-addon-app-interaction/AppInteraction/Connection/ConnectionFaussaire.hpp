@@ -1,34 +1,34 @@
 #pragma once
-#include <algorithm>
+//#include <algorithm>
 
-#include <ossia/ossia.hpp>
+//#include <ossia/ossia.hpp>
 
-#if ISCORE_ZEROCONF
-    #include <KDNSSD/DNSSD/publicservice.h>
-#endif
+//#if ISCORE_ZEROCONF
+//    #include <KDNSSD/DNSSD/publicservice.h>
+//#endif
 
-//using namespace ossia;
-//using namespace std;
+using namespace ossia;
+using namespace std;
 
-//namespace connection
-//{
+namespace connection
+{
 
-//class Connection final
-//{
-//private:
-//    ossia::net::generic_device mDevice;
+class ConnectionFaussaire final
+{
+private:
+   // ossia::net::generic_device mDevice;
 
+public:
+   ConnectionFaussaire(std::string device_name);
+    ~ConnectionFaussaire();
 
-//public:
-//    Connection(std::string device_name);
-//    ~Connection();
+    /*!
+     * \brief sendInteraction
+     * \param interaction
+     * \return
+     */
+    //std::vector<ossia::value>
+    void sendInteraction(const std::string interaction);
 
-//    /*!
-//     * \brief sendInteraction
-//     * \param interaction
-//     * \return
-//     */
-//    std::vector<ossia::value> sendInteraction(const std::string interaction);
-
-//};
-//}
+};
+}
