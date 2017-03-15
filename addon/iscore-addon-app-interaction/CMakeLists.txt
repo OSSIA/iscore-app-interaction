@@ -40,7 +40,9 @@ set(HDRS
     AppInteraction/PolymorphicEntity/PolymorphicEntityFactory.hpp
     AppInteraction/PolymorphicEntity/Implementation/ConcretePolymorphicEntity.hpp
     AppInteraction/Connection/Connection.hpp
+    AppInteraction/Connection/ConnectionFaussaire.hpp
     AppInteraction/Connection/ConnectionManager.hpp
+    AppInteraction/Connection/ConnectionManagerFaussaire.hpp
 
     iscore_addon_app_interaction.hpp
 
@@ -72,7 +74,9 @@ set(SRCS
     AppInteraction/PolymorphicEntity/PolymorphicEntityFactory.cpp
     AppInteraction/PolymorphicEntity/Implementation/ConcretePolymorphicEntity.cpp
     AppInteraction/Connection/Connection.cpp
+    AppInteraction/Connection/ConnectionFaussaire.cpp
     AppInteraction/Connection/ConnectionManager.cpp
+    AppInteraction/Connection/ConnectionManagerFaussaire.cpp
     
     iscore_addon_app_interaction.cpp
 )
