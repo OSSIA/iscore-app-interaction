@@ -5,6 +5,11 @@
 #include <Explorer/DocumentPlugin/DeviceDocumentPlugin.hpp>
 #include <Engine/iscore2OSSIA.hpp>
 #include <ossia/editor/state/state_element.hpp>
+#include<AppInteraction/Connection/ConnectionFaussaire.hpp>
+
+#include <State/Value.hpp>
+#include <State/ValueConversion.hpp>
+
 
 namespace AppInteraction
 {
@@ -47,10 +52,18 @@ ossia::state_element ProcessExecutor::offset(
 ossia::state_element ProcessExecutor::state()
 {
     /* exemple d'envoi de messages (à processing par ex) */
-  //qDebug("titi"); //pratique pour debugage
+
   State::Address address{"OSCdevice", {"particle", "density"}};
 
-  State::Value value = State::Value::fromValue(std::abs(qrand()) % 100);
+  //State::Value value = State::Value::fromValue(std::abs(qrand()) % 100);
+
+
+  /*exemple d'envoie de messages à processing via un value reçu de ConnectionFaussaire*/
+
+connectionFaussaire::ConnectionFaussaire* cf= new connectionFaussaire::ConnectionFaussaire("ConnexionName");
+std::vector<ossia::value> vals= (*cf).sendInteraction("Hi!^^");
+State::Value value = State::fromOSSIAValue(vals.back());
+
 
   State::Message m;
   m.address = address;

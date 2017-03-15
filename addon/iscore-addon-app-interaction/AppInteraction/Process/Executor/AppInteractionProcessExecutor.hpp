@@ -30,8 +30,10 @@ class ProcessExecutor final :
         ossia::state_element state() override;
 
     private:
+
         const Device::DeviceList& m_devices;
         int m_mobileDevice;
+
 };
 
 //! Component and bridge between the GUI / Edition thread and the execution thread.

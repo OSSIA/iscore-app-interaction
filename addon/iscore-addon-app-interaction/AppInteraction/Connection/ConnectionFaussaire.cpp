@@ -3,10 +3,12 @@
 using namespace connectionFaussaire;
 using namespace std;
 
+
 ConnectionFaussaire::ConnectionFaussaire(std::string device_name)
 {
     mDevice = device_name;
     qDebug("New Connection named %s created.", device_name.c_str());
+
 }
 
 //ConnectionFaussaire::ConnectionFaussaire(const connectionFaussaire::ConnectionFaussaire&){
@@ -23,7 +25,10 @@ std::vector<ossia::value> ConnectionFaussaire::sendInteraction(const std::string
     int type =  std::stoi(interaction.substr(interaction.find_last_of(':')+1));
     qDebug("Duration : %d", duration);
     qDebug("Type wanted : %d.",type);
-    qDebug("TODO : fill ossia value vector in ConnectionFaussaire::sendInteraction");
+    for(int i=0; i<5;i++)
+ {   mRetValues.push_back(std::abs(qrand()) % 100);
+     qDebug("RetValue %d:",i);
+}
     return mRetValues;
 
 }
