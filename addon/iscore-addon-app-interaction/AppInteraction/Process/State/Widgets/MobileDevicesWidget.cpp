@@ -27,7 +27,7 @@ namespace State
     // Fill combobox. (To be filled with the vector of connected devices recieved from "Connection")
     m_combobox->addItem(tr("None"));
 
-    for(int i = 0; i < MobileList.size(); ++i)
+    for(unsigned int i = 0; i < MobileList.size(); ++i)
 {
 
         m_combobox->addItem(tr(MobileList[i]));

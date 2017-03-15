@@ -2,9 +2,9 @@
 
 #include "ConnectionFaussaire.hpp"
 
-//using namespace std;
+using namespace std;
 
-namespace connection
+namespace connectionFaussaire
 {
 
 class ConnectionManagerFaussaire  final

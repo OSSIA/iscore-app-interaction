@@ -1,15 +1,28 @@
 #include "ConnectionFaussaire.hpp"
 
-using namespace connection;
+using namespace connectionFaussaire;
+using namespace std;
 
-ConnectionFaussaire::ConnectionFaussaire(std::string device_name){
-
+ConnectionFaussaire::ConnectionFaussaire(std::string device_name)
+{
+    mDevice = device_name;
 }
+
+//ConnectionFaussaire::ConnectionFaussaire(const connectionFaussaire::ConnectionFaussaire&){
+//    qDebug("Constructeur par recopie de ConnectionFaussaire");
+//}
+
 ConnectionFaussaire::~ConnectionFaussaire(){
-
 }
-//std::vector<ossia::value>
-void ConnectionFaussaire::sendInteraction(const std::string interaction){
 
+
+std::vector<ossia::value> ConnectionFaussaire::sendInteraction(const std::string interaction){
+    qDebug("Interaction %s sent to %s.", interaction.c_str(), mDevice.c_str());
+    int duration = std::stoi(interaction.substr(interaction.find_first_of(':')+1 , interaction.find_last_of(':')-interaction.find_first_of(':')-1));
+    int type =  std::stoi(interaction.substr(interaction.find_last_of(':')+1));
+    qDebug("Duration : %d", duration);
+    qDebug("Type wanted : %d.",type);
+    qDebug("TODO : fill ossia value vector in ConnectionFaussaire::sendInteraction");
+    return mRetValues;
 
 }

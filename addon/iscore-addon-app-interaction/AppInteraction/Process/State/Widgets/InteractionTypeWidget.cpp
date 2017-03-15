@@ -22,7 +22,7 @@ namespace State
     // Fill combobox.
     m_combobox->addItem(tr("None"));
 
-            for(int i = 0; i < InteractionTypeList.size(); ++i)
+            for(unsigned int i = 0; i < InteractionTypeList.size(); ++i)
         {
                m_combobox->addItem(tr(InteractionTypeList[i]));
         }

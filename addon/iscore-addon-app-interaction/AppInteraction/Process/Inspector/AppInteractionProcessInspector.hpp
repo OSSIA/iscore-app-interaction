@@ -4,9 +4,10 @@
 #include <Process/Inspector/ProcessInspectorWidgetDelegate.hpp>
 #include <Process/Inspector/ProcessInspectorWidgetDelegateFactory.hpp>
 #include <iscore/command/Dispatchers/CommandDispatcher.hpp>
-#include "../State/Widgets/InteractionTypeWidget.hpp"
-#include "../State/Widgets/MobileDevicesWidget.hpp"
+#include <AppInteraction/Process//State/Widgets/InteractionTypeWidget.hpp>
+#include <AppInteraction/Process/State/Widgets/MobileDevicesWidget.hpp>
 #include <State/Unit.hpp>
+
 
 namespace State
 {
