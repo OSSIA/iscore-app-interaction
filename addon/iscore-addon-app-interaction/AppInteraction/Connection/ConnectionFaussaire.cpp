@@ -6,6 +6,7 @@ using namespace std;
 ConnectionFaussaire::ConnectionFaussaire(std::string device_name)
 {
     mDevice = device_name;
+    qDebug("New Connection named %s created.", device_name.c_str());
 }
 
 //ConnectionFaussaire::ConnectionFaussaire(const connectionFaussaire::ConnectionFaussaire&){

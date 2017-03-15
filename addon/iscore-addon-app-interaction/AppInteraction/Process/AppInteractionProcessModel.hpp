@@ -8,6 +8,7 @@
 #include <State/Address.hpp>
 
 #include <iscore/model/EntityMap.hpp>
+#include "AppInteraction/Connection/ConnectionManagerFaussaire.hpp"
 
 namespace AppInteraction
 {
