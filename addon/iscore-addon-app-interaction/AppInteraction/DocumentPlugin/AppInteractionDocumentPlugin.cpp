@@ -10,8 +10,13 @@ DocumentPlugin::DocumentPlugin(
     iscore::SerializableDocumentPlugin{ctx, std::move(id), "DocumentPlugin", parent}
 {
 }
+connectionFaussaire::ConnectionManagerFaussaire& DocumentPlugin::connectionManager(){
 
+        return m_connectionManager;
+           }
 }
+
+
 
 template <>
 void DataStreamReader::read(

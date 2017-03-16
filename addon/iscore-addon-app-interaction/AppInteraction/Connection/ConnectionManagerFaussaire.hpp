@@ -2,7 +2,7 @@
 
 #include "ConnectionFaussaire.hpp"
 
-using namespace std;
+
 
 namespace connectionFaussaire
 {
@@ -27,7 +27,7 @@ public:
      * \brief openConnection
      * \return
      */
- //   net::generic_device * openConnection();
+    //ossia::net::generic_device * openConnection();
     void openConnection();
 
     /*!

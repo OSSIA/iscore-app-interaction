@@ -7,9 +7,6 @@
     #include <KDNSSD/DNSSD/publicservice.h>
 #endif
 
-using namespace ossia;
-using namespace std;
-
 namespace connection
 {
 

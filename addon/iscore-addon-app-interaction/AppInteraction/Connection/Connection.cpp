@@ -17,7 +17,7 @@ std::vector<ossia::value> Connection::sendInteraction(const std::string interact
 {
     mDevice.getProtocol().update(mDevice);
     std::vector<ossia::value> data_list;
-    ossia::net::node_base * node_interac = net::find_node(mDevice, "/interaction");
+    ossia::net::node_base * node_interac = ossia::net::find_node(mDevice, "/interaction");
     if (node_interac)
     {
         if (ossia::net::address_base * addr = node_interac->getAddress())

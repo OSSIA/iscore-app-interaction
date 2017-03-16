@@ -4,6 +4,8 @@
 #include "AppInteraction/Commands/ChangeInteractionType.hpp"
 #include "AppInteraction/Commands/ChangeMobileDevice.hpp"
 
+#include "AppInteraction/DocumentPlugin/AppInteractionDocumentPlugin.hpp"
+
 #include <iscore/document/DocumentContext.hpp>
 #include <Explorer/Widgets/AddressAccessorEditWidget.hpp>
 #include <Explorer/DocumentPlugin/DeviceDocumentPlugin.hpp>
@@ -16,6 +18,8 @@
 #include "AppInteraction/Process/State/Widgets/InteractionTypeWidget.hpp"
 #include "AppInteraction/Process/State/Widgets/MobileDevicesWidget.hpp"
 #include <string.h>
+#include <AppInteraction/Connection/ConnectionManagerFaussaire.hpp>
+#include <AppInteraction/Connection/ConnectionFaussaire.hpp>
 
 namespace AppInteraction
 {
@@ -75,13 +79,14 @@ InspectorWidget::InspectorWidget(
 
     lay->addRow(tr("Mobile Devices"), m_mdw);
 
-    /*
-    auto& connectionManager = ctx.plugin<AppInteractionDocumentPlugin>().connectionManager();
-    for(auto interaction : connectionManager.interactions())
-    {
-            m_itw->addLine(interaction.name());
-    }
-    */
+
+  //auto& connectionManager = context.plugin<AppInteraction::DocumentPlugin>().connectionManager();
+ // connectionManager.openConnection();
+//    for(auto interaction : connectionManager.interactions())
+//    {
+//            m_itw->addLine(interaction.name());
+//    }
+
 }
 
 void InspectorWidget::on_addressChange(const Device::FullAddressAccessorSettings& newAddr)

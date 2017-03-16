@@ -6,8 +6,7 @@ ConnectionManagerFaussaire::ConnectionManagerFaussaire(){
 
 }
 
-ConnectionManagerFaussaire::~ConnectionManagerFaussaire()
-{
+ConnectionManagerFaussaire::~ConnectionManagerFaussaire(){
 
 }
 

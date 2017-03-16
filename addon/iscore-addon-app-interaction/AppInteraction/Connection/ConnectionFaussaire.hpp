@@ -7,17 +7,14 @@
 //    #include <KDNSSD/DNSSD/publicservice.h>
 //#endif
 
-using namespace ossia;
-using namespace std;
-
 namespace connectionFaussaire
 {
 
 class ConnectionFaussaire final
 {
 private:
- //  ossia::net::generic_device* mDevice = new ossia::net::generic_device::generic_device(std::make_unique<ossia::net::local_protocol>(), "newName");
-    std::string mDevice;
+    ossia::net::generic_device* mDevice = new ossia::net::generic_device(std::make_unique<ossia::net::local_protocol>(), "newName");
+    //std::string mDevice;
     std::vector<ossia::value> mRetValues;
 
 public:

@@ -5,7 +5,7 @@
 #include <Explorer/DocumentPlugin/DeviceDocumentPlugin.hpp>
 #include <Engine/iscore2OSSIA.hpp>
 #include <ossia/editor/state/state_element.hpp>
-#include<AppInteraction/Connection/ConnectionFaussaire.hpp>
+#include <AppInteraction/Connection/ConnectionFaussaire.hpp>
 
 #include <State/Value.hpp>
 #include <State/ValueConversion.hpp>
@@ -19,6 +19,7 @@ ProcessExecutor::ProcessExecutor(AppInteraction::ProcessModel& element,
   m_devices{devices}
 {
     m_mobileDevice = element.mobileDevice();
+    qDebug("INSTANCIATION PROCESS EXECUTOR");
 }
 
 

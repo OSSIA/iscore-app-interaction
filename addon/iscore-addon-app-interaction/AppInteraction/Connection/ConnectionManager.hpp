@@ -2,7 +2,6 @@
 
 #include "Connection.hpp"
 
-using namespace std;
 
 namespace connection
 {
@@ -27,7 +26,7 @@ public:
      * \brief openConnection
      * \return
      */
-    net::generic_device * openConnection();
+    ossia::net::generic_device * openConnection();
 
     /*!
      * \brief closeConnection

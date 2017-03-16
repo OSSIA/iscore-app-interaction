@@ -1,5 +1,6 @@
 #pragma once
 #include <iscore/plugins/documentdelegate/plugin/DocumentPlugin.hpp>
+#include <AppInteraction/Connection/ConnectionManagerFaussaire.hpp>
 
 namespace AppInteraction
 {
@@ -46,7 +47,11 @@ class DocumentPlugin final :
 
         SERIALIZABLE_MODEL_METADATA_IMPL(DocumentPlugin)
 
+        private:
+            connectionFaussaire::ConnectionManagerFaussaire m_connectionManager = connectionFaussaire::ConnectionManagerFaussaire();
         public:
+            connectionFaussaire::ConnectionManagerFaussaire& connectionManager();
+
             explicit DocumentPlugin(
                     const iscore::DocumentContext& ctx,
                     Id<iscore::DocumentPlugin> id,
@@ -61,6 +66,8 @@ class DocumentPlugin final :
         {
             vis.writeTo(*this);
         }
+
+
 };
 
 using DocumentPluginFactory = iscore::DocumentPluginFactory_T<DocumentPlugin>;
