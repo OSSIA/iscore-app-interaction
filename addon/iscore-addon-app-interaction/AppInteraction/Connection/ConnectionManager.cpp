@@ -1,7 +1,7 @@
-#include "ConnectionManager.hpp"
+#include <AppInteraction/Connection/ConnectionManager.hpp>
 
-using namespace connection;
-
+namespace connection
+{
 ConnectionManager::ConnectionManager():
     zServ(ossia::net::make_zeroconf_server(
               "iscoreInteraction",
@@ -35,7 +35,7 @@ void ConnectionManager::closeConnection(Connection c)
 
 }
 
-//size_t ConnectionManager::findDevice(std::string name)
+//size_t connection::ConnectionManager::findDevice(std::string name)
 //{
 //    std::vector<Connection>::iterator it = std::find_if(
 //                connectedDevices.begin(),
@@ -47,7 +47,8 @@ void ConnectionManager::closeConnection(Connection c)
 //    return std::distance(connectedDevices.begin(), it);
 //}
 
-//std::vector<Connection> ConnectionManager::getDevices()
-//{
-//    return connectedDevices;
-//}
+std::vector<connection::Connection> * ConnectionManager::getDevices()
+{
+    return &connectedDevices;
+}
+}

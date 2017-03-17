@@ -3,10 +3,6 @@
 
 #include <ossia/ossia.hpp>
 
-#if ISCORE_ZEROCONF
-    #include <KDNSSD/DNSSD/publicservice.h>
-#endif
-
 namespace connection
 {
 
@@ -23,9 +19,10 @@ public:
     /*!
      * \brief sendInteraction
      * \param interaction
-     * \return
      */
-    std::vector<ossia::value> sendInteraction(const std::string interaction);
+    void sendInteraction(const std::string interaction);
 
+signals:
+    void interactionValueReturned(const ossia::value&);
 };
 }

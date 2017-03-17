@@ -1,7 +1,6 @@
 #pragma once
 
-#include "Connection.hpp"
-
+#include <AppInteraction/Connection/Connection.hpp>
 
 namespace connection
 {
@@ -45,6 +44,6 @@ public:
      * \brief getDevices
      * \return
      */
-//    std::vector<Connection> getDevices();
+    std::vector<Connection> * getDevices();
 };
 }
