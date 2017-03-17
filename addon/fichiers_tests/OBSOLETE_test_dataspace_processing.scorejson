@@ -9,9 +9,9 @@
                 "FullView": {
                     "CenterOn": [
                         0,
-                        1,
-                        1082,
-                        866
+                        0,
+                        619,
+                        602
                     ],
                     "ObjectName": "FullViewConstraintViewModel",
                     "ShownRack": 1,
@@ -40,8 +40,8 @@
                             {
                                 "Components": [
                                 ],
-                                "DefaultDuration": 9236.5548831340202,
-                                "EndState": 3,
+                                "DefaultDuration": 7333.8729361345013,
+                                "EndState": 2,
                                 "FullView": {
                                     "CenterOn": [
                                         0,
@@ -54,31 +54,55 @@
                                     "Zoom": -1,
                                     "id": 2
                                 },
-                                "HeightPercentage": 0.094188376753507011,
-                                "MaxDuration": 9236.5548831340202,
+                                "HeightPercentage": 0.066800267201068811,
+                                "MaxDuration": 7333.8729361345013,
                                 "MaxInf": false,
                                 "Metadata": {
                                     "Color": "Transparent1",
                                     "Comment": "",
                                     "Label": "",
-                                    "ScriptingName": "drip96felt98"
+                                    "ScriptingName": "west30pant6"
                                 },
-                                "MinDuration": 9236.5548831340202,
+                                "MinDuration": 7333.8729361345013,
                                 "MinNull": false,
                                 "ObjectName": "Scenario::ConstraintModel",
                                 "Processes": [
                                     {
+                                        "Address": {
+                                            "Accessors": [
+                                            ],
+                                            "Unit": "none",
+                                            "address": {
+                                                "Device": "OSCdevice",
+                                                "Path": "particle/variable_test"
+                                            }
+                                        },
                                         "Components": [
                                         ],
-                                        "Duration": 9236.5548831340202,
+                                        "Duration": 7333.8729361345013,
+                                        "InteractionType": 3,
                                         "Metadata": {
                                             "Color": "",
                                             "Comment": "",
                                             "Label": "",
                                             "ScriptingName": "AppInteraction.1"
                                         },
+                                        "MobileDevice": 5,
                                         "ObjectName": "AppInteractionProcess",
                                         "PolyElements": [
+                                            {
+                                                "Components": [
+                                                ],
+                                                "Metadata": {
+                                                    "Color": "",
+                                                    "Comment": "",
+                                                    "Label": "",
+                                                    "ScriptingName": ""
+                                                },
+                                                "ObjectName": "PolymorphicElement",
+                                                "id": 1,
+                                                "uuid": "e1c02c4c-a4c4-4779-9204-8a00f35e7985"
+                                            }
                                         ],
                                         "SimpleElements": [
                                         ],
@@ -137,8 +161,141 @@
                                 ],
                                 "Rigidity": true,
                                 "StartDate": 0,
-                                "StartState": 2,
+                                "StartState": 1,
                                 "id": 1
+                            },
+                            {
+                                "Components": [
+                                ],
+                                "DefaultDuration": 4319.0738574319803,
+                                "EndState": 4,
+                                "FullView": {
+                                    "CenterOn": [
+                                        0,
+                                        0,
+                                        0,
+                                        0
+                                    ],
+                                    "ObjectName": "FullViewConstraintViewModel",
+                                    "ShownRack": 1,
+                                    "Zoom": -1,
+                                    "id": 3
+                                },
+                                "HeightPercentage": 0.019372077488309953,
+                                "MaxDuration": 4319.0738574319803,
+                                "MaxInf": false,
+                                "Metadata": {
+                                    "Color": "Transparent1",
+                                    "Comment": "",
+                                    "Label": "",
+                                    "ScriptingName": "foil84wavy12"
+                                },
+                                "MinDuration": 4319.0738574319803,
+                                "MinNull": false,
+                                "ObjectName": "Scenario::ConstraintModel",
+                                "Processes": [
+                                    {
+                                        "Address": {
+                                            "Accessors": [
+                                            ],
+                                            "Unit": "none",
+                                            "address": {
+                                                "Device": "OSCdevice",
+                                                "Path": "particle/variable_test"
+                                            }
+                                        },
+                                        "Components": [
+                                        ],
+                                        "Curve": {
+                                            "ObjectName": "CurveModel",
+                                            "Segments": [
+                                                {
+                                                    "End": [
+                                                        1,
+                                                        1
+                                                    ],
+                                                    "Following": null,
+                                                    "ObjectName": "CurveSegmentModel",
+                                                    "Power": 11.050000000000001,
+                                                    "Previous": null,
+                                                    "Start": [
+                                                        0,
+                                                        0
+                                                    ],
+                                                    "id": 1,
+                                                    "uuid": "1e7cb83f-4e47-4b14-814d-2242a9c75991"
+                                                }
+                                            ],
+                                            "id": 45345
+                                        },
+                                        "Duration": 4319.0738574319803,
+                                        "Max": 1,
+                                        "Metadata": {
+                                            "Color": "",
+                                            "Comment": "",
+                                            "Label": "",
+                                            "ScriptingName": "Automation.1"
+                                        },
+                                        "Min": 0,
+                                        "ObjectName": "Automation",
+                                        "Tween": false,
+                                        "id": 1,
+                                        "uuid": "d2a67bd8-5d3f-404e-b6e9-e350cf2a833f"
+                                    }
+                                ],
+                                "Rackes": [
+                                    {
+                                        "Components": [
+                                        ],
+                                        "Metadata": {
+                                            "Color": "",
+                                            "Comment": "",
+                                            "Label": "",
+                                            "ScriptingName": "Rack.1"
+                                        },
+                                        "ObjectName": "Scenario::RackModel",
+                                        "Slots": [
+                                            {
+                                                "Components": [
+                                                ],
+                                                "EditedProcess": 1,
+                                                "Height": 200,
+                                                "LayerModels": [
+                                                    {
+                                                        "ObjectName": "Automation",
+                                                        "SharedProcess": {
+                                                            "Identifiers": [
+                                                                {
+                                                                    "ObjectId": 1,
+                                                                    "ObjectName": "Automation"
+                                                                }
+                                                            ],
+                                                            "Parents": 2
+                                                        },
+                                                        "id": 1,
+                                                        "uuid": "657d8a05-6ee5-4093-8d61-d6ee2c425acf"
+                                                    }
+                                                ],
+                                                "Metadata": {
+                                                    "Color": "",
+                                                    "Comment": "",
+                                                    "Label": "",
+                                                    "ScriptingName": "Slot.1"
+                                                },
+                                                "ObjectName": "Scenario::SlotModel",
+                                                "id": 1
+                                            }
+                                        ],
+                                        "SlotsPositions": [
+                                            1
+                                        ],
+                                        "id": 1
+                                    }
+                                ],
+                                "Rigidity": true,
+                                "StartDate": 7333.8729361345013,
+                                "StartState": 3,
+                                "id": 2
                             }
                         ],
                         "Duration": 15000,
@@ -174,7 +331,7 @@
                                 "Date": 0,
                                 "Extent": [
                                     0.02,
-                                    0.094188376753507011
+                                    0.066800267201068811
                                 ],
                                 "Metadata": {
                                     "Color": "Emphasis4",
@@ -186,7 +343,7 @@
                                 "Offset": 0,
                                 "States": [
                                     0,
-                                    2
+                                    1
                                 ],
                                 "TimeNode": 0,
                                 "id": 0
@@ -219,21 +376,69 @@
                                     "RootNode": {
                                     }
                                 },
-                                "Date": 9236.5548831340202,
+                                "Date": 7333.8729361345013,
                                 "Extent": [
-                                    0.094188376753507011,
-                                    0.094188376753507011
+                                    0.019372077488309953,
+                                    0.066800267201068811
                                 ],
                                 "Metadata": {
                                     "Color": "Emphasis4",
                                     "Comment": "",
                                     "Label": "",
-                                    "ScriptingName": "beet9half60"
+                                    "ScriptingName": "band4side76"
                                 },
                                 "ObjectName": "Scenario::EventModel",
                                 "Offset": 0,
                                 "States": [
+                                    2,
                                     3
+                                ],
+                                "TimeNode": 1,
+                                "id": 1
+                            },
+                            {
+                                "Components": [
+                                ],
+                                "Condition": {
+                                    "Children": [
+                                        {
+                                            "Children": [
+                                            ],
+                                            "Relation": {
+                                                "LHS": {
+                                                    "Value": {
+                                                        "Type": "Bool",
+                                                        "Value": true
+                                                    }
+                                                },
+                                                "Op": 0,
+                                                "RHS": {
+                                                    "Value": {
+                                                        "Type": "Bool",
+                                                        "Value": true
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "RootNode": {
+                                    }
+                                },
+                                "Date": 11652.946793566482,
+                                "Extent": [
+                                    0.019372077488309953,
+                                    0.019372077488309953
+                                ],
+                                "Metadata": {
+                                    "Color": "Emphasis4",
+                                    "Comment": "",
+                                    "Label": "",
+                                    "ScriptingName": "debt91hoof22"
+                                },
+                                "ObjectName": "Scenario::EventModel",
+                                "Offset": 0,
+                                "States": [
+                                    4
                                 ],
                                 "TimeNode": 2,
                                 "id": 2
@@ -289,7 +494,42 @@
                                 "Components": [
                                 ],
                                 "Event": 0,
-                                "HeightPercentage": 0.094188376753507011,
+                                "HeightPercentage": 0.066800267201068811,
+                                "Messages": {
+                                    "Accessors": [
+                                    ],
+                                    "Children": [
+                                    ],
+                                    "Following": [
+                                    ],
+                                    "Name": "",
+                                    "Previous": [
+                                    ],
+                                    "Priorities": [
+                                        1,
+                                        2,
+                                        0
+                                    ],
+                                    "Unit": "none"
+                                },
+                                "Metadata": {
+                                    "Color": "",
+                                    "Comment": "",
+                                    "Label": "",
+                                    "ScriptingName": "State.1"
+                                },
+                                "NextConstraint": 1,
+                                "ObjectName": "Scenario::StateModel",
+                                "PreviousConstraint": null,
+                                "StateProcesses": [
+                                ],
+                                "id": 1
+                            },
+                            {
+                                "Components": [
+                                ],
+                                "Event": 1,
+                                "HeightPercentage": 0.066800267201068811,
                                 "Messages": {
                                     "Accessors": [
                                     ],
@@ -313,9 +553,9 @@
                                     "Label": "",
                                     "ScriptingName": "State.2"
                                 },
-                                "NextConstraint": 1,
+                                "NextConstraint": null,
                                 "ObjectName": "Scenario::StateModel",
-                                "PreviousConstraint": null,
+                                "PreviousConstraint": 1,
                                 "StateProcesses": [
                                 ],
                                 "id": 2
@@ -323,12 +563,70 @@
                             {
                                 "Components": [
                                 ],
-                                "Event": 2,
-                                "HeightPercentage": 0.094188376753507011,
+                                "Event": 1,
+                                "HeightPercentage": 0.019372077488309953,
                                 "Messages": {
                                     "Accessors": [
                                     ],
                                     "Children": [
+                                        {
+                                            "Accessors": [
+                                            ],
+                                            "Children": [
+                                                {
+                                                    "Accessors": [
+                                                    ],
+                                                    "Children": [
+                                                        {
+                                                            "Accessors": [
+                                                            ],
+                                                            "Children": [
+                                                            ],
+                                                            "Following": [
+                                                                {
+                                                                    "Process": 1,
+                                                                    "Value": {
+                                                                        "Type": "Float",
+                                                                        "Value": 0
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "Name": "variable_test",
+                                                            "Previous": [
+                                                            ],
+                                                            "Priorities": [
+                                                                1,
+                                                                2,
+                                                                0
+                                                            ],
+                                                            "Unit": "none"
+                                                        }
+                                                    ],
+                                                    "Following": [
+                                                    ],
+                                                    "Name": "particle",
+                                                    "Previous": [
+                                                    ],
+                                                    "Priorities": [
+                                                        1,
+                                                        2,
+                                                        0
+                                                    ],
+                                                    "Unit": "none"
+                                                }
+                                            ],
+                                            "Following": [
+                                            ],
+                                            "Name": "OSCdevice",
+                                            "Previous": [
+                                            ],
+                                            "Priorities": [
+                                                1,
+                                                2,
+                                                0
+                                            ],
+                                            "Unit": "none"
+                                        }
                                     ],
                                     "Following": [
                                     ],
@@ -348,12 +646,105 @@
                                     "Label": "",
                                     "ScriptingName": "State.3"
                                 },
-                                "NextConstraint": null,
+                                "NextConstraint": 2,
                                 "ObjectName": "Scenario::StateModel",
-                                "PreviousConstraint": 1,
+                                "PreviousConstraint": null,
                                 "StateProcesses": [
                                 ],
                                 "id": 3
+                            },
+                            {
+                                "Components": [
+                                ],
+                                "Event": 2,
+                                "HeightPercentage": 0.019372077488309953,
+                                "Messages": {
+                                    "Accessors": [
+                                    ],
+                                    "Children": [
+                                        {
+                                            "Accessors": [
+                                            ],
+                                            "Children": [
+                                                {
+                                                    "Accessors": [
+                                                    ],
+                                                    "Children": [
+                                                        {
+                                                            "Accessors": [
+                                                            ],
+                                                            "Children": [
+                                                            ],
+                                                            "Following": [
+                                                            ],
+                                                            "Name": "variable_test",
+                                                            "Previous": [
+                                                                {
+                                                                    "Process": 1,
+                                                                    "Value": {
+                                                                        "Type": "Float",
+                                                                        "Value": 1
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "Priorities": [
+                                                                1,
+                                                                2,
+                                                                0
+                                                            ],
+                                                            "Unit": "none"
+                                                        }
+                                                    ],
+                                                    "Following": [
+                                                    ],
+                                                    "Name": "particle",
+                                                    "Previous": [
+                                                    ],
+                                                    "Priorities": [
+                                                        1,
+                                                        2,
+                                                        0
+                                                    ],
+                                                    "Unit": "none"
+                                                }
+                                            ],
+                                            "Following": [
+                                            ],
+                                            "Name": "OSCdevice",
+                                            "Previous": [
+                                            ],
+                                            "Priorities": [
+                                                1,
+                                                2,
+                                                0
+                                            ],
+                                            "Unit": "none"
+                                        }
+                                    ],
+                                    "Following": [
+                                    ],
+                                    "Name": "",
+                                    "Previous": [
+                                    ],
+                                    "Priorities": [
+                                        1,
+                                        2,
+                                        0
+                                    ],
+                                    "Unit": "none"
+                                },
+                                "Metadata": {
+                                    "Color": "",
+                                    "Comment": "",
+                                    "Label": "",
+                                    "ScriptingName": "State.4"
+                                },
+                                "NextConstraint": null,
+                                "ObjectName": "Scenario::StateModel",
+                                "PreviousConstraint": 2,
+                                "StateProcesses": [
+                                ],
+                                "id": 4
                             }
                         ],
                         "TimeNodes": [
@@ -366,7 +757,7 @@
                                 ],
                                 "Extent": [
                                     0.02,
-                                    0.094188376753507011
+                                    0.066800267201068811
                                 ],
                                 "Metadata": {
                                     "Color": "HalfDark",
@@ -408,19 +799,67 @@
                             {
                                 "Components": [
                                 ],
-                                "Date": 9236.5548831340202,
+                                "Date": 7333.8729361345013,
                                 "Events": [
-                                    2
+                                    1
                                 ],
                                 "Extent": [
-                                    0.094188376753507011,
-                                    0.094188376753507011
+                                    0.019372077488309953,
+                                    0.066800267201068811
                                 ],
                                 "Metadata": {
                                     "Color": "HalfDark",
                                     "Comment": "",
                                     "Label": "",
-                                    "ScriptingName": "deft13prow68"
+                                    "ScriptingName": "sake95mild47"
+                                },
+                                "ObjectName": "Scenario::TimeNodeModel",
+                                "Trigger": {
+                                    "Active": false,
+                                    "Expression": {
+                                        "Children": [
+                                            {
+                                                "Children": [
+                                                ],
+                                                "Relation": {
+                                                    "LHS": {
+                                                        "Value": {
+                                                            "Type": "Bool",
+                                                            "Value": true
+                                                        }
+                                                    },
+                                                    "Op": 0,
+                                                    "RHS": {
+                                                        "Value": {
+                                                            "Type": "Bool",
+                                                            "Value": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ],
+                                        "RootNode": {
+                                        }
+                                    }
+                                },
+                                "id": 1
+                            },
+                            {
+                                "Components": [
+                                ],
+                                "Date": 11652.946793566482,
+                                "Events": [
+                                    2
+                                ],
+                                "Extent": [
+                                    0.019372077488309953,
+                                    0.019372077488309953
+                                ],
+                                "Metadata": {
+                                    "Color": "HalfDark",
+                                    "Comment": "",
+                                    "Label": "",
+                                    "ScriptingName": "roof68lien39"
                                 },
                                 "ObjectName": "Scenario::TimeNodeModel",
                                 "Trigger": {
@@ -483,6 +922,12 @@
                                                 "ObjectName": "TemporalConstraintViewModel",
                                                 "ShownRack": 1,
                                                 "id": 1
+                                            },
+                                            {
+                                                "ConstraintId": 2,
+                                                "ObjectName": "TemporalConstraintViewModel",
+                                                "ShownRack": 1,
+                                                "id": 2
                                             }
                                         ],
                                         "ObjectName": "TemporalScenarioLayer",
@@ -783,7 +1228,7 @@
             },
             "id": 0
         },
-        "DocumentId": -121101259,
+        "DocumentId": 1282153375,
         "ObjectName": "Scenario::ScenarioDocumentModel",
         "id": 1
     },
@@ -812,6 +1257,27 @@
                                         "ClipMode": "Free",
                                         "Domain": {
                                             "Float": {
+                                                "Max": 1,
+                                                "Min": 0
+                                            }
+                                        },
+                                        "Extended": {
+                                        },
+                                        "Name": "variable_test",
+                                        "RepetitionFilter": false,
+                                        "Type": "Float",
+                                        "Unit": "none",
+                                        "Value": 0,
+                                        "ioType": "<->"
+                                    },
+                                    "Children": [
+                                    ]
+                                },
+                                {
+                                    "AddressSettings": {
+                                        "ClipMode": "Free",
+                                        "Domain": {
+                                            "Float": {
                                                 "Min": 0
                                             }
                                         },
@@ -821,7 +1287,7 @@
                                         "RepetitionFilter": false,
                                         "Type": "Float",
                                         "Unit": "none",
-                                        "Value": 61,
+                                        "Value": 0,
                                         "ioType": "<->"
                                     },
                                     "Children": [
