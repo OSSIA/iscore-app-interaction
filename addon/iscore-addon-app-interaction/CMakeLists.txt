@@ -34,6 +34,8 @@ set(HDRS
     AppInteraction/Commands/ChangeAddress.hpp
     AppInteraction/Commands/ChangeInteractionType.hpp
     AppInteraction/Commands/ChangeMobileDevice.hpp
+    AppInteraction/Commands/SetAppInteractionMax.hpp
+    AppInteraction/Commands/SetAppInteractionMin.hpp	
     AppInteraction/SimpleElement/SimpleElement.hpp
     AppInteraction/SimpleElement/SimpleEntity.hpp
     AppInteraction/PolymorphicEntity/PolymorphicEntity.hpp

@@ -103,6 +103,36 @@ void ProcessModel::setMobileDevice(int arg)
   emit mobileDeviceChanged(arg);
 }
 
+double ProcessModel::min() const
+{
+    return m_min;
+}
+
+void ProcessModel::setMin(double arg)
+{
+    if (m_min == arg)
+    {
+        return;
+    }
+    m_min = arg;
+    emit minChanged(arg);
+}
+
+double ProcessModel::max() const
+{
+    return m_max;
+}
+
+void ProcessModel::setMax(double arg)
+{
+    if (m_max == arg)
+    {
+        return;
+    }
+    m_max = arg;
+    emit maxChanged(arg);
+}
+
 Selection ProcessModel::selectableChildren() const
 {
     return {};
@@ -166,6 +196,9 @@ void DataStreamReader::read(
     m_stream << proc.address();
     m_stream << proc.interactionType();
     m_stream << proc.mobileDevice();
+    m_stream << proc.min();
+    m_stream << proc.max();
+
 
     // Add an element in the stream that will be checked on loading.
     // This is not necessary, but very useful for debugging.
@@ -216,6 +249,8 @@ void DataStreamWriter::write(
     m_stream >> proc.address();
     m_stream >> proc.interactionType();
     m_stream >> proc.mobileDevice();
+    m_stream >> proc.min();
+    m_stream >> proc.max();
 
     // Check that the stream has not been corrupted.
     checkDelimiter();
@@ -234,6 +269,8 @@ void JSONObjectReader::read(
     obj[strings.Address] = toJsonObject(proc.address());
     obj["InteractionType"] = proc.interactionType();
     obj["MobileDevice"] = proc.mobileDevice();
+    obj["Min"] = proc.min();
+    obj["Max"] = proc.max();
 }
 
 template <>
@@ -267,5 +304,7 @@ void JSONObjectWriter::write(
         fromJsonObject<State::AddressAccessor>(obj[strings.Address]));
     proc.setInteractionType(obj["InteractionType"].toInt());
     proc.setMobileDevice(obj["MobileDevice"].toInt());
+    proc.setMin(obj["Min"].toDouble());
+    proc.setMax(obj["Max"].toDouble());
 
 }

@@ -22,6 +22,7 @@ namespace Explorer
 class AddressAccessorEditWidget;
 class DeviceExplorerModel;
 }
+class QDoubleSpinBox;
 namespace AppInteraction
 {
 class ProcessModel;
@@ -43,10 +44,13 @@ class InspectorWidget final :
     void on_addressChange(const Device::FullAddressAccessorSettings& newText);
     void on_interactionTypeChange(int);
     void on_mobileDeviceChange(int);
+    void on_minValueChanged();
+    void on_maxValueChanged();
     Explorer::AddressAccessorEditWidget* m_lineEdit{};
     State::InteractionTypeWidget* m_itw{};
     State::MobileDevicesWidget* m_mdw{};
     CommandDispatcher<> m_dispatcher;
+    QDoubleSpinBox *m_minsb{}, *m_maxsb{};
 };
 
 

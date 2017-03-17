@@ -20,6 +20,8 @@ class ProcessModel final : public Process::ProcessModel
         Q_OBJECT
         Q_PROPERTY(::State::AddressAccessor address READ address WRITE setAddress
                        NOTIFY addressChanged)
+        Q_PROPERTY(double min READ min WRITE setMin NOTIFY minChanged)
+        Q_PROPERTY(double max READ max WRITE setMax NOTIFY maxChanged)
     public:
         ProcessModel(const TimeVal& duration,
                      const Id<Process::ProcessModel>& id,
@@ -35,9 +37,13 @@ class ProcessModel final : public Process::ProcessModel
         ::State::AddressAccessor address() const;
         int interactionType() const;
         int mobileDevice() const;
+        double min() const;
+        double max() const;
         void setAddress(const ::State::AddressAccessor& arg);
         void setInteractionType(int);
         void setMobileDevice(int);
+        void setMin(double);
+        void setMax(double);
 
         iscore::EntityMap<SimpleElement> simpleElements;
         iscore::EntityMap<PolymorphicEntity> polymorphicEntities;
@@ -48,6 +54,8 @@ class ProcessModel final : public Process::ProcessModel
         void addressChanged(const ::State::AddressAccessor&);
         void interactionTypeChanged(int);
         void mobileDeviceChanged(int);
+        void minChanged(double);
+        void maxChanged(double);
 
     private:
         ProcessModel(const ProcessModel& source,
@@ -70,6 +78,8 @@ class ProcessModel final : public Process::ProcessModel
      ::State::AddressAccessor m_address;
      int m_interactionType;
      int m_mobileDevice;
+     double m_min;
+     double m_max;
 
 };
 }
