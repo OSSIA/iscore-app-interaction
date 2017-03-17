@@ -1,4 +1,8 @@
+#include "AppInteraction/DocumentPlugin/AppInteractionDocumentPlugin.hpp"
 #include "AppInteractionApplicationPlugin.hpp"
+#include <iscore/tools/IdentifierGeneration.hpp>
+#include <core/document/Document.hpp>
+#include <core/document/DocumentModel.hpp>
 
 namespace AppInteraction
 {
@@ -39,6 +43,10 @@ bool ApplicationPlugin::handleStartup()
 
 void ApplicationPlugin::on_initDocument(iscore::Document& doc)
 {
+    doc.model().addPluginModel(new AppInteraction::DocumentPlugin(
+                                   doc.context(),
+                                   getStrongId(doc.model().pluginModels()),
+                                   &doc.model()));
 }
 
 void ApplicationPlugin::on_loadedDocument(iscore::Document& doc)

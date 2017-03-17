@@ -64,6 +64,7 @@ class DocumentPlugin final :
                 QObject* parent):
             iscore::SerializableDocumentPlugin{ctx, vis, parent}
         {
+            qDebug("Intanciation docPlugin");
             vis.writeTo(*this);
         }
 

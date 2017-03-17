@@ -9,11 +9,14 @@ DocumentPlugin::DocumentPlugin(
         QObject* parent):
     iscore::SerializableDocumentPlugin{ctx, std::move(id), "DocumentPlugin", parent}
 {
+    qDebug("Génération AppInteraction::DocumentPlugin");
 }
+
 connectionFaussaire::ConnectionManagerFaussaire& DocumentPlugin::connectionManager(){
 
-        return m_connectionManager;
-           }
+    return m_connectionManager;
+}
+
 }
 
 

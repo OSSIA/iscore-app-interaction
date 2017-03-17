@@ -31,22 +31,22 @@ InspectorWidget::InspectorWidget(
     InspectorWidgetDelegate_T {object, parent},
     m_dispatcher{context.commandStack}
 {
-  using namespace Explorer;
+    using namespace Explorer;
 
     // Here we create the GUI for the inspector with Qt widgets.
     auto lay = new QFormLayout{this};
 
     // Address:
     m_lineEdit = new AddressAccessorEditWidget{
-        context.plugin<DeviceDocumentPlugin>().explorer(), this};
+            context.plugin<DeviceDocumentPlugin>().explorer(), this};
 
     m_lineEdit->setAddress(process().address());
     con(process(), &ProcessModel::addressChanged, m_lineEdit,
         &AddressAccessorEditWidget::setAddress);
 
     connect(
-        m_lineEdit, &AddressAccessorEditWidget::addressChanged, this,
-        &InspectorWidget::on_addressChange);
+                m_lineEdit, &AddressAccessorEditWidget::addressChanged, this,
+                &InspectorWidget::on_addressChange);
 
     lay->addRow(tr("Address"), m_lineEdit);
 
@@ -59,8 +59,8 @@ InspectorWidget::InspectorWidget(
     m_itw->setInteractionType(process().interactionType());
 
     connect(
-        m_itw, &State::InteractionTypeWidget::interactionTypeChanged, this,
-        &InspectorWidget::on_interactionTypeChange);
+                m_itw, &State::InteractionTypeWidget::interactionTypeChanged, this,
+                &InspectorWidget::on_interactionTypeChange);
 
     lay->addRow(tr("Interaction Type"), m_itw);
 
@@ -74,65 +74,64 @@ InspectorWidget::InspectorWidget(
     m_mdw->setMobileDevice(process().mobileDevice());
 
     connect(
-        m_mdw, &State::MobileDevicesWidget::mobileDeviceChanged, this,
-        &InspectorWidget::on_mobileDeviceChange);
+                m_mdw, &State::MobileDevicesWidget::mobileDeviceChanged, this,
+                &InspectorWidget::on_mobileDeviceChange);
 
     lay->addRow(tr("Mobile Devices"), m_mdw);
 
-
-  //auto& connectionManager = context.plugin<AppInteraction::DocumentPlugin>().connectionManager();
- // connectionManager.openConnection();
-//    for(auto interaction : connectionManager.interactions())
-//    {
-//            m_itw->addLine(interaction.name());
-//    }
+    auto& m_plugin = context.plugin<AppInteraction::DocumentPlugin>().connectionManager();
+    //  connectionManager.openConnection();
+    //    for(auto interaction : connectionManager.interactions())
+    //    {
+    //            m_itw->addLine(interaction.name());
+    //    }
 
 }
 
 void InspectorWidget::on_addressChange(const Device::FullAddressAccessorSettings& newAddr)
 {
-  // Various checks
-  if (newAddr.address == process().address())
-    return;
+    // Various checks
+    if (newAddr.address == process().address())
+        return;
 
-  if (newAddr.address.address.path.isEmpty())
-    return;
+    if (newAddr.address.address.path.isEmpty())
+        return;
 
-  auto cmd = new ChangeAddress{process(), newAddr};
+    auto cmd = new ChangeAddress{process(), newAddr};
 
-  m_dispatcher.submitCommand(cmd);
+    m_dispatcher.submitCommand(cmd);
 }
 
 void InspectorWidget::on_interactionTypeChange(int newType)
 {
-//    qDebug("on_interactionTypeChange ... \n");
+    //    qDebug("on_interactionTypeChange ... \n");
     // Various checks
     if (newType==0)
-      return;
+        return;
 
     //qDebug("actuel type : %d\n",process().interactionType());
     //qDebug("new type : %d\n",newType);
     if (newType == process().interactionType())
-      return;
+        return;
 
-   auto cmd = new ChangeInteractionType{process(), newType};
-   m_dispatcher.submitCommand(cmd);
+    auto cmd = new ChangeInteractionType{process(), newType};
+    m_dispatcher.submitCommand(cmd);
 
-   //qDebug("on_interactionTypeChange OK ! \n");
-  }
+    //qDebug("on_interactionTypeChange OK ! \n");
+}
 
 void InspectorWidget::on_mobileDeviceChange(int newDevice)
-    {
-        // Various checks
-        if (newDevice==0)
-          return;
+{
+    // Various checks
+    if (newDevice==0)
+        return;
 
-        if (newDevice == process().mobileDevice())
-          return;
+    if (newDevice == process().mobileDevice())
+        return;
 
-       auto cmd = new ChangeMobileDevice{process(), newDevice};
-       m_dispatcher.submitCommand(cmd);
+    auto cmd = new ChangeMobileDevice{process(), newDevice};
+    m_dispatcher.submitCommand(cmd);
 
-    }
+}
 
 }

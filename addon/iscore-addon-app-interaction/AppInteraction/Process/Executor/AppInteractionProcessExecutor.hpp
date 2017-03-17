@@ -1,5 +1,6 @@
 #pragma once
 #include <Engine/Executor/ProcessComponent.hpp>
+#include <AppInteraction/Connection/ConnectionManagerFaussaire.hpp>
 
 namespace Device
 {
@@ -18,42 +19,42 @@ class ProcessModel;
 class ProcessExecutor final :
         public ossia::time_process
 {
-    public:
-        ProcessExecutor(AppInteraction::ProcessModel& element, const Device::DeviceList&);
+public:
+    ProcessExecutor(AppInteraction::ProcessModel& element, const Device::DeviceList&, const Engine::Execution::Context &context);
 
-        void start() override;
-        void stop() override;
-        void pause() override;
-        void resume() override;
+    void start() override;
+    void stop() override;
+    void pause() override;
+    void resume() override;
 
-        ossia::state_element offset(ossia::time_value) override;
-        ossia::state_element state() override;
+    ossia::state_element offset(ossia::time_value) override;
+    ossia::state_element state() override;
 
-    private:
+private:
 
-        const Device::DeviceList& m_devices;
-        int m_mobileDevice;
-
+    const Device::DeviceList& m_devices;
+    int m_mobileDevice;
 };
 
 //! Component and bridge between the GUI / Edition thread and the execution thread.
 class ProcessExecutorComponent final :
         public Engine::Execution::ProcessComponent_T<
-            AppInteraction::ProcessModel,
-            AppInteraction::ProcessExecutor>
+        AppInteraction::ProcessModel,
+        AppInteraction::ProcessExecutor>
 {
-        COMPONENT_METADATA("4797971b-54cd-43e5-8514-e2e941303d1a")
+    COMPONENT_METADATA("4797971b-54cd-43e5-8514-e2e941303d1a")
     public:
         ProcessExecutorComponent(
-                Engine::Execution::ConstraintComponent& parentConstraint,
-                ProcessModel& element,
-                const Engine::Execution::Context& ctx,
-                const Id<iscore::Component>& id,
-                QObject* parent);
+            Engine::Execution::ConstraintComponent& parentConstraint,
+            ProcessModel& element,
+            const Engine::Execution::Context& ctx,
+            //                const iscore::DocumentContext& context,
+            const Id<iscore::Component>& id,
+            QObject* parent);
 };
 
 
 using ProcessExecutorComponentFactory =
-    Engine::Execution::ProcessComponentFactory_T<ProcessExecutorComponent>;
+Engine::Execution::ProcessComponentFactory_T<ProcessExecutorComponent>;
 
 }
