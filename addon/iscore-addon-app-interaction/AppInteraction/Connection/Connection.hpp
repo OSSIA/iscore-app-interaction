@@ -1,13 +1,15 @@
 #pragma once
 #include <algorithm>
-
+#include <QObject>
 #include <ossia/ossia.hpp>
 
 namespace connection
 {
 
-class Connection final
+class Connection final : public QObject
 {
+
+    Q_OBJECT
 private:
     ossia::net::generic_device mDevice;
 
