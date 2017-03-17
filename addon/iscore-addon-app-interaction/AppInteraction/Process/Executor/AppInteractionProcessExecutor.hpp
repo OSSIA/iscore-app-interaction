@@ -34,6 +34,7 @@ private:
 
     const Device::DeviceList& m_devices;
     int m_mobileDevice;
+    connectionFaussaire::ConnectionManagerFaussaire& m_connectionManager;
 };
 
 //! Component and bridge between the GUI / Edition thread and the execution thread.
@@ -43,6 +44,7 @@ class ProcessExecutorComponent final :
         AppInteraction::ProcessExecutor>
 {
     COMPONENT_METADATA("4797971b-54cd-43e5-8514-e2e941303d1a")
+
     public:
         ProcessExecutorComponent(
             Engine::Execution::ConstraintComponent& parentConstraint,

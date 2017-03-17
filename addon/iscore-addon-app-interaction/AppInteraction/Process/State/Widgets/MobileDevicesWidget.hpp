@@ -1,8 +1,9 @@
 #pragma once
 #include <QWidget>
 #include <iscore_addon_app_interaction_export.h>
-//#include "AppInteraction/Connection/ConnectionManagerFaussaire.hpp"
-//#include <AppInteraction/Connection/Connection.hpp>
+#include <AppInteraction/DocumentPlugin/AppInteractionDocumentPlugin.hpp>
+#include "AppInteraction/Connection/ConnectionManagerFaussaire.hpp"
+#include <AppInteraction/Connection/Connection.hpp>
 
  class QComboBox;
  class QHBoxLayout;
@@ -12,7 +13,7 @@ class ISCORE_ADDON_APP_INTERACTION_EXPORT MobileDevicesWidget : public QWidget
  {
    Q_OBJECT
  public:
-   MobileDevicesWidget( QWidget* parent);
+   MobileDevicesWidget(QWidget* parent, const iscore::DocumentContext &context);
    void setMobileDevice(int);
 
 signals:
@@ -21,9 +22,8 @@ signals:
 private:
    QHBoxLayout* m_layout{};
    QComboBox* m_combobox{};
-  std::vector<const char*> MobileList;
-  //connectionFaussaire::ConnectionManagerFaussaire* connectionManager;
-  //std::vector<connection::ConnectionFaussaire> MobileList1;
+//  std::vector<const char*> MobileList;
+  std::vector<connectionFaussaire::ConnectionFaussaire> MobileList;
 
  };
  }

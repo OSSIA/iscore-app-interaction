@@ -13,7 +13,7 @@ namespace connectionFaussaire
 class ConnectionFaussaire final
 {
 private:
-    ossia::net::generic_device* mDevice = new ossia::net::generic_device(std::make_unique<ossia::net::local_protocol>(), "newName");
+    ossia::net::generic_device* mDevice;/* = new ossia::net::generic_device(std::make_unique<ossia::net::local_protocol>(), "newName");*/
     //std::string mDevice;
     std::vector<ossia::value> mRetValues;
 
@@ -22,6 +22,7 @@ public:
 //   ConnectionFaussaire(const connectionFaussaire::ConnectionFaussaire&);
     ~ConnectionFaussaire();
 
+    const std::string getDeviceName();
     /*!
      * \brief sendInteraction
      * \param interaction

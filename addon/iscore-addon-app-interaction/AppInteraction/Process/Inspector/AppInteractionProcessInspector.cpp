@@ -69,7 +69,7 @@ InspectorWidget::InspectorWidget(
 
 
     //MobileDevice:
-    m_mdw = new State::MobileDevicesWidget{this};
+    m_mdw = new State::MobileDevicesWidget{this, context};
 
     con(process(), &ProcessModel::mobileDeviceChanged, m_mdw,
         &State::MobileDevicesWidget::setMobileDevice);
@@ -82,7 +82,7 @@ InspectorWidget::InspectorWidget(
 
     lay->addRow(tr("Mobile Devices"), m_mdw);
 
-    auto& m_plugin = context.plugin<AppInteraction::DocumentPlugin>().connectionManager();
+    //auto& m_plugin = context.plugin<AppInteraction::DocumentPlugin>().connectionManager();
     //  connectionManager.openConnection();
     //    for(auto interaction : connectionManager.interactions())
     //    {

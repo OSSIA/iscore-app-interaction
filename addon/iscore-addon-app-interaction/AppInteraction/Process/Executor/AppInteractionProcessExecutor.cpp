@@ -16,23 +16,34 @@ namespace AppInteraction
 
 ProcessExecutor::ProcessExecutor(AppInteraction::ProcessModel& element,
                                  const Device::DeviceList& devices, const Engine::Execution::Context& context):
-    m_devices{devices}
+    m_devices{devices}, m_connectionManager{context.doc.plugin<AppInteraction::DocumentPlugin>().connectionManager()}
 {
-    qDebug("DEBUT INSTANCIATION PROCESS EXECUTOR ...");
     m_mobileDevice = element.mobileDevice();
-    auto& m_connectionManager = context.doc.plugin<AppInteraction::DocumentPlugin>().connectionManager();
-
-    //auto& m_connectionManager = context.plugin<AppInteraction::DocumentPlugin>().connectionManager();
-    m_connectionManager.openConnection();
-    qDebug("... INSTANCIATION PROCESS EXECUTOR OK");
-
-
 }
 
 
 void ProcessExecutor::start()
 {
-    qDebug("START");
+    qDebug("START ...");
+
+    m_connectionManager.getDevices()[m_mobileDevice].sendInteraction("0:05:01");
+//    State::Value value = State::fromOSSIAValue(vals.back());
+
+
+//    State::Message m;
+//    m.address = address;
+//    m.value = value;
+
+//    if(auto res = Engine::iscore_to_ossia::message(m, m_devices))
+//    {
+//        if(unmuted())
+//            return *res;
+//        return {};
+//    }
+//    else
+//    {
+//        return {};
+//    }
 }
 
 void ProcessExecutor::stop()
@@ -61,32 +72,31 @@ ossia::state_element ProcessExecutor::state()
 {
     /* exemple d'envoi de messages (à processing par ex) */
 
-    State::Address address{"OSCdevice", {"particle", "density"}};
+//    State::Address address{"OSCdevice", {"particle", "density"}};
 
     //State::Value value = State::Value::fromValue(std::abs(qrand()) % 100);
 
 
     /*exemple d'envoie de messages à processing via un value reçu de ConnectionFaussaire*/
 
-    connectionFaussaire::ConnectionFaussaire* cf= new connectionFaussaire::ConnectionFaussaire("ConnexionName");
-    std::vector<ossia::value> vals= (*cf).sendInteraction("Hi!^^");
-    State::Value value = State::fromOSSIAValue(vals.back());
+//    std::vector<ossia::value> vals= (*cf).sendInteraction("Hi!^^");
+//    State::Value value = State::fromOSSIAValue(vals.back());
 
 
-    State::Message m;
-    m.address = address;
-    m.value = value;
+//    State::Message m;
+//    m.address = address;
+//    m.value = value;
 
-    if(auto res = Engine::iscore_to_ossia::message(m, m_devices))
-    {
-        if(unmuted())
-            return *res;
+//    if(auto res = Engine::iscore_to_ossia::message(m, m_devices))
+//    {
+//        if(unmuted())
+//            return *res;
+//        return {};
+//    }
+//    else
+//    {
         return {};
-    }
-    else
-    {
-        return {};
-    }
+//    }
 }
 
 

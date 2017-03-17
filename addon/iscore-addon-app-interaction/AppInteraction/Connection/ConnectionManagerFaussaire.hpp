@@ -23,12 +23,12 @@ public:
      */
     int getNumConnections();
 
-    /*!
-     * \brief openConnection
-     * \return
-     */
-    //ossia::net::generic_device * openConnection();
-    void openConnection();
+//    /*!
+//     * \brief openConnection
+//     * \return
+//     */
+//    //ossia::net::generic_device * openConnection();
+//    void openConnection();
 
     /*!
      * \brief closeConnection

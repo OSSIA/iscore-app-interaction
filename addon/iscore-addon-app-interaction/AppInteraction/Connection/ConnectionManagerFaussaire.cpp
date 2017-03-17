@@ -3,7 +3,10 @@
 using namespace connectionFaussaire;
 
 ConnectionManagerFaussaire::ConnectionManagerFaussaire(){
-
+        std::string device_name = "Co n°1";
+        ConnectionFaussaire co = ConnectionFaussaire(device_name);
+        connectedDevices.insert(connectedDevices.end(), co);
+        qDebug("Connection name \"Co n°1\" opened.");
 }
 
 ConnectionManagerFaussaire::~ConnectionManagerFaussaire(){
@@ -15,12 +18,12 @@ int ConnectionManagerFaussaire::getNumConnections(){
 }
 
 //ossia::net::generic_device * ConnectionManagerFaussaire::openConnection(){}
-void ConnectionManagerFaussaire::openConnection(){
-    std::string device_name = "Co n°1";
-    ConnectionFaussaire co = ConnectionFaussaire(device_name);
-    connectedDevices.insert(connectedDevices.end(), co);
-    qDebug("Connection name \"Co n°1\" opened.");
-}
+//void ConnectionManagerFaussaire::openConnection(){
+//    std::string device_name = "Co n°1";
+//    ConnectionFaussaire co = ConnectionFaussaire(device_name);
+//    connectedDevices.insert(connectedDevices.end(), co);
+//    qDebug("Connection name \"Co n°1\" opened.");
+//}
 
 void ConnectionManagerFaussaire::closeConnection(ConnectionFaussaire c)
 {
