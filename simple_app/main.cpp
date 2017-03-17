@@ -8,7 +8,7 @@
 #include <QObject>
 #include "Signal.hpp"
 #include "extract.hpp"
-
+#include <ossia/ossia.hpp>
 
 
 int main(int argc, char *argv[])
