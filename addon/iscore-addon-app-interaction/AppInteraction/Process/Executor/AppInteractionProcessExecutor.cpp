@@ -15,8 +15,8 @@ namespace AppInteraction
 {
 
 ProcessExecutor::ProcessExecutor(AppInteraction::ProcessModel& element,
-                                 const Device::DeviceList& devices, const Engine::Execution::Context& context):
-    m_devices{devices}, m_connectionManager{context.doc.plugin<AppInteraction::DocumentPlugin>().connectionManager()}
+                                 const Device::DeviceList& devices, const iscore::DocumentContext& context):
+    m_devices{devices}, m_connectionManager{context.plugin<AppInteraction::DocumentPlugin>().connectionManager()}
 {
     m_mobileDevice = element.mobileDevice();
 }
@@ -26,7 +26,7 @@ void ProcessExecutor::start()
 {
     qDebug("START ...");
 
-    m_connectionManager.getDevices()[m_mobileDevice].sendInteraction("0:05:01");
+    //m_connectionManager.getDevices()[m_mobileDevice].sendInteraction("0:05:01");
 //    State::Value value = State::fromOSSIAValue(vals.back());
 
 
@@ -110,7 +110,7 @@ ProcessExecutorComponent::ProcessExecutorComponent(
     ProcessComponent_T{
         parentConstraint, element, ctx, id, "AppInteractionExecutorComponent", parent}
 {
-    m_ossia_process = std::make_shared<ProcessExecutor>(element, ctx.devices.list(), ctx);
+    m_ossia_process = std::make_shared<ProcessExecutor>(element, ctx.devices.list(), ctx.doc);
 }
 
 }

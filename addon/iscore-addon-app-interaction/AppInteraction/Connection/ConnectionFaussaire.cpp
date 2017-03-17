@@ -1,5 +1,4 @@
 #include "ConnectionFaussaire.hpp"
-
 using namespace connectionFaussaire;
 
 ConnectionFaussaire::ConnectionFaussaire(std::string device_name):

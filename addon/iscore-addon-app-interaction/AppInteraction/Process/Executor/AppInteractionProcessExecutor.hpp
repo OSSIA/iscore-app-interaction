@@ -20,7 +20,7 @@ class ProcessExecutor final :
         public ossia::time_process
 {
 public:
-    ProcessExecutor(AppInteraction::ProcessModel& element, const Device::DeviceList&, const Engine::Execution::Context &context);
+    ProcessExecutor(AppInteraction::ProcessModel& element, const Device::DeviceList&, const iscore::DocumentContext& context);
 
     void start() override;
     void stop() override;
