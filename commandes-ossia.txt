@@ -1,0 +1,35 @@
+  525  cd PFA    //dépôt du PFA
+  
+  526  mkdir build
+  
+  527  cd build
+  
+  529  cmake ~/i-score/API -DCMAKE_INSTALL_PREFIX=api-inst -DBOOST_ROOT=~/boost_1_63_0 -DOSSIA_PD=0 -DOSSIA_PYTHON=0 //remplacer ~/i-score/API par le répertoire API du dépôt de i-score, et ~/boost_1_63_0 par le chemin vers votre boost
+  
+  535  make -j4   //Dans le cas d'un processeur 4 coeurs : voir /proc/cpuinfo pour savoir combien vous avez de coeurs
+  
+  538  make install
+
+Si ça ne fonctionne pas:
+
+  540  cd api-inst/
+  
+  544  cd ~/i-score/API
+  
+  545  git pull   //Vérifier que i-score est à jour
+  
+  547  git checkout master
+  
+  548  git submodule update
+  
+  549  cd ~/PFA/build    //Répertoire créé ci dessus
+
+  552  make -j4
+  
+  553  rm -rf **
+  
+  554  cmake ~/i-score/API -DCMAKE_INSTALL_PREFIX=api-inst -DBOOST_ROOT=~/boost_1_63_0 -DOSSIA_PD=0 -DOSSIA_PYTHON=0
+  
+  555  make -j4
+  
+  556  make install
