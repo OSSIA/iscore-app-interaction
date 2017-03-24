@@ -1,6 +1,4 @@
-#ifndef CLIENTCONNECTION_HPP
-#define CLIENTCONNECTION_HPP
-
+#pragma once
 
 class ClientConnection
 {
@@ -9,4 +7,3 @@ public:
     ~ClientConnection();
 };
 
-#endif // CLIENTCONNECTION_HPP

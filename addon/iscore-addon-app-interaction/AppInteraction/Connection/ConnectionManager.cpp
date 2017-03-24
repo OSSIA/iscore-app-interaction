@@ -7,8 +7,20 @@ ConnectionManager::ConnectionManager():
               "iscoreInteraction",
               "iscoreInteraction",
               "iscore",
-              6666,
-              9999))
+              9999,
+              6667))
+{
+
+}
+
+ConnectionManager::ConnectionManager(const connection::ConnectionManager &cm):
+    connectedDevices(cm.getDevices()),
+    zServ(ossia::net::make_zeroconf_server(
+              "iscoreInteraction",
+              "iscoreInteraction",
+              "iscore",
+              9999,
+              6667))
 {
 
 }
@@ -18,7 +30,7 @@ ConnectionManager::~ConnectionManager()
 
 }
 
-int ConnectionManager::getNumConnections()
+int ConnectionManager::getNumConnections() const
 {
     return connectedDevices.size();
 }
@@ -41,8 +53,8 @@ void ConnectionManager::closeConnection(Connection c)
 //    return std::distance(connectedDevices.begin(), it);
 //}
 
-std::vector<connection::Connection> * ConnectionManager::getDevices()
+std::vector<connection::Connection> ConnectionManager::getDevices() const
 {
-    return &connectedDevices;
+    return connectedDevices;
 }
 }

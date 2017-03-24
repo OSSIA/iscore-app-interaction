@@ -18,6 +18,7 @@ private:
 
 public:
     Connection(std::string device_name);
+    Connection(const Connection& c);
     ~Connection();
 
     /*!
@@ -31,7 +32,7 @@ public:
      * \brief getDeviceName returns the name of the device.
      * \return a std::string containing the device's name
      */
-    std::string getDeviceName();
+    std::string getDeviceName() const;
 
 signals:
     /*!

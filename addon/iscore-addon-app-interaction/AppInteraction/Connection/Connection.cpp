@@ -8,6 +8,12 @@ Connection::Connection(std::string device_name):
 
 }
 
+Connection::Connection(const Connection &c):
+    mDevice(std::make_unique<ossia::net::local_protocol>(), c.getDeviceName())
+{
+
+}
+
 Connection::~Connection()
 {
 
@@ -30,7 +36,7 @@ void Connection::sendInteraction(const std::string interaction)
     }
 }
 
-std::string Connection::getDeviceName()
+std::string Connection::getDeviceName() const
 {
     return mDevice.getName();
 }

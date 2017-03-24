@@ -17,13 +17,14 @@ private:
 
 public:
     ConnectionManager();
+    ConnectionManager(const ConnectionManager& cm);
     ~ConnectionManager();
 
     /*!
      * \brief getNumConnections gives the number of connected devices.
      * \return an int.
      */
-    int getNumConnections();
+    int getNumConnections() const;
 
     /*!
      * \brief closeConnection
@@ -42,6 +43,6 @@ public:
      * \brief getDevices returns the list of currently connected devices.
      * \return a pointer to a std::vector<Connection>.
      */
-    std::vector<Connection> * getDevices();
+    std::vector<Connection> getDevices() const;
 };
 }
