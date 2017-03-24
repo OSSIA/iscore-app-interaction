@@ -1,10 +1,14 @@
 #pragma once
 
 #include <AppInteraction/Connection/Connection.hpp>
+#include <ossia/network/zeroconf/zeroconf.hpp>
 
 namespace connection
 {
-
+/*!
+ * \brief The ConnectionManager class keeps track of all the connected devices.
+ * Instanciate this class once and it will automatically publish the service on the network and handle new connections.
+ */
 class ConnectionManager final
 {
 private:
@@ -17,15 +21,9 @@ public:
 
     /*!
      * \brief getNumConnections gives the number of connected devices.
-     * \return
+     * \return an int.
      */
     int getNumConnections();
-
-    /*!
-     * \brief openConnection
-     * \return
-     */
-    ossia::net::generic_device * openConnection();
 
     /*!
      * \brief closeConnection
@@ -41,8 +39,8 @@ public:
 //    size_t findDevice(std::string name);
 
     /*!
-     * \brief getDevices
-     * \return
+     * \brief getDevices returns the list of currently connected devices.
+     * \return a pointer to a std::vector<Connection>.
      */
     std::vector<Connection> * getDevices();
 };

@@ -30,4 +30,9 @@ void Connection::sendInteraction(const std::string interaction)
     }
 }
 
+std::string Connection::getDeviceName()
+{
+    return mDevice.getName();
+}
+
 }
