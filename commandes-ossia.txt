@@ -11,9 +11,7 @@
   538  make install
 
 Si ça ne fonctionne pas:
-
-  540  cd api-inst/
-  
+ 
   544  cd ~/i-score/API
   
   545  git pull   //Vérifier que i-score est à jour

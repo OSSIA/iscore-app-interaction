@@ -1,12 +1,17 @@
-#ifndef CLIENTCONNECTION_HPP
-#define CLIENTCONNECTION_HPP
 
+
+#pragma once
+#include <ossia/ossia.hpp>
 
 class ClientConnection
 {
+private:
+
+
+
 public:
     ClientConnection();
     ~ClientConnection();
 };
 
-#endif // CLIENTCONNECTION_HPP
+

@@ -6,7 +6,8 @@ CONFIG += c++14
 SOURCES += \
     main.cpp \
     Signal.cpp \
-    extract.cpp
+    extract.cpp \
+    ClientConnection.cpp
 
 
 RESOURCES += qml.qrc
@@ -42,7 +43,8 @@ DISTFILES += \
 HEADERS += \
     Signal.hpp \
     extract.hpp \
-    ../../boost_1_63_0/boost/optional.hpp
+    ../../boost_1_63_0/boost/optional.hpp \
+    ClientConnection.hpp
 
 unix:!macx: LIBS += -L$$PWD/../build/api-inst/lib/ -lossia
 
