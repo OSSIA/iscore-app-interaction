@@ -5,7 +5,9 @@
 
 namespace connection
 {
-
+/*!
+ * \brief The Connection class describes a device that is connected to iscore.
+ */
 class Connection final : public QObject
 {
 
@@ -16,15 +18,26 @@ private:
 
 public:
     Connection(std::string device_name);
+    Connection(const Connection& c);
     ~Connection();
 
     /*!
-     * \brief sendInteraction
-     * \param interaction
+     * \brief sendInteraction sends a message to the connected device telling which interaction should be started.
+     * \param interaction must be in the following format:
+     *          TODO : describe the protocol
      */
     void sendInteraction(const std::string interaction);
 
+    /*!
+     * \brief getDeviceName returns the name of the device.
+     * \return a std::string containing the device's name
+     */
+    std::string getDeviceName() const;
+
 signals:
+    /*!
+     * \brief interactionValueReturned is emitted each time the device updates its interaction node.
+     */
     void interactionValueReturned(const ossia::value&);
 };
 }

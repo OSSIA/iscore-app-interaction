@@ -1,5 +1,3 @@
-
-
 #pragma once
 #include <ossia/ossia.hpp>
 
@@ -13,5 +11,3 @@ public:
     ClientConnection();
     ~ClientConnection();
 };
-
-

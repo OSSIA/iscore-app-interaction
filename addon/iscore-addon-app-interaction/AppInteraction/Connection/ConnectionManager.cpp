@@ -7,10 +7,21 @@ ConnectionManager::ConnectionManager():
               "iscoreInteraction",
               "iscoreInteraction",
               "iscore",
-              6666,
-              9999))
+              9999,
+              6667))
 {
-    // TODO : link KDNSSD library
+
+}
+
+ConnectionManager::ConnectionManager(const connection::ConnectionManager &cm):
+    connectedDevices(cm.getDevices()),
+    zServ(ossia::net::make_zeroconf_server(
+              "iscoreInteraction",
+              "iscoreInteraction",
+              "iscore",
+              9999,
+              6667))
+{
 
 }
 
@@ -19,36 +30,31 @@ ConnectionManager::~ConnectionManager()
 
 }
 
-int ConnectionManager::getNumConnections()
+int ConnectionManager::getNumConnections() const
 {
     return connectedDevices.size();
 }
 
-ossia::net::generic_device * ConnectionManager::openConnection()
-{
-    // listen to the network
-    return {};
-}
 
 void ConnectionManager::closeConnection(Connection c)
 {
 
 }
 
-//size_t connection::ConnectionManager::findDevice(std::string name)
+//size_t ConnectionManager::findDevice(std::string name)
 //{
 //    std::vector<Connection>::iterator it = std::find_if(
 //                connectedDevices.begin(),
 //                connectedDevices.end(),
-//                [=](ossia::net::generic_device dev) {
-//        return !dev.getName().compare(name);
+//                [&name](const ossia::net::generic_device& dev) {
+//        return dev.getName().compare(name) == 0;
 //    });
 
 //    return std::distance(connectedDevices.begin(), it);
 //}
 
-std::vector<connection::Connection> * ConnectionManager::getDevices()
+std::vector<connection::Connection> ConnectionManager::getDevices() const
 {
-    return &connectedDevices;
+    return connectedDevices;
 }
 }
