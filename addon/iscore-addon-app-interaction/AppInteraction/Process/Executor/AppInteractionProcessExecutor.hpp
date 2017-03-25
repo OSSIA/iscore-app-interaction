@@ -1,6 +1,8 @@
 #pragma once
 #include <Engine/Executor/ProcessComponent.hpp>
 #include <AppInteraction/Connection/ConnectionManagerFaussaire.hpp>
+#include <State/Address.hpp>
+#include <qobject.h>
 
 namespace Device
 {
@@ -17,7 +19,8 @@ namespace AppInteraction
 class ProcessModel;
 //! The class that does the actual execution, in the execution thread
 class ProcessExecutor final :
-        public ossia::time_process
+        public ossia::time_process,
+        public QObject
 {
 public:
     ProcessExecutor(AppInteraction::ProcessModel& element, const Device::DeviceList&, const iscore::DocumentContext& context);
@@ -30,11 +33,14 @@ public:
     ossia::state_element offset(ossia::time_value) override;
     ossia::state_element state() override;
 
+    ossia::state_element interactionValueReceived(const ossia::value&);
+
 private:
 
     const Device::DeviceList& m_devices;
     int m_mobileDevice;
     connectionFaussaire::ConnectionManagerFaussaire& m_connectionManager;
+    ::State::AddressAccessor m_address;
 };
 
 //! Component and bridge between the GUI / Edition thread and the execution thread.

@@ -15,20 +15,21 @@ private:
 
 public:
     ConnectionManagerFaussaire ();
+    ConnectionManagerFaussaire(const ConnectionManagerFaussaire& cm);
     ~ConnectionManagerFaussaire ();
 
     /*!
      * \brief getNumConnections gives the number of connected devices.
      * \return
      */
-    int getNumConnections();
+    int getNumConnections() const;
 
-//    /*!
-//     * \brief openConnection
-//     * \return
-//     */
-//    //ossia::net::generic_device * openConnection();
-//    void openConnection();
+    //    /*!
+    //     * \brief openConnection
+    //     * \return
+    //     */
+    //    //ossia::net::generic_device * openConnection();
+    //    void openConnection();
 
     /*!
      * \brief closeConnection
@@ -41,12 +42,12 @@ public:
      * \param name
      * \return
      */
-    size_t findDevice(std::string name);
+    // size_t findDevice(std::string name);
 
     /*!
      * \brief getDevices
      * \return
      */
-   std::vector<ConnectionFaussaire> getDevices();
+    std::vector<ConnectionFaussaire> getDevices() const;
 };
 }
