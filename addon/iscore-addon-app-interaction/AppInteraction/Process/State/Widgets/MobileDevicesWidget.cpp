@@ -39,7 +39,7 @@ MobileDevicesWidget::MobileDevicesWidget( QWidget* parent, const iscore::Documen
 
     for(int i=0; i<m_connectionManager.getNumConnections();++i)
     {
-        m_combobox->addItem(tr(MobileList[i].getDeviceName().c_str()));
+        m_combobox->addItem(tr(MobileList[i]->getDeviceName().c_str()));
     }
 
 

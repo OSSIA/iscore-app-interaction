@@ -9,11 +9,11 @@ ConnectionFaussaire::ConnectionFaussaire(std::string device_name):
 
 }
 
-ConnectionFaussaire::ConnectionFaussaire(const ConnectionFaussaire &connection):
-    mDevice(std::make_unique<ossia::net::local_protocol>(), connection.getDeviceName())
-{
-    qDebug("Constructeur par recopie de ConnectionFaussaire");
-}
+//ConnectionFaussaire::ConnectionFaussaire(const ConnectionFaussaire &connection):
+//    mDevice(std::make_unique<ossia::net::local_protocol>(), connection.getDeviceName())
+//{
+//    qDebug("Constructeur par recopie de ConnectionFaussaire");
+//}
 
 ConnectionFaussaire::~ConnectionFaussaire(){
 }

@@ -8,10 +8,10 @@
 namespace connectionFaussaire
 {
 
-class ConnectionFaussaire final //: public QObject
+class ConnectionFaussaire final : public QObject
 {
 
-    //  Q_OBJECT
+      Q_OBJECT
 private:
     ossia::net::generic_device mDevice;/* = new ossia::net::generic_device(std::make_unique<ossia::net::local_protocol>(), "newName");*/
     //std::string mDevice;
@@ -19,7 +19,7 @@ private:
 
 public:
     ConnectionFaussaire(std::string device_name);
-    ConnectionFaussaire(const ConnectionFaussaire&);
+    //ConnectionFaussaire(const ConnectionFaussaire&);
     ~ConnectionFaussaire();
 
     std::vector<ossia::value>  getMRetValues ();

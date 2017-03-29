@@ -10,12 +10,12 @@ namespace connectionFaussaire
 class ConnectionManagerFaussaire  final
 {
 private:
-    std::vector<ConnectionFaussaire> connectedDevices;
+    std::vector<ConnectionFaussaire*> connectedDevices;
 
 
 public:
     ConnectionManagerFaussaire ();
-    ConnectionManagerFaussaire(const ConnectionManagerFaussaire& cm);
+    //ConnectionManagerFaussaire(const ConnectionManagerFaussaire& cm);
     ~ConnectionManagerFaussaire ();
 
     /*!
@@ -35,7 +35,7 @@ public:
      * \brief closeConnection
      * \param c
      */
-    void closeConnection(ConnectionFaussaire c);
+    void closeConnection(ConnectionFaussaire *c);
 
     /*!
      * \brief findConnection
@@ -48,6 +48,6 @@ public:
      * \brief getDevices
      * \return
      */
-    std::vector<ConnectionFaussaire> getDevices() const;
+    std::vector<ConnectionFaussaire*> getDevices() const;
 };
 }

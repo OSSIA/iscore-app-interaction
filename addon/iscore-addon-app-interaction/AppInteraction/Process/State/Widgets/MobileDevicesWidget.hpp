@@ -23,7 +23,7 @@ private:
    QHBoxLayout* m_layout{};
    QComboBox* m_combobox{};
 //  std::vector<const char*> MobileList;
-  std::vector<connectionFaussaire::ConnectionFaussaire> MobileList;
+  std::vector<connectionFaussaire::ConnectionFaussaire*> MobileList;
 
  };
  }

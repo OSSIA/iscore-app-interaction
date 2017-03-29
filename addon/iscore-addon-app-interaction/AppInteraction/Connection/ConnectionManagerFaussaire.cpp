@@ -4,17 +4,17 @@ using namespace connectionFaussaire;
 
 ConnectionManagerFaussaire::ConnectionManagerFaussaire(){
     std::string device_name = "Co n°1";
-    ConnectionFaussaire co = ConnectionFaussaire(device_name);
-    // connectedDevices.insert(connectedDevices.end(), co);
+    ConnectionFaussaire* co = new ConnectionFaussaire(device_name);
+    connectedDevices.insert(connectedDevices.end(), co);
     qDebug("Connection name \"Co n°1\" opened.");
 }
 
 
-ConnectionManagerFaussaire::ConnectionManagerFaussaire(const connectionFaussaire::ConnectionManagerFaussaire &cm):
-    connectedDevices(cm.getDevices())
-{
+//ConnectionManagerFaussaire::ConnectionManagerFaussaire(const connectionFaussaire::ConnectionManagerFaussaire &cm):
+//    connectedDevices(cm.getDevices())
+//{
 
-}
+//}
 
 ConnectionManagerFaussaire::~ConnectionManagerFaussaire(){
 
@@ -34,9 +34,9 @@ int ConnectionManagerFaussaire::getNumConnections() const
 //    qDebug("Connection name \"Co n°1\" opened.");
 //}
 
-void ConnectionManagerFaussaire::closeConnection(ConnectionFaussaire c)
+void ConnectionManagerFaussaire::closeConnection(ConnectionFaussaire* c)
 {
-    //connectedDevices.erase(connectedDevices.begin(),connectedDevices.end());
+    connectedDevices.erase(connectedDevices.begin(),connectedDevices.end());
     qDebug("Connection closed.");
 }
 
@@ -45,6 +45,6 @@ void ConnectionManagerFaussaire::closeConnection(ConnectionFaussaire c)
 //}
 
 
-std::vector<ConnectionFaussaire> ConnectionManagerFaussaire::getDevices() const{
+std::vector<ConnectionFaussaire*> ConnectionManagerFaussaire::getDevices() const{
     return connectedDevices;
 }

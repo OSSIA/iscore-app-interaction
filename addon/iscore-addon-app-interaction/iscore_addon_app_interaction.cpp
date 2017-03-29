@@ -128,8 +128,6 @@ iscore_addon_app_interaction::factories(
            AppInteraction::ProcessExecutorComponentFactory>,
         FW<Engine::LocalTree::ProcessComponentFactory,
            AppInteraction::LocalTreeProcessComponentFactory>,
-        FW<iscore::DocumentPluginFactory,
-           AppInteraction::DocumentPluginFactory>,
         FW<iscore::PanelDelegateFactory,
            AppInteraction::PanelDelegateFactory>,
         FW<

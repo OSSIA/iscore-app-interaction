@@ -19,8 +19,7 @@ namespace AppInteraction
 class ProcessModel;
 //! The class that does the actual execution, in the execution thread
 class ProcessExecutor final :
-        public ossia::time_process,
-        public QObject
+        public ossia::time_process
 {
 public:
     ProcessExecutor(AppInteraction::ProcessModel& element, const Device::DeviceList&, const iscore::DocumentContext& context);
@@ -39,7 +38,7 @@ private:
 
     const Device::DeviceList& m_devices;
     int m_mobileDevice;
-    connectionFaussaire::ConnectionManagerFaussaire& m_connectionManager;
+    connectionFaussaire::ConnectionManagerFaussaire m_connectionManager;
     ::State::AddressAccessor m_address;
 };
 

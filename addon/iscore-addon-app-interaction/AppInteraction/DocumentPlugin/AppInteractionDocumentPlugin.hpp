@@ -40,12 +40,9 @@ namespace AppInteraction
  *
  */
 class DocumentPlugin final :
-        public iscore::SerializableDocumentPlugin
+        public iscore::DocumentPlugin
 {
         Q_OBJECT
-        ISCORE_SERIALIZE_FRIENDS
-
-        SERIALIZABLE_MODEL_METADATA_IMPL(DocumentPlugin)
 
         private:
             connectionFaussaire::ConnectionManagerFaussaire m_connectionManager = connectionFaussaire::ConnectionManagerFaussaire();
@@ -57,19 +54,7 @@ class DocumentPlugin final :
                     Id<iscore::DocumentPlugin> id,
                     QObject* parent);
 
-        template<typename Impl>
-        DocumentPlugin(
-                const iscore::DocumentContext& ctx,
-                Impl& vis,
-                QObject* parent):
-            iscore::SerializableDocumentPlugin{ctx, vis, parent}
-        {
-            qDebug("Intanciation docPlugin");
-            vis.writeTo(*this);
-        }
-
+            virtual ~DocumentPlugin();
 
 };
-
-using DocumentPluginFactory = iscore::DocumentPluginFactory_T<DocumentPlugin>;
 }

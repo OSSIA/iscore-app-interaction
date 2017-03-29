@@ -25,10 +25,10 @@ ProcessExecutor::ProcessExecutor(AppInteraction::ProcessModel& element,
 {
     if(m_mobileDevice != 0)
     {
-        std::vector<connectionFaussaire::ConnectionFaussaire> m_connections = m_connectionManager.getDevices();
-        //connect(
-        //      &m_connections[m_mobileDevice-1], &connectionFaussaire::ConnectionFaussaire::interactionValueReturned, this,
-        //    &ProcessExecutor::interactionValueReceived);
+        std::vector<connectionFaussaire::ConnectionFaussaire*> m_connections = m_connectionManager.getDevices();
+        QObject::connect(
+              m_connections[m_mobileDevice-1], &connectionFaussaire::ConnectionFaussaire::interactionValueReturned,
+                [=] (const auto& val) { this->interactionValueReceived(val); });
     }
 }
 
