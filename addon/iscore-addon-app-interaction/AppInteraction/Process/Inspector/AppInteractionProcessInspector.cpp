@@ -83,8 +83,8 @@ InspectorWidget::InspectorWidget(
     lay->addRow(tr("Mobile Devices"), m_mdw);
 
     //auto& m_plugin = context.plugin<AppInteraction::DocumentPlugin>().connectionManager();
-    //  connectionManager.openConnection();
-    //    for(auto interaction : connectionManager.interactions())
+    //  connectionManager->openConnection();
+    //    for(auto interaction : connectionManager->interactions())
     //    {
     //            m_itw->addLine(interaction.name());
     //    }

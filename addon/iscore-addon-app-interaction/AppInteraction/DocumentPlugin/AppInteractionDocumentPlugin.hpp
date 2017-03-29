@@ -45,9 +45,9 @@ class DocumentPlugin final :
         Q_OBJECT
 
         private:
-            connectionFaussaire::ConnectionManagerFaussaire m_connectionManager = connectionFaussaire::ConnectionManagerFaussaire();
+            connectionFaussaire::ConnectionManagerFaussaire* m_connectionManager = new connectionFaussaire::ConnectionManagerFaussaire();
         public:
-            connectionFaussaire::ConnectionManagerFaussaire& connectionManager();
+            connectionFaussaire::ConnectionManagerFaussaire* connectionManager();
 
             explicit DocumentPlugin(
                     const iscore::DocumentContext& ctx,

@@ -16,13 +16,13 @@ MobileDevicesWidget::MobileDevicesWidget( QWidget* parent, const iscore::Documen
     m_combobox = new QComboBox{this};
     m_layout->addWidget(m_combobox);
 
-    auto& m_connectionManager = context.plugin<AppInteraction::DocumentPlugin>().connectionManager();
+    auto* m_connectionManager = context.plugin<AppInteraction::DocumentPlugin>().connectionManager();
 
     //TEMPORARY list for test
     //    MobileList={"Mobile Device n°1","Mobile Device n°2","Mobile Device n°3","Mobile Device n°4","Mobile Device n°5","Mobile Device n°6"};
 
 
-    MobileList=m_connectionManager.getDevices();
+    MobileList=m_connectionManager->getDevices();
 
 
 
@@ -37,7 +37,7 @@ MobileDevicesWidget::MobileDevicesWidget( QWidget* parent, const iscore::Documen
 
 
 
-    for(int i=0; i<m_connectionManager.getNumConnections();++i)
+    for(int i=0; i<m_connectionManager->getNumConnections();++i)
     {
         m_combobox->addItem(tr(MobileList[i]->getDeviceName().c_str()));
     }

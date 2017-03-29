@@ -32,13 +32,13 @@ public:
     ossia::state_element offset(ossia::time_value) override;
     ossia::state_element state() override;
 
-    ossia::state_element interactionValueReceived(const ossia::value&);
+    ossia::state_element interactionValueReceived(const ossia::value &);
 
 private:
 
     const Device::DeviceList& m_devices;
     int m_mobileDevice;
-    connectionFaussaire::ConnectionManagerFaussaire m_connectionManager;
+    connectionFaussaire::ConnectionManagerFaussaire* m_connectionManager;
     ::State::AddressAccessor m_address;
 };
 

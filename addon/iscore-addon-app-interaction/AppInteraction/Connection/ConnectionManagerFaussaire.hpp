@@ -15,7 +15,6 @@ private:
 
 public:
     ConnectionManagerFaussaire ();
-    //ConnectionManagerFaussaire(const ConnectionManagerFaussaire& cm);
     ~ConnectionManagerFaussaire ();
 
     /*!
@@ -24,25 +23,11 @@ public:
      */
     int getNumConnections() const;
 
-    //    /*!
-    //     * \brief openConnection
-    //     * \return
-    //     */
-    //    //ossia::net::generic_device * openConnection();
-    //    void openConnection();
-
     /*!
      * \brief closeConnection
      * \param c
      */
     void closeConnection(ConnectionFaussaire *c);
-
-    /*!
-     * \brief findConnection
-     * \param name
-     * \return
-     */
-    // size_t findDevice(std::string name);
 
     /*!
      * \brief getDevices

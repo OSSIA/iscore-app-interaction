@@ -23,9 +23,10 @@ ProcessExecutor::ProcessExecutor(AppInteraction::ProcessModel& element,
     m_connectionManager{context.plugin<AppInteraction::DocumentPlugin>().connectionManager()},
     m_address{element.address()}
 {
+    qDebug("ProcessExecutor : m_mobileDevice index : %d",m_mobileDevice);
     if(m_mobileDevice != 0)
     {
-        std::vector<connectionFaussaire::ConnectionFaussaire*> m_connections = m_connectionManager.getDevices();
+        std::vector<connectionFaussaire::ConnectionFaussaire*> m_connections = m_connectionManager->getDevices();
         QObject::connect(
               m_connections[m_mobileDevice-1], &connectionFaussaire::ConnectionFaussaire::interactionValueReturned,
                 [=] (const auto& val) { this->interactionValueReceived(val); });
@@ -37,7 +38,8 @@ void ProcessExecutor::start()
 {
     qDebug("START ...");
     qDebug("TODO : write function to encode msg to the mobile app");
-    //m_connectionManager.getDevices()[m_mobileDevice].sendInteraction("0:05:01");
+    const std::string interaction = "1:1:1";
+    m_connectionManager->getDevices()[m_mobileDevice]->sendInteraction(interaction);
 }
 
 void ProcessExecutor::stop()
