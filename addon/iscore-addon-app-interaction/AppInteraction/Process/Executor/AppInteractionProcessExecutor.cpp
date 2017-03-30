@@ -7,7 +7,7 @@
 #include <ossia/editor/state/state_element.hpp>
 #include <AppInteraction/DocumentPlugin/AppInteractionDocumentPlugin.hpp>
 
-#include <State/Value.hpp>
+//#include <State/Value.hpp>
 #include <State/ValueConversion.hpp>
 
 
@@ -21,15 +21,17 @@ ProcessExecutor::ProcessExecutor(AppInteraction::ProcessModel& element,
     m_devices{devices},
     m_mobileDevice{element.mobileDevice()},
     m_connectionManager{context.plugin<AppInteraction::DocumentPlugin>().connectionManager()},
-    m_address{element.address()}
+    m_address{element.address()},
+    m_interaction{element.interactionType()},
+    m_duration{element.duration().sec()}
 {
     qDebug("ProcessExecutor : m_mobileDevice index : %d",m_mobileDevice);
     if(m_mobileDevice != 0)
     {
         std::vector<connectionFaussaire::ConnectionFaussaire*> m_connections = m_connectionManager->getDevices();
         QObject::connect(
-              m_connections[m_mobileDevice-1], &connectionFaussaire::ConnectionFaussaire::interactionValueReturned,
-                [=] (const auto& val) { this->interactionValueReceived(val); });
+                    m_connections[m_mobileDevice-1], &connectionFaussaire::ConnectionFaussaire::interactionValueReturned,
+                [=] (const auto& val) { this->interactionValueReceived(val); }); // activated when new ossia value received from app
     }
 }
 
@@ -38,79 +40,64 @@ void ProcessExecutor::start()
 {
     qDebug("START ...");
     qDebug("TODO : write function to encode msg to the mobile app");
-    const std::string interaction = "1:1:1";
-    m_connectionManager->getDevices()[m_mobileDevice]->sendInteraction(interaction);
+    //const std::string interaction = "1:1:1";
+    if (m_interaction == 0)
+    {
+        qDebug("No interaction type chosen");
+        return;
+    }
+    char* interaction;
+    sprintf(interaction,"%d:%f:%d", m_interaction-1, m_duration,1);
+
+    if (m_mobileDevice>0)
+        m_connectionManager->getDevices()[m_mobileDevice-1]->sendInteraction(interaction);
+    else
+        qDebug("No Mobile device selected -> no interaction sent.");
 }
 
 void ProcessExecutor::stop()
 {
-    qDebug("STOP");
 }
 
 void ProcessExecutor::pause()
 {
-    qDebug("PAUSE");
 }
 
 void ProcessExecutor::resume()
 {
-    qDebug("RESUME");
 }
 
 ossia::state_element ProcessExecutor::offset(
         ossia::time_value off)
 {
-    qDebug("OFFSET");
     return {};
 }
 
 ossia::state_element ProcessExecutor::state()
 {
-    /* exemple d'envoi de messages (à processing par ex) */
-
-    //    State::Address address{"OSCdevice", {"particle", "density"}};
-
-    //State::Value value = State::Value::fromValue(std::abs(qrand()) % 100);
-
-
-    /*exemple d'envoie de messages à processing via un value reçu de ConnectionFaussaire*/
-
-    //    std::vector<ossia::value> vals= (*cf).sendInteraction("Hi!^^");
-    //    State::Value value = State::fromOSSIAValue(vals.back());
-
-
-    //    State::Message m;
-    //    m.address = address;
-    //    m.value = value;
-
-    //    if(auto res = Engine::iscore_to_ossia::message(m, m_devices))
-    //    {
-    //        if(unmuted())
-    //            return *res;
-    //        return {};
-    //    }
-    //    else
-    //    {
     return {};
-    //    }
 }
 
 ossia::state_element ProcessExecutor::interactionValueReceived(const ossia::value& val){
-    qDebug("New ossia value received by the process executor !");
+    qDebug("Ossia value received (from connectionFaussaire)");
 
     State::Value value = State::fromOSSIAValue(val);
     State::Message m;
     m.address = m_address;
     m.value = value;
 
-    if(auto res = Engine::iscore_to_ossia::message(m, m_devices))
+    if(auto res = Engine::iscore_to_ossia::message(m, m_devices)) //segfault at the second play
     {
         if(unmuted())
+        {
+            qDebug("msg sent ok");
             return *res;
+        }
         return {};
     }
     else
     {
+        qDebug("error while sending msg");
         return {};
     }
 }

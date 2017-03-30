@@ -3,6 +3,7 @@
 #include <AppInteraction/Connection/ConnectionManagerFaussaire.hpp>
 #include <State/Address.hpp>
 #include <qobject.h>
+#include <State/Value.hpp>
 
 namespace Device
 {
@@ -40,6 +41,8 @@ private:
     int m_mobileDevice;
     connectionFaussaire::ConnectionManagerFaussaire* m_connectionManager;
     ::State::AddressAccessor m_address;
+    int m_interaction;
+    double m_duration;
 };
 
 //! Component and bridge between the GUI / Edition thread and the execution thread.

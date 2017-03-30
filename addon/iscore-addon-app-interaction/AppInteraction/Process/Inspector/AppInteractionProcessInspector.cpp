@@ -149,8 +149,6 @@ void InspectorWidget::on_interactionTypeChange(int newType)
 void InspectorWidget::on_mobileDeviceChange(int newDevice)
 {
     // Various checks
-    if (newDevice==0)
-        return;
 
     if (newDevice == process().mobileDevice())
         return;

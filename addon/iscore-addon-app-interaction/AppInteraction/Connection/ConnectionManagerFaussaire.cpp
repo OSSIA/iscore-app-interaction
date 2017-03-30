@@ -3,8 +3,7 @@
 using namespace connectionFaussaire;
 
 ConnectionManagerFaussaire::ConnectionManagerFaussaire(){
-    std::string device_name = "co";
-    ConnectionFaussaire* co = new ConnectionFaussaire(device_name);
+    ConnectionFaussaire* co = new ConnectionFaussaire("co");
     connectedDevices.insert(connectedDevices.end(), co);
     qDebug("Connection name \"co\" opened.");
 }
