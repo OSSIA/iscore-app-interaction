@@ -39,8 +39,7 @@ ProcessExecutor::ProcessExecutor(AppInteraction::ProcessModel& element,
 void ProcessExecutor::start()
 {
     qDebug("START ...");
-    qDebug("TODO : write function to encode msg to the mobile app");
-    //const std::string interaction = "1:1:1";
+
     if (m_interaction == 0)
     {
         qDebug("No interaction type chosen");

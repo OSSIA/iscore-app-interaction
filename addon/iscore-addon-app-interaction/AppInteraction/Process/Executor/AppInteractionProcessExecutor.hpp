@@ -36,7 +36,6 @@ public:
     ossia::state_element interactionValueReceived(const ossia::value &);
 
 private:
-
     const Device::DeviceList& m_devices;
     int m_mobileDevice;
     connectionFaussaire::ConnectionManagerFaussaire* m_connectionManager;

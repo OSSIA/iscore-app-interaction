@@ -15,12 +15,11 @@ class ConnectionFaussaire final : public QObject
 private:
     ossia::net::generic_device mDevice;
     const std::string mDeviceName;
-//    std::vector<ossia::value> mRetValues;
+
 public:
     ConnectionFaussaire(const std::string device_name);
     ~ConnectionFaussaire();
 
-//    std::vector<ossia::value>  getMRetValues ();
     ossia::net::generic_device& getMDevice();
     const std::string getDeviceName() const;
     /*!

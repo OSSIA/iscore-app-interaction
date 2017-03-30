@@ -3,12 +3,15 @@
 using namespace connectionFaussaire;
 
 ConnectionManagerFaussaire::ConnectionManagerFaussaire(){
-    ConnectionFaussaire* co = new ConnectionFaussaire("co");
-    connectedDevices.insert(connectedDevices.end(), co);
-    qDebug("Connection name \"co\" opened.");
+    ConnectionFaussaire* co1 = new ConnectionFaussaire("co1");
+    ConnectionFaussaire* co2 = new ConnectionFaussaire("co2");
+    connectedDevices.insert(connectedDevices.end(), co1);
+    connectedDevices.insert(connectedDevices.end(), co2);
+    qDebug("Connections named \"co1\" and \"co2\" opened.");
 }
 
-ConnectionManagerFaussaire::~ConnectionManagerFaussaire(){
+ConnectionManagerFaussaire::~ConnectionManagerFaussaire()
+{
 
 }
 
@@ -25,6 +28,7 @@ void ConnectionManagerFaussaire::closeConnection(ConnectionFaussaire* c)
 }
 
 
-std::vector<ConnectionFaussaire*> ConnectionManagerFaussaire::getDevices() const{
+std::vector<ConnectionFaussaire*> ConnectionManagerFaussaire::getDevices() const
+{
     return connectedDevices;
 }
