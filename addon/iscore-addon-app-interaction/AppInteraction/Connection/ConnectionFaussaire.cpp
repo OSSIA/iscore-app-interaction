@@ -33,14 +33,17 @@ void ConnectionFaussaire::sendInteraction(const std::string interaction){
 //    qDebug("Duration : %d", duration);
 //    qDebug("Type wanted : %d.",type);
 
-    for (int i=0; i<10;i++)
+    for (int i=0; i<1;i++)
     {
-        const ossia::value val = (float)i*10;
+        const ossia::value val = 100;
+        //qDebug("Ossia val : %f", val.get<float>());
         emit interactionValueReturned(val); /* SEGFAULT Resolved (maybe)*/
-        sleep(2);
+        //sleep(2);
+
     }
 
     qDebug("SendInteraction : end.");
+    return;
 }
 
 ossia::net::generic_device& ConnectionFaussaire::getMDevice(){
