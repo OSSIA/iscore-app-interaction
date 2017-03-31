@@ -74,25 +74,7 @@ ossia::state_element ProcessExecutor::offset(
 
 ossia::state_element ProcessExecutor::state()
 {
-    State::Address address{"OSCdevice", {"particle", "density"}};
-
-    State::Value value = State::Value::fromValue(std::abs(qrand()) % 100);
-
-    State::Message m;
-    m.address = address;
-    m.value = value;
-
-    if(auto res = Engine::iscore_to_ossia::message(m, m_devices))
-    {
-        if(unmuted())
-            return *res;
         return {};
-    }
-    else
-    {
-        return {};
-    }
-    //    return {};
 }
 
 ossia::state_element ProcessExecutor::interactionValueReceived(const ossia::value& val){
