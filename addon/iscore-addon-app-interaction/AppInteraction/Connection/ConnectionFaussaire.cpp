@@ -7,7 +7,7 @@ ConnectionFaussaire::ConnectionFaussaire(const std::string device_name):
     mDevice(std::make_unique<ossia::net::local_protocol>(), device_name),
     mDeviceName(device_name)
 {
-    qDebug("New Connection named %s created.", mDeviceName.c_str());
+//    qDebug("New Connection named %s created.", mDeviceName.c_str());
 }
 
 
@@ -23,7 +23,7 @@ const std::string ConnectionFaussaire::getDeviceName() const
 }
 
 void ConnectionFaussaire::sendInteraction(const std::string interaction){
-    qDebug("SendInteraction : generating and emitting ossia values ...");
+//    qDebug("SendInteraction : generating and emitting ossia values ...");
 //    qDebug("Interaction msg : %s", interaction.c_str());
 
     //qDebug("Interaction sent to : %s", mDevice.getName()); /* SEGFAULT */
@@ -36,9 +36,9 @@ void ConnectionFaussaire::sendInteraction(const std::string interaction){
 
     for (int i=0; i<1;i++)
     {
-        const ossia::value val = ossia::value((float)1);
+        const ossia::value val = ossia::value((float)150);
         //qDebug("Ossia val : %f", val.get<float>());
-        emit interactionValueReturned(val); /* SEGFAULT Resolved (maybe)*/
+        emit interactionValueReturned(val);
         //sleep(2);
 
     }

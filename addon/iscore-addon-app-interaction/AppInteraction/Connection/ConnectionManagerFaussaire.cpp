@@ -7,7 +7,7 @@ ConnectionManagerFaussaire::ConnectionManagerFaussaire(){
     ConnectionFaussaire* co2 = new ConnectionFaussaire("co2");
     connectedDevices.insert(connectedDevices.end(), co1);
     connectedDevices.insert(connectedDevices.end(), co2);
-    qDebug("Connections named \"co1\" and \"co2\" opened.");
+//    qDebug("Connections named \"co1\" and \"co2\" opened.");
 }
 
 ConnectionManagerFaussaire::~ConnectionManagerFaussaire()
@@ -24,7 +24,7 @@ int ConnectionManagerFaussaire::getNumConnections() const
 void ConnectionManagerFaussaire::closeConnection(ConnectionFaussaire* c)
 {
     connectedDevices.erase(connectedDevices.begin(),connectedDevices.end());
-    qDebug("Connection closed.");
+//    qDebug("Connection closed.");
 }
 
 

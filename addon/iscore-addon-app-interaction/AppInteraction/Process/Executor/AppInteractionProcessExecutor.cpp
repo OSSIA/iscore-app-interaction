@@ -26,6 +26,9 @@ ProcessExecutor::ProcessExecutor(AppInteraction::ProcessModel& element,
     m_duration{element.duration().sec()}
 {
     qDebug("ProcessExecutor : address : %s",m_address.toString().toStdString().c_str());
+
+    m_newMessageCreated = false;
+
     if(m_mobileDevice != 0)
     {
         std::vector<connectionFaussaire::ConnectionFaussaire*> m_connections = m_connectionManager->getDevices();
@@ -35,18 +38,21 @@ ProcessExecutor::ProcessExecutor(AppInteraction::ProcessModel& element,
     }
 }
 
+ProcessExecutor::~ProcessExecutor()
+{
+    std::vector<connectionFaussaire::ConnectionFaussaire*> m_connections = m_connectionManager->getDevices();
+    QObject::disconnect(m_connections[m_mobileDevice-1], &connectionFaussaire::ConnectionFaussaire::interactionValueReturned,
+            NULL, (void**)0);
+}
 
 void ProcessExecutor::start()
 {
-    qDebug("START ...");
-
     if (m_interaction == 0)
     {
         qDebug("No interaction type chosen");
         return;
     }
-    char* interaction;
-    sprintf(interaction,"%d:%f:%d", m_interaction-1, m_duration,1);
+    std::string interaction = fmt::format("{:d}:{:f}:{:d}", m_interaction-1, m_duration,1);
 
     if (m_mobileDevice>0)
         m_connectionManager->getDevices()[m_mobileDevice-1]->sendInteraction(interaction);
@@ -74,33 +80,37 @@ ossia::state_element ProcessExecutor::offset(
 
 ossia::state_element ProcessExecutor::state()
 {
+    if (m_newMessageCreated == true){
+        m_newMessageCreated = false;
+
+        State::Value value = State::Value::fromValue(State::fromOSSIAValue(m_val));
+        State::Message m;
+        m.address = m_address;
+        m.value = value;
+        qDebug("Ossia value : %f", m_val.get<float>());
+        qDebug("Msg address : %s",m.address.toString().toStdString().c_str());
+
+        if(auto res = Engine::iscore_to_ossia::message(m, m_devices))
+        {
+            if(unmuted())
+            {
+                qDebug("msg sent ok");
+                return *res;
+            }
+            return {};
+        }
+        else
+        {
+            qDebug("error while sending msg");
+            return {};
+        }
+    }
     return {};
 }
 
-ossia::state_element ProcessExecutor::interactionValueReceived(const ossia::value& val){
-    qDebug("Ossia value received (from connectionFaussaire)");
-
-    State::Value value = State::Value::fromValue(State::fromOSSIAValue(val));
-    State::Message m;
-    m.address = m_address;
-    m.value = value;
-    //qDebug("Ossia value : %f", val.get<float>());
-    qDebug("Msg address : %s",m.address.toString().toStdString().c_str());
-
-    if(auto res = Engine::iscore_to_ossia::message(m, m_devices)) //segfault at the second play
-    {
-        if(unmuted())
-        {
-            qDebug("msg sent ok");
-            return *res;
-        }
-        return {};
-    }
-    else
-    {
-        qDebug("error while sending msg");
-        return {};
-    }
+void ProcessExecutor::interactionValueReceived(const ossia::value& val){
+    m_newMessageCreated = true;
+    m_val = val;
 }
 
 ProcessExecutorComponent::ProcessExecutorComponent(

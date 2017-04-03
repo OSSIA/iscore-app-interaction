@@ -24,6 +24,7 @@ class ProcessExecutor final :
 {
 public:
     ProcessExecutor(AppInteraction::ProcessModel& element, const Device::DeviceList&, const iscore::DocumentContext& context);
+    ~ProcessExecutor();
 
     void start() override;
     void stop() override;
@@ -33,7 +34,7 @@ public:
     ossia::state_element offset(ossia::time_value) override;
     ossia::state_element state() override;
 
-    ossia::state_element interactionValueReceived(const ossia::value &);
+    void interactionValueReceived(const ossia::value &);
 
 private:
     const Device::DeviceList& m_devices;
@@ -42,6 +43,9 @@ private:
     ::State::AddressAccessor m_address;
     int m_interaction;
     double m_duration;
+
+    bool m_newMessageCreated;
+    ossia::value m_val;
 };
 
 //! Component and bridge between the GUI / Edition thread and the execution thread.
