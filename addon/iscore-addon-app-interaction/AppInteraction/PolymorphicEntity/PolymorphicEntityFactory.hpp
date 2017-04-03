@@ -13,7 +13,7 @@ class ISCORE_ADDON_APP_INTERACTION_EXPORT PolymorphicElementFactory :
         public iscore::Interface<PolymorphicElementFactory>
 {
         //! Uniquely identifies this kind of factory.
-        ISCORE_INTERFACE("a7c67e8c-9302-4f12-9deb-6d020f74d1d4")
+        ISCORE_INTERFACE("bb8ee0e3-f773-4f8e-8831-8292a523283c")
 
         public:
             virtual ~PolymorphicElementFactory();

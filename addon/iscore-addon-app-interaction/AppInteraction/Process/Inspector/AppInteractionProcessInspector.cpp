@@ -61,8 +61,7 @@ InspectorWidget::InspectorWidget(
 
     m_itw->setInteractionType(process().interactionType());
 
-    connect(
-                m_itw, &State::InteractionTypeWidget::interactionTypeChanged, this,
+    connect(m_itw, &State::InteractionTypeWidget::interactionTypeChanged, this,
                 &InspectorWidget::on_interactionTypeChange);
 
     lay->addRow(tr("Interaction Type"), m_itw);
@@ -76,8 +75,7 @@ InspectorWidget::InspectorWidget(
 
     m_mdw->setMobileDevice(process().mobileDevice());
 
-    connect(
-                m_mdw, &State::MobileDevicesWidget::mobileDeviceChanged, this,
+    connect(m_mdw, &State::MobileDevicesWidget::mobileDeviceChanged, this,
                 &InspectorWidget::on_mobileDeviceChange);
 
     lay->addRow(tr("Mobile Devices"), m_mdw);
@@ -116,6 +114,7 @@ InspectorWidget::InspectorWidget(
 
 void InspectorWidget::on_addressChange(const Device::FullAddressAccessorSettings& newAddr)
 {
+//    qDebug("New address: %s", newAddr.address.toString().toStdString().c_str());
     // Various checks
     if (newAddr.address == process().address())
         return;

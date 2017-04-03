@@ -9,7 +9,7 @@ class ProcessModel;
 PROCESS_METADATA(
         ,
         AppInteraction::ProcessModel,
-        "8337475a-9a3c-4195-9d60-b25c8bb94756",
+        "72f064f8-a55d-4e79-ac99-233d53af1689",
         "AppInteraction",
         "AppInteraction"
         )

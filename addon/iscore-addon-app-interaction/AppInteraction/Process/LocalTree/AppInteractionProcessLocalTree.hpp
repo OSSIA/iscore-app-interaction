@@ -15,7 +15,7 @@ class EffectFactoryList;
 class LocalTreeProcessComponent :
         public Engine::LocalTree::ProcessComponent_T<ProcessModel>
 {
-        COMPONENT_METADATA("b387ed01-831a-487d-8686-42094813f2a7")
+        COMPONENT_METADATA("45b687ad-8bf5-4e28-8c96-50307d3eaa40")
 
     public:
        LocalTreeProcessComponent(

@@ -12,7 +12,7 @@ PanelDelegate::PanelDelegate(
     m_widget = new QWidget;
     auto lay = new QFormLayout{m_widget};
 
-    lay->addWidget(new QLabel{tr("This is a panel.")});
+    lay->addWidget(new QLabel{tr("AppInteraction Panel.")});
 }
 
 QWidget* PanelDelegate::widget()

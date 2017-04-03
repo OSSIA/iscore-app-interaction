@@ -1,6 +1,6 @@
 #pragma once
 #include <algorithm>
-#include<QObject>
+#include <QObject>
 #include <ossia/ossia.hpp>
 
 

@@ -1,4 +1,5 @@
 #include "ConnectionFaussaire.hpp"
+#include <State/Value.hpp>
 
 using namespace connectionFaussaire;
 
@@ -35,7 +36,7 @@ void ConnectionFaussaire::sendInteraction(const std::string interaction){
 
     for (int i=0; i<1;i++)
     {
-        const ossia::value val = 100;
+        const ossia::value val = ossia::value((float)1);
         //qDebug("Ossia val : %f", val.get<float>());
         emit interactionValueReturned(val); /* SEGFAULT Resolved (maybe)*/
         //sleep(2);

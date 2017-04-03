@@ -50,7 +50,7 @@ class ProcessExecutorComponent final :
         AppInteraction::ProcessModel,
         AppInteraction::ProcessExecutor>
 {
-    COMPONENT_METADATA("4797971b-54cd-43e5-8514-e2e941303d1a")
+    COMPONENT_METADATA("a41d3004-0989-4987-950a-d5e24dfb92f9")
 
     public:
         ProcessExecutorComponent(

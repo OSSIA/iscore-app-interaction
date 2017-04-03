@@ -25,7 +25,7 @@ ProcessExecutor::ProcessExecutor(AppInteraction::ProcessModel& element,
     m_interaction{element.interactionType()},
     m_duration{element.duration().sec()}
 {
-    qDebug("ProcessExecutor : m_mobileDevice index : %d",m_mobileDevice);
+    qDebug("ProcessExecutor : address : %s",m_address.toString().toStdString().c_str());
     if(m_mobileDevice != 0)
     {
         std::vector<connectionFaussaire::ConnectionFaussaire*> m_connections = m_connectionManager->getDevices();
@@ -74,17 +74,19 @@ ossia::state_element ProcessExecutor::offset(
 
 ossia::state_element ProcessExecutor::state()
 {
-        return {};
+    return {};
 }
 
 ossia::state_element ProcessExecutor::interactionValueReceived(const ossia::value& val){
     qDebug("Ossia value received (from connectionFaussaire)");
 
-    State::Value value = State::Value::fromValue(/*State::fromOSSIAValue(val*/ (std::abs(qrand()) % 100));
+    State::Value value = State::Value::fromValue(State::fromOSSIAValue(val));
     State::Message m;
     m.address = m_address;
     m.value = value;
     //qDebug("Ossia value : %f", val.get<float>());
+    qDebug("Msg address : %s",m.address.toString().toStdString().c_str());
+
     if(auto res = Engine::iscore_to_ossia::message(m, m_devices)) //segfault at the second play
     {
         if(unmuted())

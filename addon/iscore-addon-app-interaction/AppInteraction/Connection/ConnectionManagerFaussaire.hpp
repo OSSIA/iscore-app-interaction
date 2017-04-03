@@ -7,8 +7,10 @@
 namespace connectionFaussaire
 {
 
-class ConnectionManagerFaussaire  final
+class ConnectionManagerFaussaire  final : public QObject
 {
+
+    Q_OBJECT
 private:
     std::vector<ConnectionFaussaire*> connectedDevices;
 
