@@ -4,30 +4,30 @@
             "Constraint": {
                 "Components": [
                 ],
-                "DefaultDuration": 15000,
+                "DefaultDuration": 14099.302093384245,
                 "EndState": 1,
                 "FullView": {
                     "CenterOn": [
                         0,
                         0,
-                        619,
-                        602
+                        377,
+                        406
                     ],
                     "ObjectName": "FullViewConstraintViewModel",
                     "ShownRack": 1,
-                    "Zoom": 0.0099792480515219495,
+                    "Zoom": 0,
                     "id": 0
                 },
                 "HeightPercentage": 0,
-                "MaxDuration": 15000,
+                "MaxDuration": "inf",
                 "MaxInf": true,
                 "Metadata": {
                     "Color": "Transparent1",
                     "Comment": "",
                     "Label": "",
-                    "ScriptingName": "Untitled.dent74ever59"
+                    "ScriptingName": "test3avril"
                 },
-                "MinDuration": 15000,
+                "MinDuration": 14099.302093384245,
                 "MinNull": false,
                 "ObjectName": "Scenario::ConstraintModel",
                 "Processes": [
@@ -40,7 +40,7 @@
                             {
                                 "Components": [
                                 ],
-                                "DefaultDuration": 5779.4443411610009,
+                                "DefaultDuration": 12227.713319926159,
                                 "EndState": 2,
                                 "FullView": {
                                     "CenterOn": [
@@ -54,16 +54,16 @@
                                     "Zoom": -1,
                                     "id": 2
                                 },
-                                "HeightPercentage": 0.059452237808951237,
-                                "MaxDuration": 5779.4443411610009,
+                                "HeightPercentage": 0.03674014696058784,
+                                "MaxDuration": 12227.713319926159,
                                 "MaxInf": false,
                                 "Metadata": {
                                     "Color": "Transparent1",
                                     "Comment": "",
                                     "Label": "",
-                                    "ScriptingName": "yawn41aloe93"
+                                    "ScriptingName": "wart77slug10"
                                 },
-                                "MinDuration": 5779.4443411610009,
+                                "MinDuration": 12227.713319926159,
                                 "MinNull": false,
                                 "ObjectName": "Scenario::ConstraintModel",
                                 "Processes": [
@@ -73,15 +73,15 @@
                                             ],
                                             "Unit": "none",
                                             "address": {
-                                                "Device": "OSCdevice",
+                                                "Device": "triangles",
                                                 "Path": "particle/density"
                                             }
                                         },
                                         "Components": [
                                         ],
-                                        "Duration": 5779.4443411610009,
+                                        "Duration": 5660.819279861345,
                                         "InteractionType": 2,
-                                        "Max": 13,
+                                        "Max": 300,
                                         "Metadata": {
                                             "Color": "",
                                             "Comment": "",
@@ -96,7 +96,7 @@
                                         "SimpleElements": [
                                         ],
                                         "id": 1,
-                                        "uuid": "8337475a-9a3c-4195-9d60-b25c8bb94756"
+                                        "uuid": "72f064f8-a55d-4e79-ac99-233d53af1689"
                                     }
                                 ],
                                 "Rackes": [
@@ -129,7 +129,7 @@
                                                             "Parents": 2
                                                         },
                                                         "id": 1,
-                                                        "uuid": "d5dc8583-3f7f-49ae-9664-fadda04f42fa"
+                                                        "uuid": "14b2f6ce-cd47-4330-9134-b50e711cd561"
                                                     }
                                                 ],
                                                 "Metadata": {
@@ -154,7 +154,7 @@
                                 "id": 1
                             }
                         ],
-                        "Duration": 15000,
+                        "Duration": 14099.302093384245,
                         "Events": [
                             {
                                 "Components": [
@@ -187,7 +187,7 @@
                                 "Date": 0,
                                 "Extent": [
                                     0.02,
-                                    0.059452237808951237
+                                    0.03674014696058784
                                 ],
                                 "Metadata": {
                                     "Color": "Emphasis4",
@@ -232,16 +232,16 @@
                                     "RootNode": {
                                     }
                                 },
-                                "Date": 5779.4443411610009,
+                                "Date": 12227.713319926159,
                                 "Extent": [
-                                    0.059452237808951237,
-                                    0.059452237808951237
+                                    0.03674014696058784,
+                                    0.03674014696058784
                                 ],
                                 "Metadata": {
                                     "Color": "Emphasis4",
                                     "Comment": "",
                                     "Label": "",
-                                    "ScriptingName": "dyad95drum75"
+                                    "ScriptingName": "torr98roam17"
                                 },
                                 "ObjectName": "Scenario::EventModel",
                                 "Offset": 0,
@@ -302,7 +302,7 @@
                                 "Components": [
                                 ],
                                 "Event": 0,
-                                "HeightPercentage": 0.059452237808951237,
+                                "HeightPercentage": 0.03674014696058784,
                                 "Messages": {
                                     "Accessors": [
                                     ],
@@ -337,11 +337,66 @@
                                 "Components": [
                                 ],
                                 "Event": 1,
-                                "HeightPercentage": 0.059452237808951237,
+                                "HeightPercentage": 0.03674014696058784,
                                 "Messages": {
                                     "Accessors": [
                                     ],
                                     "Children": [
+                                        {
+                                            "Accessors": [
+                                            ],
+                                            "Children": [
+                                                {
+                                                    "Accessors": [
+                                                    ],
+                                                    "Children": [
+                                                        {
+                                                            "Accessors": [
+                                                            ],
+                                                            "Children": [
+                                                            ],
+                                                            "Following": [
+                                                            ],
+                                                            "Name": "density",
+                                                            "Previous": [
+                                                            ],
+                                                            "Priorities": [
+                                                                1,
+                                                                2,
+                                                                0
+                                                            ],
+                                                            "Unit": "none",
+                                                            "User": {
+                                                                "Type": "Float",
+                                                                "Value": 0
+                                                            }
+                                                        }
+                                                    ],
+                                                    "Following": [
+                                                    ],
+                                                    "Name": "particle",
+                                                    "Previous": [
+                                                    ],
+                                                    "Priorities": [
+                                                        1,
+                                                        2,
+                                                        0
+                                                    ],
+                                                    "Unit": "none"
+                                                }
+                                            ],
+                                            "Following": [
+                                            ],
+                                            "Name": "triangles",
+                                            "Previous": [
+                                            ],
+                                            "Priorities": [
+                                                1,
+                                                2,
+                                                0
+                                            ],
+                                            "Unit": "none"
+                                        }
                                     ],
                                     "Following": [
                                     ],
@@ -379,10 +434,10 @@
                                 ],
                                 "Extent": [
                                     0.02,
-                                    0.059452237808951237
+                                    0.03674014696058784
                                 ],
                                 "Metadata": {
-                                    "Color": "HalfDark",
+                                    "Color": "HalfLight",
                                     "Comment": "",
                                     "Label": "",
                                     "ScriptingName": "TimeNode.0"
@@ -421,19 +476,19 @@
                             {
                                 "Components": [
                                 ],
-                                "Date": 5779.4443411610009,
+                                "Date": 12227.713319926159,
                                 "Events": [
                                     1
                                 ],
                                 "Extent": [
-                                    0.059452237808951237,
-                                    0.059452237808951237
+                                    0.03674014696058784,
+                                    0.03674014696058784
                                 ],
                                 "Metadata": {
-                                    "Color": "HalfDark",
+                                    "Color": "HalfLight",
                                     "Comment": "",
                                     "Label": "",
-                                    "ScriptingName": "dent69robs34"
+                                    "ScriptingName": "mane74drip66"
                                 },
                                 "ObjectName": "Scenario::TimeNodeModel",
                                 "Trigger": {
@@ -561,10 +616,10 @@
                     "RootNode": {
                     }
                 },
-                "Date": 15000,
+                "Date": 14099.302093384245,
                 "Extent": [
-                    0.40000000000000002,
-                    0.59999999999999998
+                    0.4,
+                    0.6
                 ],
                 "Metadata": {
                     "Color": "Emphasis4",
@@ -618,16 +673,16 @@
             "EndTimeNode": {
                 "Components": [
                 ],
-                "Date": 15000,
+                "Date": 14099.302093384245,
                 "Events": [
                     1
                 ],
                 "Extent": [
-                    0.20000000000000001,
-                    0.80000000000000004
+                    0.2,
+                    0.8
                 ],
                 "Metadata": {
-                    "Color": "HalfDark",
+                    "Color": "HalfLight",
                     "Comment": "",
                     "Label": "",
                     "ScriptingName": "TimeNode.1"
@@ -694,8 +749,8 @@
                 },
                 "Date": 0,
                 "Extent": [
-                    0.10000000000000001,
-                    0.14999999999999999
+                    0.1,
+                    0.15
                 ],
                 "Metadata": {
                     "Color": "Emphasis4",
@@ -754,11 +809,11 @@
                     0
                 ],
                 "Extent": [
-                    0.20000000000000001,
-                    0.80000000000000004
+                    0.2,
+                    0.8
                 ],
                 "Metadata": {
-                    "Color": "HalfDark",
+                    "Color": "HalfLight",
                     "Comment": "",
                     "Label": "",
                     "ScriptingName": "TimeNode.0"
@@ -796,25 +851,59 @@
             },
             "id": 0
         },
-        "DocumentId": 1157342853,
+        "DocumentId": -460528985,
         "ObjectName": "Scenario::ScenarioDocumentModel",
         "id": 1
     },
     "Plugins": {
-        "DocumentPlugin": {
-            "DocumentPostModelPart": {
-            },
-            "ObjectName": "DocumentPlugin",
-            "id": 1,
-            "uuid": "a6f13d05-c54b-4d77-ae23-7dc89ac9f2c9"
-        },
         "Explorer::DeviceDocumentPlugin": {
             "Children": [
                 {
                     "Children": [
                         {
                             "AddressSettings": {
-                                "ClipMode": "Clip",
+                                "ClipMode": "Free",
+                                "Domain": {
+                                    "Vec3f": {
+                                        "Max": [
+                                            1,
+                                            1,
+                                            1
+                                        ],
+                                        "Min": [
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "Values": [
+                                            [
+                                            ],
+                                            [
+                                            ],
+                                            [
+                                            ]
+                                        ]
+                                    }
+                                },
+                                "Extended": {
+                                },
+                                "Name": "color",
+                                "RepetitionFilter": false,
+                                "Type": "Vec3f",
+                                "Unit": "none",
+                                "Value": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "ioType": "<->"
+                            },
+                            "Children": [
+                            ]
+                        },
+                        {
+                            "AddressSettings": {
+                                "ClipMode": "Free",
                                 "Domain": {
                                 },
                                 "Extended": {
@@ -824,7 +913,7 @@
                                 "Type": "None",
                                 "Unit": "none",
                                 "Value": null,
-                                "ioType": ""
+                                "ioType": "<-"
                             },
                             "Children": [
                                 {
@@ -833,6 +922,27 @@
                                         "Domain": {
                                             "Float": {
                                                 "Max": 1,
+                                                "Min": 0
+                                            }
+                                        },
+                                        "Extended": {
+                                        },
+                                        "Name": "radius",
+                                        "RepetitionFilter": false,
+                                        "Type": "Float",
+                                        "Unit": "none",
+                                        "Value": 0,
+                                        "ioType": "<->"
+                                    },
+                                    "Children": [
+                                    ]
+                                },
+                                {
+                                    "AddressSettings": {
+                                        "ClipMode": "Free",
+                                        "Domain": {
+                                            "Float": {
+                                                "Max": 3,
                                                 "Min": 0
                                             }
                                         },
@@ -853,8 +963,8 @@
                     ],
                     "DeviceSettings": {
                         "Host": "127.0.0.1",
-                        "InputPort": 13003,
-                        "Name": "OSCdevice",
+                        "InputPort": 13001,
+                        "Name": "triangles",
                         "OutputPort": 13002,
                         "Protocol": "9a42de4b-f6eb-4bca-9564-01b975f601b9"
                     }
