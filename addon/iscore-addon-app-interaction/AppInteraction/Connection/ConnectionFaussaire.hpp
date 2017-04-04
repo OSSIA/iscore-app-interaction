@@ -11,7 +11,7 @@ namespace connectionFaussaire
 class ConnectionFaussaire final : public QObject
 {
 
-      Q_OBJECT
+    Q_OBJECT
 private:
     ossia::net::generic_device mDevice;
     const std::string mDeviceName;
@@ -28,10 +28,8 @@ public:
      * \return
      */
     void sendInteraction(const std::string interaction);
+
 signals:
-    /*!
-     * \brief interactionValueReturned is emitted each time the device updates its interaction node.
-     */
     void interactionValueReturned(const ossia::value&);
 };
 }

@@ -16,7 +16,6 @@
 #include <QLabel>
 #include <QSpinBox>
 #include <iscore/widgets/SpinBoxes.hpp>
-//#include <QPushButton>
 #include <QWidget>
 #include "AppInteraction/Process/State/Widgets/InteractionTypeWidget.hpp"
 #include "AppInteraction/Process/State/Widgets/MobileDevicesWidget.hpp"
@@ -62,7 +61,7 @@ InspectorWidget::InspectorWidget(
     m_itw->setInteractionType(process().interactionType());
 
     connect(m_itw, &State::InteractionTypeWidget::interactionTypeChanged, this,
-                &InspectorWidget::on_interactionTypeChange);
+            &InspectorWidget::on_interactionTypeChange);
 
     lay->addRow(tr("Interaction Type"), m_itw);
 
@@ -76,45 +75,37 @@ InspectorWidget::InspectorWidget(
     m_mdw->setMobileDevice(process().mobileDevice());
 
     connect(m_mdw, &State::MobileDevicesWidget::mobileDeviceChanged, this,
-                &InspectorWidget::on_mobileDeviceChange);
+            &InspectorWidget::on_mobileDeviceChange);
 
     lay->addRow(tr("Mobile Devices"), m_mdw);
 
-    //auto& m_plugin = context.plugin<AppInteraction::DocumentPlugin>().connectionManager();
-    //  connectionManager->openConnection();
-    //    for(auto interaction : connectionManager->interactions())
-    //    {
-    //            m_itw->addLine(interaction.name());
-    //    }
-
     //Min/Max
 
-        m_minsb = new iscore::SpinBox<float>{this};
-        m_maxsb = new iscore::SpinBox<float>{this};
+    m_minsb = new iscore::SpinBox<float>{this};
+    m_maxsb = new iscore::SpinBox<float>{this};
 
 
-        con(process(), &ProcessModel::minChanged, m_minsb,
-            &QDoubleSpinBox::setValue);
-        con(process(), &ProcessModel::maxChanged, m_maxsb,
-            &QDoubleSpinBox::setValue);
+    con(process(), &ProcessModel::minChanged, m_minsb,
+        &QDoubleSpinBox::setValue);
+    con(process(), &ProcessModel::maxChanged, m_maxsb,
+        &QDoubleSpinBox::setValue);
 
-        m_minsb->setValue(process().min());
-        m_maxsb->setValue(process().max());
+    m_minsb->setValue(process().min());
+    m_maxsb->setValue(process().max());
 
-        connect(
-            m_minsb, &QAbstractSpinBox::editingFinished, this,
-            &InspectorWidget::on_minValueChanged);
-        connect(
-            m_maxsb, &QAbstractSpinBox::editingFinished, this,
-            &InspectorWidget::on_maxValueChanged);
+    connect(
+                m_minsb, &QAbstractSpinBox::editingFinished, this,
+                &InspectorWidget::on_minValueChanged);
+    connect(
+                m_maxsb, &QAbstractSpinBox::editingFinished, this,
+                &InspectorWidget::on_maxValueChanged);
 
-        lay->addRow(tr("Min"), m_minsb);
-        lay->addRow(tr("Max"), m_maxsb);
+    lay->addRow(tr("Min"), m_minsb);
+    lay->addRow(tr("Max"), m_maxsb);
 }
 
 void InspectorWidget::on_addressChange(const Device::FullAddressAccessorSettings& newAddr)
 {
-//    qDebug("New address: %s", newAddr.address.toString().toStdString().c_str());
     // Various checks
     if (newAddr.address == process().address())
         return;
@@ -129,26 +120,20 @@ void InspectorWidget::on_addressChange(const Device::FullAddressAccessorSettings
 
 void InspectorWidget::on_interactionTypeChange(int newType)
 {
-    //    qDebug("on_interactionTypeChange ... \n");
     // Various checks
     if (newType==0)
         return;
 
-    //qDebug("actuel type : %d\n",process().interactionType());
-    //qDebug("new type : %d\n",newType);
     if (newType == process().interactionType())
         return;
 
     auto cmd = new ChangeInteractionType{process(), newType};
     m_dispatcher.submitCommand(cmd);
-
-    //qDebug("on_interactionTypeChange OK ! \n");
 }
 
 void InspectorWidget::on_mobileDeviceChange(int newDevice)
 {
     // Various checks
-
     if (newDevice == process().mobileDevice())
         return;
 
@@ -158,26 +143,24 @@ void InspectorWidget::on_mobileDeviceChange(int newDevice)
 }
 void InspectorWidget::on_minValueChanged()
 {
-  auto newVal = m_minsb->value();
- /* qDebug(" newval %lf\n",newVal);
-  qDebug("min %lf\n",process().min()); OK*/
-  if (newVal != process().min())
-  {
-    auto cmd = new SetMin{process(), newVal};
+    auto newVal = m_minsb->value();
+    if (newVal != process().min())
+    {
+        auto cmd = new SetMin{process(), newVal};
 
-    m_dispatcher.submitCommand(cmd);
-  }
+        m_dispatcher.submitCommand(cmd);
+    }
 }
 
 void InspectorWidget::on_maxValueChanged()
 {
-  auto newVal = m_maxsb->value();
-  if (newVal != process().max())
-  {
-    auto cmd = new SetMax{process(), newVal};
+    auto newVal = m_maxsb->value();
+    if (newVal != process().max())
+    {
+        auto cmd = new SetMax{process(), newVal};
 
-    m_dispatcher.submitCommand(cmd);
-  }
+        m_dispatcher.submitCommand(cmd);
+    }
 }
 
 }

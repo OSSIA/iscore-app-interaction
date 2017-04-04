@@ -40,13 +40,8 @@ namespace State
 
   void InteractionTypeWidget::setInteractionType(int i)
   {
-    // qDebug("/!\ setInteractionType...\n");
-
     QSignalBlocker b(this);
-    //qDebug("signal blocker ok...\n");
     m_combobox->setCurrentIndex(i);
-     //qDebug("setcurrentindex ok...\n");
-    // qDebug("setInteractionType to index %d\n",m_combobox->currentIndex());
   }
 
   const char* InteractionTypeWidget::getInteractionType()

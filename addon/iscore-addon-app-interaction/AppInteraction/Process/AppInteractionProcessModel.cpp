@@ -78,7 +78,6 @@ int ProcessModel::interactionType() const
 
 void ProcessModel::setInteractionType(int arg)
 {
-  // qDebug("last type : %d, new type : %d\n",m_interactionType, arg); //works ok
   if (m_interactionType == arg)
   {
     return;
@@ -94,7 +93,6 @@ int ProcessModel::mobileDevice() const
 
 void ProcessModel::setMobileDevice(int arg)
 {
-  // qDebug("last type : %d, new type : %d\n",m_mobileDevice, arg); //works ok
   if (m_mobileDevice == arg)
   {
     return;

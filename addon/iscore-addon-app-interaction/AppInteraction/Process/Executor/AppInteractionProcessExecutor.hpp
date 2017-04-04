@@ -43,6 +43,8 @@ private:
     ::State::AddressAccessor m_address;
     int m_interaction;
     double m_duration;
+    double m_min;
+    double m_max;
 
     ossia::value m_val;
 };
