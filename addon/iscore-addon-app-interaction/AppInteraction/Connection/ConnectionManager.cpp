@@ -1,60 +1,66 @@
-#include <AppInteraction/Connection/ConnectionManager.hpp>
+﻿#include <AppInteraction/Connection/ConnectionManager.hpp>
 
 namespace connection
 {
 ConnectionManager::ConnectionManager():
-    zServ(ossia::net::make_zeroconf_server(
+    m_zeroconfServ(ossia::net::make_zeroconf_server(
               "iscoreInteraction",
               "iscoreInteraction",
               "iscore",
               9999,
-              6667))
+              6666)),
+    m_Serv(new QTcpServer())
 {
-
-}
-
-ConnectionManager::ConnectionManager(const connection::ConnectionManager &cm):
-    connectedDevices(cm.getDevices()),
-    zServ(ossia::net::make_zeroconf_server(
-              "iscoreInteraction",
-              "iscoreInteraction",
-              "iscore",
-              9999,
-              6667))
-{
-
+    if (m_Serv->listen(QHostAddress::Any, 9999))
+    {
+        connect(m_Serv, &QTcpServer::newConnection,
+                this, &ConnectionManager::openConnection);
+    }
 }
 
 ConnectionManager::~ConnectionManager()
 {
+    for (Connection* co : m_connectedDevices)
+    {
+        delete co;
+    }
 
+    delete m_Serv;
 }
 
 int ConnectionManager::getNumConnections() const
 {
-    return connectedDevices.size();
+    return m_connectedDevices.size();
 }
 
 
-void ConnectionManager::closeConnection(Connection c)
+void ConnectionManager::closeConnection(Connection* c)
 {
 
 }
 
-//size_t ConnectionManager::findDevice(std::string name)
-//{
-//    std::vector<Connection>::iterator it = std::find_if(
-//                connectedDevices.begin(),
-//                connectedDevices.end(),
-//                [&name](const ossia::net::generic_device& dev) {
-//        return dev.getName().compare(name) == 0;
-//    });
-
-//    return std::distance(connectedDevices.begin(), it);
-//}
-
-std::vector<connection::Connection> ConnectionManager::getDevices() const
+std::vector<Connection*> ConnectionManager::getDevices() const
 {
-    return connectedDevices;
+    return m_connectedDevices;
+}
+
+void ConnectionManager::openConnection()
+{
+    qDebug() << "connection detected";
+    QTcpSocket* pSocket = m_Serv->nextPendingConnection();
+    pSocket->write("hello this is iscore");
+//    QHostAddress addr = pSocket->localAddress();
+//    std::string str_addr = addr.toString().toStdString();
+//    ossia::net::generic_address ossia_addr = ossia::net::generic_address();
+//    ossia_addr.setValue(str_addr);
+
+//    /* We create an osc server that will communicate with this specific device */
+//    ossia::oscquery::oscquery_server_protocol* pServ =
+//            new ossia::oscquery::oscquery_server_protocol(9999, 6666);
+//    pServ->observe(ossia_addr, true);
+//    /* We instanciate the Connection describing the device */
+//    Connection* pCon = new Connection("hello");
+//    m_connectedDevices.push_back(pCon);
+//    pCon->setServer(pServ);
 }
 }

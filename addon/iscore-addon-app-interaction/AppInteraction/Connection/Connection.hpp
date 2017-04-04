@@ -2,6 +2,12 @@
 #include <algorithm>
 #include <QObject>
 #include <ossia/ossia.hpp>
+#include <ossia/network/oscquery/oscquery_server.hpp>
+#include <QtWebSockets/QtWebSockets>
+#include <QtWebSockets/QWebSocketServer>
+#include <QTcpServer>
+#include <QTcpSocket>
+#include <QDebug>
 
 namespace connection
 {
@@ -10,15 +16,13 @@ namespace connection
  */
 class Connection final : public QObject
 {
-
     Q_OBJECT
 private:
-    ossia::net::generic_device mDevice;
-
+    ossia::net::generic_device* m_Device;
+    ossia::oscquery::oscquery_server_protocol* m_oscServ;
 
 public:
-    Connection(std::string device_name);
-    Connection(const Connection& c);
+    Connection(std::string);
     ~Connection();
 
     /*!
@@ -26,13 +30,14 @@ public:
      * \param interaction must be in the following format:
      *          TODO : describe the protocol
      */
-    void sendInteraction(const std::string interaction);
+    void sendInteraction(const std::string);
 
     /*!
      * \brief getDeviceName returns the name of the device.
      * \return a std::string containing the device's name
      */
     std::string getDeviceName() const;
+    void setServer(ossia::oscquery::oscquery_server_protocol*);
 
 signals:
     /*!

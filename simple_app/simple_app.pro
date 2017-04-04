@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-QT += qml quick widgets quickcontrols2
+QT += qml quick widgets quickcontrols2 network
 CONFIG += c++14
 
 SOURCES += \
@@ -52,3 +52,10 @@ INCLUDEPATH += $$PWD/../build/api-inst/include
 INCLUDEPATH += /home/kmercier/boost_1_63_0
 
 DEPENDPATH += $$PWD/../build/api-inst/include
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../../../lib/build-ossia/api-inst/lib/release/ -lossia
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../../../lib/build-ossia/api-inst/lib/debug/ -lossia
+else:unix: LIBS += -L$$PWD/../../../../../lib/build-ossia/api-inst/lib/ -lossia
+
+INCLUDEPATH += $$PWD/../../../../../lib/build-ossia/api-inst/include
+DEPENDPATH += $$PWD/../../../../../lib/build-ossia/api-inst/include
