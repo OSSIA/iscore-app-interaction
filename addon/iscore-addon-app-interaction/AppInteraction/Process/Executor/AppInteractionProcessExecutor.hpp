@@ -44,7 +44,6 @@ private:
     int m_interaction;
     double m_duration;
 
-    bool m_newMessageCreated;
     ossia::value m_val;
 };
 

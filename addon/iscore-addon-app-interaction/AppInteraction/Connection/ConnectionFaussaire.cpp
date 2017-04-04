@@ -34,14 +34,13 @@ void ConnectionFaussaire::sendInteraction(const std::string interaction){
 //    qDebug("Duration : %d", duration);
 //    qDebug("Type wanted : %d.",type);
 
-    for (int i=0; i<1;i++)
-    {
-        const ossia::value val = ossia::value((float)150);
+//    for (int i=0; i<25;i++)
+//    {
+        const ossia::value val = ossia::value((float)30);
         //qDebug("Ossia val : %f", val.get<float>());
         emit interactionValueReturned(val);
-        //sleep(2);
-
-    }
+//        sleep(2);
+//    }
 
     qDebug("SendInteraction : end.");
     return;
