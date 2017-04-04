@@ -3,29 +3,24 @@
 namespace connection
 {
 Connection::Connection(std::string device_name):
-    mDevice(std::make_unique<ossia::net::local_protocol>(), device_name)
-{
-
-}
-
-Connection::Connection(const Connection &c):
-    mDevice(std::make_unique<ossia::net::local_protocol>(), c.getDeviceName())
+    m_Device(new ossia::net::generic_device(std::make_unique<ossia::net::local_protocol>(), device_name))
 {
 
 }
 
 Connection::~Connection()
 {
-
+    delete m_Device;
+    delete m_oscServ;
 }
 
 void Connection::sendInteraction(const std::string interaction)
 {
-    mDevice.getProtocol().update(mDevice);
-    ossia::net::node_base * node_interac = ossia::net::find_node(mDevice, "/interaction");
+    m_Device->getProtocol().update(*m_Device);
+    ossia::net::node_base* node_interac = ossia::net::find_node(*m_Device, "/interaction");
     if (node_interac)
     {
-        if (ossia::net::address_base * addr = node_interac->getAddress())
+        if (ossia::net::address_base* addr = node_interac->getAddress())
         {
             addr->pushValue(interaction);
             addr->add_callback([=] (const ossia::value& val)
@@ -38,7 +33,11 @@ void Connection::sendInteraction(const std::string interaction)
 
 std::string Connection::getDeviceName() const
 {
-    return mDevice.getName();
+    return m_Device->getName();
 }
 
+void Connection::setServer(ossia::oscquery::oscquery_server_protocol* oscServ)
+{
+    m_oscServ = oscServ;
+}
 }

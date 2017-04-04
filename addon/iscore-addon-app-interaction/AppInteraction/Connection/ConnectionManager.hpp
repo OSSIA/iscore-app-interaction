@@ -9,15 +9,16 @@ namespace connection
  * \brief The ConnectionManager class keeps track of all the connected devices.
  * Instanciate this class once and it will automatically publish the service on the network and handle new connections.
  */
-class ConnectionManager final
+class ConnectionManager final : public QObject
 {
+    Q_OBJECT
 private:
-    std::vector<Connection> connectedDevices;
-    ossia::net::zeroconf_server zServ;
+    std::vector<Connection*> m_connectedDevices;
+    ossia::net::zeroconf_server m_zeroconfServ;
+    QTcpServer* m_Serv;
 
 public:
     ConnectionManager();
-    ConnectionManager(const ConnectionManager& cm);
     ~ConnectionManager();
 
     /*!
@@ -30,19 +31,15 @@ public:
      * \brief closeConnection
      * \param c
      */
-    void closeConnection(Connection c);
-
-    /*!
-     * \brief findConnection
-     * \param name
-     * \return
-     */
-//    size_t findDevice(std::string name);
+    void closeConnection(Connection*);
 
     /*!
      * \brief getDevices returns the list of currently connected devices.
-     * \return a pointer to a std::vector<Connection>.
+     * \return a std::vector<Connection>.
      */
-    std::vector<Connection> getDevices() const;
+    std::vector<Connection*> getDevices() const;
+
+public slots:
+    void openConnection();
 };
 }

@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QObject>
 #include "Signal.hpp"
+#include "ClientConnection.hpp"
 #include "extract.hpp"
 #include <ossia/ossia.hpp>
 
@@ -121,14 +122,15 @@ int main(int argc, char *argv[])
      // localDestinationAddress->pushValue(&d);
 
      localTupleAddress->pushValue(std::vector<ossia::value>{0., 1., 2.});
-     auto service_list = ossia::net::list_minuit_devices() ;
+     auto service_list = ossia::net::list_oscquery_devices() ;
 
 
-     std::cerr << service_list.empty() << std::endl;
+     std::cerr << "is empty = " << service_list.empty() << std::endl;
 
+    ClientConnection* co = new ClientConnection(QHostAddress::LocalHost);
 
      // declare a distant program as a Minuit device
-     local_proto.exposeTo(std::make_unique<ossia::net::minuit_protocol>("B", "192.168.21.194", 9999, 6668));
+     //local_proto.exposeTo(std::make_unique<ossia::net::oscquery_connection_data>("B", "192.168.21.194", 9999, 6668));
 
 
      return app.exec();
