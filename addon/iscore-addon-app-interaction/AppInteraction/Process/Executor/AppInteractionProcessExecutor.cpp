@@ -39,9 +39,12 @@ ProcessExecutor::ProcessExecutor(AppInteraction::ProcessModel& element,
 
 ProcessExecutor::~ProcessExecutor()
 {
-    std::vector<connectionFaussaire::ConnectionFaussaire*> m_connections = m_connectionManager->getDevices();
-    QObject::disconnect(m_connections[m_mobileDevice-1], &connectionFaussaire::ConnectionFaussaire::interactionValueReturned,
-            NULL, (void**)0);
+    if (m_mobileDevice != 0)
+    {
+        std::vector<connectionFaussaire::ConnectionFaussaire*> m_connections = m_connectionManager->getDevices();
+        QObject::disconnect(m_connections[m_mobileDevice-1], &connectionFaussaire::ConnectionFaussaire::interactionValueReturned,
+                NULL, (void**)0);
+    }
 }
 
 void ProcessExecutor::start()
