@@ -127,7 +127,12 @@ int main(int argc, char *argv[])
 
      std::cerr << "is empty = " << service_list.empty() << std::endl;
 
-    ClientConnection* co = new ClientConnection(QHostAddress::LocalHost);
+     Signal iscore ;
+
+
+     QObject::connect(object, SIGNAL(connectPushed(bool)),
+                          &iscore, SLOT(handleButtonConnect(bool)));
+
 
      // declare a distant program as a Minuit device
      //local_proto.exposeTo(std::make_unique<ossia::net::oscquery_connection_data>("B", "192.168.21.194", 9999, 6668));

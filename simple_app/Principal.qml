@@ -14,7 +14,9 @@ ApplicationWindow {
     visible: true
     //title: "Qt Quick Controls 2"
     property string login: ""
+  //  property bool cpushed: false
     signal changeSlide(real r)
+    signal connectPushed(bool b)
 
 
 
@@ -152,7 +154,12 @@ ApplicationWindow {
                         y: 300
                         text: "Connect"
                         //width: itemWidth
-                        onClicked: stackView.push("qrc:/InteractionsMenu.qml")
+                        onClicked:
+                        {
+                           // cpushed = true;
+                            connectPushed(true);
+                            stackView.push("qrc:/InteractionsMenu.qml");
+                        }
                     }
 
 
