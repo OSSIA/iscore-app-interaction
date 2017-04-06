@@ -3,6 +3,14 @@
 
 #include <QObject>
 #include <QDebug>
+#include <QApplication>
+
+#include <QQmlApplicationEngine>
+#include <QtQuick/QQuickView>
+#include <QQmlComponent>
+
+
+
 
 
 class Signal : public QObject
@@ -14,6 +22,7 @@ class Signal : public QObject
 public slots:
     void handleSig(double val);
     void handleButtonConnect();
+    void ThrowInteraction(int id);
 };
 
 #endif // SIGNAl_HPP

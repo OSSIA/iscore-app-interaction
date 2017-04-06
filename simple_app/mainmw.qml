@@ -22,9 +22,13 @@ ApplicationWindow {
     height: 500
     color: "#ffffff"
 
-    property int  countdown: 3
+    property int ino: -1
+    property int  countdown: 10
     property string iname: ""
     property string idesc: ""
+    property string iimg: ""
+    property string ifile: ""
+    signal changeSlide(real r)
 
     Component.onCompleted: {
     function myParserInit()
@@ -32,9 +36,12 @@ ApplicationWindow {
        if (initReq.readyState == 4)
        {
            var doc = eval('(' + initReq.responseText + ')');
-           var ino = 0;  //numero de l'interaction reçue par i-score
+           //var ino = 0;  //numero de l'interaction reçue par i-score
            iname = doc.interactions[ino].name;
            idesc = doc.interactions[ino].description;
+           iimg = doc.interactions[ino].icon;
+           ifile = doc.interactions[ino].file;
+
        }
     }
     var initReq = new XMLHttpRequest();
@@ -54,7 +61,7 @@ ApplicationWindow {
         onTriggered:
         { window.countdown--
           if (window.countdown == 0)
-                  stackView.push("qrc:/CountDown.qml")
+                  stackView.push("qrc:/" + ifile)
 
 
 
@@ -92,8 +99,8 @@ ApplicationWindow {
 
         Image {
             id: logo
-           width: pane.availableWidth / 2
-           height: pane.availableHeight / 2
+           //width: pane.availableWidth / 2
+           //height: pane.availableHeight / 2
            anchors.verticalCenterOffset: 27
            anchors.horizontalCenterOffset: -9
            anchors.centerIn: parent
@@ -101,7 +108,7 @@ ApplicationWindow {
             anchors.verticalCenter: parent.verticalCenter
 
             fillMode: Image.PreserveAspectFit
-            source: "qrc:/volume_cursor.png"
+            source: "qrc:/" + iimg;
         }
 
         Text {

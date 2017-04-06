@@ -23,30 +23,31 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    //QQmlApplicationEngine engin;
-    //engin.load(QUrl(QStringLiteral("qrc:/main.qml")));
+
     QQmlEngine engine;
     QQmlComponent component(&engine,QUrl(QStringLiteral("qrc:/Principal.qml")));
     QObject *object = component.create();
 
 
 
-    Signal s ;
+
 
     qDebug() << "Property value:" << object->property("slidVal").toReal();
-    QObject::connect(object, SIGNAL(changeSlide(double)),
+
+/*
+    QQmlEngine wengine;
+    QQmlComponent wcomponent(&wengine, QUrl(QStringLiteral("qrc:/mainmw.qml")));
+    QObject *wobject = wcomponent.create();
+    wobject->setProperty("ino", 0);*/
+    QQmlEngine wengine;
+    QQmlComponent wcomponent(&wengine, QUrl(QStringLiteral("qrc:/mainmw.qml")));
+    QObject *wobject = wcomponent.create();
+    wobject->setProperty("ino", 0);
+    Signal s ;
+    QObject::connect(wobject, SIGNAL(changeSlide(double)),
                          &s, SLOT(handleSig(double)));
 
-    // qDebug() << "Property value:" << QQmlProperty::read(object, "lost").toInt();
-    //delete object;
 
-    /*QQmlEngine engine;
-    QQmlComponent component(&engine, "CountDown.qml");
-    QObject *object = component.create();
-    qDebug() << "Property value:" << QQmlProperty::read(object, "slidVal").toInt();*/
-    /*QQmlProperty::write(object, "someNumber", 5000);
-    qDebug() << "Property value:" << object->property("someNumber").toInt();
-    object->setProperty("someNumber", 100);*/
 
 
 

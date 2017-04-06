@@ -12,7 +12,7 @@
         <file>maine.qml</file>
         <file>mainmw.qml</file>
         <file>Principal.qml</file>
-        <file>CountDown.qml</file>
+        <file>CountDown0.qml</file>
         <file>volume_cursor.png</file>
     </qresource>
 </RCC>

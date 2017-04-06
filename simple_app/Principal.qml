@@ -15,7 +15,7 @@ ApplicationWindow {
     //title: "Qt Quick Controls 2"
     property string login: ""
   //  property bool cpushed: false
-    signal changeSlide(real r)
+
     signal connectPushed()
 
 

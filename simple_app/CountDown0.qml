@@ -19,6 +19,7 @@ Page{
     property int  interactionTime: 15
     property real slidVal : 0
 
+
     property string iname: ""
 
     Component.onCompleted: {
@@ -103,6 +104,7 @@ Page{
             onValueChanged: {
                 slidVal = value
                 changeSlide(slidVal)
+
                 //console.log("valeur " + slidVal)
             }
         }

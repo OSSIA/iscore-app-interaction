@@ -3,36 +3,36 @@
             "eindex" : 0,
             "type" : "volume",
             "sensor" : null,
-            "feasible" : true,
             "name" : "VolumeUI",
             "icon" : "volume_cursor2.png",
-            "description" : "Move the cursor to the right to increase the volume, and to the left to decrease it"
+            "file" : "CountDown0.qml",
+            "description" : "Move the cursor continuously to the right to increase the volume, and to the left to decrease it"
     },
     {
             "eindex" : 1,
             "type" : "volume",
             "sensor" : "AccHautBas",
-            "feasible" : true,
             "name" : "VolumeMove",
             "icon" : "volume_shakeupdown2.png",
-            "description" : "Shake up your device to increase the volume, and shake down to decrease it"
+            "file" : "CountDown1.qml",
+            "description" : "Shake vertically your device to increase or decrease it"
     },
     {
             "eindex" : 2,
             "type" : "start and stop music",
             "sensor" : null,
-            "feasible" : true,
             "name" : "MusicUI",
             "icon" : "music_button2.png",
+            "file" : "CountDown2.qml",
             "description" : "Push the button to play or stop the music"
     },
     {
             "eindex" : 3,
             "type" : "color",
             "sensor" : "Acc",
-            "feasible" : true,
             "name" : "ColorMove",
             "icon" : "color_shake2.png",
+            "file" : "CountDown3.qml",
             "description" : "Shake your device to change the light color"
     }
 ]}
