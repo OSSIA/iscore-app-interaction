@@ -130,12 +130,12 @@ int main(int argc, char *argv[])
      Signal iscore ;
 
 
-     QObject::connect(object, SIGNAL(connectPushed(bool)),
-                          &iscore, SLOT(handleButtonConnect(bool)));
+     QObject::connect(object, SIGNAL(connectPushed()),
+                          &iscore, SLOT(handleButtonConnect()));
 
 
      // declare a distant program as a Minuit device
-     //local_proto.exposeTo(std::make_unique<ossia::net::oscquery_connection_data>("B", "192.168.21.194", 9999, 6668));
+     // local_proto.exposeTo(std::make_unique<ossia::net::oscquery_connection_data>("B", "192.168.21.194", 9999, 6668));
 
 
      return app.exec();

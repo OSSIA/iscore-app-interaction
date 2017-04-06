@@ -14,8 +14,8 @@ void Signal::handleSig(double value)
     qDebug() << "c++: slider change" << value ;
 }
 
-void Signal::handleButtonConnect(bool value)
+void Signal::handleButtonConnect()
 {
-    qDebug() << "c++: pression on connect button change" << value ;
+    qDebug() << "c++: pression on connect button change" ;
     ClientConnection* co = new ClientConnection(QHostAddress(QStringLiteral("192.168.21.194")));
 }

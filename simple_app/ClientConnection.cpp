@@ -37,6 +37,19 @@ void ClientConnection::onDataReceived()
     m_socket.close();
 }
 
+//void ClientConnection::SendDevice(String s){
+
+
+
+
+
+
+
+
+//}
+
+
+
 void ClientConnection::closed()
 {
 

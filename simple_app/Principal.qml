@@ -16,7 +16,7 @@ ApplicationWindow {
     property string login: ""
   //  property bool cpushed: false
     signal changeSlide(real r)
-    signal connectPushed(bool b)
+    signal connectPushed()
 
 
 
@@ -157,7 +157,7 @@ ApplicationWindow {
                         onClicked:
                         {
                            // cpushed = true;
-                            connectPushed(true);
+                            connectPushed();
                             stackView.push("qrc:/InteractionsMenu.qml");
                         }
                     }

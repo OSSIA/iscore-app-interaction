@@ -13,7 +13,7 @@ class Signal : public QObject
 
 public slots:
     void handleSig(double val);
-    void handleButtonConnect(bool value);
+    void handleButtonConnect();
 };
 
 #endif // SIGNAl_HPP
