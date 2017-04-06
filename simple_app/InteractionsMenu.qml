@@ -168,7 +168,7 @@ Rectangle {
         }
     }
 
-    Button {
+    /*Button {
         id: button1
         x: 8
         y: 416
@@ -176,7 +176,7 @@ Rectangle {
         height: 40
         text: qsTr("Simulate an interaction (DEBUG ONLY)")
         onClicked: stackView.push("qrc:/mainmw.qml")
-    }
+    }*/
 
 
 }
