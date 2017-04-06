@@ -92,22 +92,29 @@ ossia::state_element ProcessExecutor::state()
 void ProcessExecutor::interactionValueReceived(const ossia::value& val){
     ossia::value m_val = val;
 
+    if (m_min == m_max) //only send the received value
+    {
+        qDebug("Min and max ignored because min = max");
+        return;
+    }
+
+     //Use of the min/max values :
     if (val.getType() == ossia::val_type::FLOAT && 0<=val.get<float>() && val.get<float>()<=1)
         m_val = ossia::value(val.get<float>()*(m_max-m_min)+m_min);
     else if (val.getType() == ossia::val_type::BOOL)
-    {}
+    {qDebug("Min and max ignored because boolean received from app");}
     else if (val.getType() == ossia::val_type::CHAR)
-    {}
+    {qDebug("Min and max ignored because char received from app");}
     else if (val.getType() == ossia::val_type::DESTINATION)
-    {}
+    {qDebug("Min and max ignored because destination received from app");}
     else if (val.getType() == ossia::val_type::IMPULSE)
-    {}
+    {qDebug("Min and max ignored because impulse received from app");}
     else if (val.getType() == ossia::val_type::INT)
-    {}
+    {qDebug("Min and max ignored because int received from app");}
     else if (val.getType() == ossia::val_type::STRING)
-    {}
+    {qDebug("Min and max ignored because string received from app");}
     else if (val.getType() == ossia::val_type::TUPLE)//std::vector<ossia::value>&
-    {}
+    {qDebug("Min and max ignored because tuple received from app");}
     else if (val.getType() == ossia::val_type::VEC2F
              && val.get<std::array<float,2>>()[0]>=0
              && val.get<std::array<float,2>>()[1]>=0
@@ -145,7 +152,7 @@ void ProcessExecutor::interactionValueReceived(const ossia::value& val){
                                                    (float)(val.get<std::array<float,4>>()[3]*(m_max-m_min)+m_min)}});
     }
     else
-        qDebug("Non-Recognized type or float out of [0,1] received from app");
+        qDebug("Non-Recognized type or float out of [0,1] received from app --> values sent without using the ratio.");
 
     State::Value value = State::Value::fromValue(State::fromOSSIAValue(m_val));
     m_msg.address = m_address;

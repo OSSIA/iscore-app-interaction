@@ -28,9 +28,8 @@ void ConnectionFaussaire::sendInteraction(const std::string interaction){
 
     qDebug("Interaction index : %d, Interaction duration : %f", index,duration);
 
-//    const ossia::value val = ossia::value((float)0.1);
-//    const ossia::value val = ossia::value(std::array<float,3>{{0.8, 0.4, 0.9}});
-    const ossia::value val = ossia::value(std::array<float,3>{{10,10,10}});
+    const ossia::value val = ossia::value(std::array<float,3>{{0.8, 0.4, 0.9}});
+
     emit interactionValueReturned(val);
 
     return;
