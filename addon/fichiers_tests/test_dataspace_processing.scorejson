@@ -10,7 +10,7 @@
                     "CenterOn": [
                         0,
                         0,
-                        311,
+                        238,
                         406
                     ],
                     "ObjectName": "FullViewConstraintViewModel",
@@ -81,7 +81,7 @@
                                         ],
                                         "Duration": 5660.819279861345,
                                         "InteractionType": 2,
-                                        "Max": 300,
+                                        "Max": 1,
                                         "Metadata": {
                                             "Color": "",
                                             "Comment": "",

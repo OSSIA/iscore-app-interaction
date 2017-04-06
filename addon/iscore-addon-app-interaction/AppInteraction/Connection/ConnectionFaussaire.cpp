@@ -24,12 +24,13 @@ void ConnectionFaussaire::sendInteraction(const std::string interaction){
     qDebug("Interaction msg : %s, sent to %s. ", interaction.c_str(),mDeviceName.c_str());
 
     int index = std::stoi(interaction.substr(0, interaction.find_last_of(':')));
-    float duration = std::stof(interaction.substr(interaction.find_first_of(':')+1 , interaction.find_last_of(':')-interaction.find_first_of(':')-1));
-    int type =  std::stoi(interaction.substr(interaction.find_last_of(':')+1));
+    float duration = std::stoi(interaction.substr(interaction.find_last_of(':')+1));
 
-    qDebug("Interaction index : %d, Interaction duration : %f, Type wanted : %d",index,duration,type);
+    qDebug("Interaction index : %d, Interaction duration : %f", index,duration);
 
-    const ossia::value val = ossia::value((float)0.1);
+//    const ossia::value val = ossia::value((float)0.1);
+//    const ossia::value val = ossia::value(std::array<float,3>{{0.8, 0.4, 0.9}});
+    const ossia::value val = ossia::value(std::array<float,3>{{10,10,10}});
     emit interactionValueReturned(val);
 
     return;

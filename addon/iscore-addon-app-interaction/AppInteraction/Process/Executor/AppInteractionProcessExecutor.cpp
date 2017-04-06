@@ -51,7 +51,7 @@ void ProcessExecutor::start()
         return;
     }
 
-    std::string interaction = fmt::format("{:d}:{:f}:{:d}", m_interaction-1, m_duration, 2);
+    std::string interaction = fmt::format("{:d}:{:f}", m_interaction-1, m_duration);
 
     if (m_mobileDevice>0)
         m_connectionManager->getDevices()[m_mobileDevice-1]->sendInteraction(interaction);
@@ -91,10 +91,61 @@ ossia::state_element ProcessExecutor::state()
 
 void ProcessExecutor::interactionValueReceived(const ossia::value& val){
     ossia::value m_val = val;
+
     if (val.getType() == ossia::val_type::FLOAT && 0<=val.get<float>() && val.get<float>()<=1)
         m_val = ossia::value(val.get<float>()*(m_max-m_min)+m_min);
+    else if (val.getType() == ossia::val_type::BOOL)
+    {}
+    else if (val.getType() == ossia::val_type::CHAR)
+    {}
+    else if (val.getType() == ossia::val_type::DESTINATION)
+    {}
+    else if (val.getType() == ossia::val_type::IMPULSE)
+    {}
+    else if (val.getType() == ossia::val_type::INT)
+    {}
+    else if (val.getType() == ossia::val_type::STRING)
+    {}
+    else if (val.getType() == ossia::val_type::TUPLE)//std::vector<ossia::value>&
+    {}
+    else if (val.getType() == ossia::val_type::VEC2F
+             && val.get<std::array<float,2>>()[0]>=0
+             && val.get<std::array<float,2>>()[1]>=0
+             && val.get<std::array<float,2>>()[0]<=1
+             && val.get<std::array<float,2>>()[1]<=1)
+    {
+        m_val = ossia::value(std::array<float, 2>{{(float)(val.get<std::array<float,2>>()[0]*(m_max-m_min)+m_min),
+                                                   (float)(val.get<std::array<float,2>>()[1]*(m_max-m_min)+m_min)}});
+    }
+    else if (val.getType() == ossia::val_type::VEC3F
+             && val.get<std::array<float,3>>()[0]>=0
+             && val.get<std::array<float,3>>()[1]>=0
+             && val.get<std::array<float,3>>()[2]>=0
+             && val.get<std::array<float,3>>()[0]<=1
+             && val.get<std::array<float,3>>()[1]<=1
+             && val.get<std::array<float,3>>()[2]<=1)
+    {
+        m_val = ossia::value(std::array<float, 3>{{(float)(val.get<std::array<float,3>>()[0]*(m_max-m_min)+m_min),
+                                                   (float)(val.get<std::array<float,3>>()[1]*(m_max-m_min)+m_min),
+                                                   (float)(val.get<std::array<float,3>>()[2]*(m_max-m_min)+m_min)}});
+    }
+    else if (val.getType() == ossia::val_type::VEC4F
+             && val.get<std::array<float,4>>()[0]>=0
+             && val.get<std::array<float,4>>()[1]>=0
+             && val.get<std::array<float,4>>()[2]>=0
+             && val.get<std::array<float,4>>()[3]>=0
+             && val.get<std::array<float,4>>()[0]<=1
+             && val.get<std::array<float,4>>()[1]<=1
+             && val.get<std::array<float,4>>()[2]<=1
+             && val.get<std::array<float,4>>()[3]<=1)
+    {
+        m_val = ossia::value(std::array<float, 4>{{(float)(val.get<std::array<float,4>>()[0]*(m_max-m_min)+m_min),
+                                                   (float)(val.get<std::array<float,4>>()[1]*(m_max-m_min)+m_min),
+                                                   (float)(val.get<std::array<float,4>>()[2]*(m_max-m_min)+m_min),
+                                                   (float)(val.get<std::array<float,4>>()[3]*(m_max-m_min)+m_min)}});
+    }
     else
-        qDebug("Non-Float or out of [0,1] float value received from app");
+        qDebug("Non-Recognized type or float out of [0,1] received from app");
 
     State::Value value = State::Value::fromValue(State::fromOSSIAValue(m_val));
     m_msg.address = m_address;
