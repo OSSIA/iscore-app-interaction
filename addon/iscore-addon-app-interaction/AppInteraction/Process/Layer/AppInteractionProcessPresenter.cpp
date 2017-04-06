@@ -15,8 +15,6 @@ AppInteractionPresenter::AppInteractionPresenter(
     m_layer{layer},
     m_view{view}
 {
-    //const AppInteraction::ProcessModel& p = layer.processModel();
-
     con(m_layer.processModel(), &ProcessModel::addressChanged, this,
         &AppInteractionPresenter::on_nameChanges);
 

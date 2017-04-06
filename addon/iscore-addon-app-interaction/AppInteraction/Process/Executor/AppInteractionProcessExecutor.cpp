@@ -1,14 +1,10 @@
-#include "AppInteractionProcessExecutor.hpp"
+#include <AppInteractionProcessExecutor.hpp>
 #include <AppInteraction/Process/AppInteractionProcessModel.hpp>
 
 #include <Device/Protocol/DeviceList.hpp>
 #include <Explorer/DocumentPlugin/DeviceDocumentPlugin.hpp>
-#include <Engine/iscore2OSSIA.hpp>
 #include <ossia/editor/state/state_element.hpp>
-
 #include <AppInteraction/DocumentPlugin/AppInteractionDocumentPlugin.hpp>
-
-//#include <State/Value.hpp>
 #include <State/ValueConversion.hpp>
 
 
@@ -83,12 +79,7 @@ ossia::state_element ProcessExecutor::offset(
 
 ossia::state_element ProcessExecutor::state()
 {
-    State::Value value = State::Value::fromValue(State::fromOSSIAValue(m_val));
-    State::Message m;
-    m.address = m_address;
-    m.value = value;
-
-    if(auto res = Engine::iscore_to_ossia::message(m, m_devices))
+    if(auto res = Engine::iscore_to_ossia::message(m_msg, m_devices))
     {
         if(unmuted())
             return *res;
@@ -99,11 +90,15 @@ ossia::state_element ProcessExecutor::state()
 }
 
 void ProcessExecutor::interactionValueReceived(const ossia::value& val){
-    m_val = val;
+    ossia::value m_val = val;
     if (val.getType() == ossia::val_type::FLOAT && 0<=val.get<float>() && val.get<float>()<=1)
         m_val = ossia::value(val.get<float>()*(m_max-m_min)+m_min);
     else
         qDebug("Non-Float or out of [0,1] float value received from app");
+
+    State::Value value = State::Value::fromValue(State::fromOSSIAValue(m_val));
+    m_msg.address = m_address;
+    m_msg.value = value;
 }
 
 ProcessExecutorComponent::ProcessExecutorComponent(

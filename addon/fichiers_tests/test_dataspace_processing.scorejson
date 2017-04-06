@@ -4,13 +4,13 @@
             "Constraint": {
                 "Components": [
                 ],
-                "DefaultDuration": 14099.302093384245,
+                "DefaultDuration": 31629.84784835805,
                 "EndState": 1,
                 "FullView": {
                     "CenterOn": [
                         0,
                         0,
-                        377,
+                        311,
                         406
                     ],
                     "ObjectName": "FullViewConstraintViewModel",
@@ -27,7 +27,7 @@
                     "Label": "",
                     "ScriptingName": "test3avril"
                 },
-                "MinDuration": 14099.302093384245,
+                "MinDuration": 31629.84784835805,
                 "MinNull": false,
                 "ObjectName": "Scenario::ConstraintModel",
                 "Processes": [
@@ -40,7 +40,7 @@
                             {
                                 "Components": [
                                 ],
-                                "DefaultDuration": 12227.713319926159,
+                                "DefaultDuration": 28251.902932513985,
                                 "EndState": 2,
                                 "FullView": {
                                     "CenterOn": [
@@ -54,16 +54,16 @@
                                     "Zoom": -1,
                                     "id": 2
                                 },
-                                "HeightPercentage": 0.03674014696058784,
-                                "MaxDuration": 12227.713319926159,
+                                "HeightPercentage": 0.012024048096192385,
+                                "MaxDuration": 28251.902932513985,
                                 "MaxInf": false,
                                 "Metadata": {
                                     "Color": "Transparent1",
                                     "Comment": "",
                                     "Label": "",
-                                    "ScriptingName": "wart77slug10"
+                                    "ScriptingName": "our_app_interaction_process"
                                 },
-                                "MinDuration": 12227.713319926159,
+                                "MinDuration": 28251.902932513985,
                                 "MinNull": false,
                                 "ObjectName": "Scenario::ConstraintModel",
                                 "Processes": [
@@ -74,7 +74,7 @@
                                             "Unit": "none",
                                             "address": {
                                                 "Device": "triangles",
-                                                "Path": "particle/density"
+                                                "Path": "color"
                                             }
                                         },
                                         "Components": [
@@ -154,7 +154,7 @@
                                 "id": 1
                             }
                         ],
-                        "Duration": 14099.302093384245,
+                        "Duration": 31629.84784835805,
                         "Events": [
                             {
                                 "Components": [
@@ -186,8 +186,8 @@
                                 },
                                 "Date": 0,
                                 "Extent": [
-                                    0.02,
-                                    0.03674014696058784
+                                    0.012024048096192385,
+                                    0.02
                                 ],
                                 "Metadata": {
                                     "Color": "Emphasis4",
@@ -232,10 +232,10 @@
                                     "RootNode": {
                                     }
                                 },
-                                "Date": 12227.713319926159,
+                                "Date": 28251.902932513985,
                                 "Extent": [
-                                    0.03674014696058784,
-                                    0.03674014696058784
+                                    0.012024048096192385,
+                                    0.012024048096192385
                                 ],
                                 "Metadata": {
                                     "Color": "Emphasis4",
@@ -302,7 +302,7 @@
                                 "Components": [
                                 ],
                                 "Event": 0,
-                                "HeightPercentage": 0.03674014696058784,
+                                "HeightPercentage": 0.012024048096192385,
                                 "Messages": {
                                     "Accessors": [
                                     ],
@@ -337,7 +337,7 @@
                                 "Components": [
                                 ],
                                 "Event": 1,
-                                "HeightPercentage": 0.03674014696058784,
+                                "HeightPercentage": 0.012024048096192385,
                                 "Messages": {
                                     "Accessors": [
                                     ],
@@ -433,8 +433,8 @@
                                     0
                                 ],
                                 "Extent": [
-                                    0.02,
-                                    0.03674014696058784
+                                    0.012024048096192385,
+                                    0.02
                                 ],
                                 "Metadata": {
                                     "Color": "HalfLight",
@@ -476,13 +476,13 @@
                             {
                                 "Components": [
                                 ],
-                                "Date": 12227.713319926159,
+                                "Date": 28251.902932513985,
                                 "Events": [
                                     1
                                 ],
                                 "Extent": [
-                                    0.03674014696058784,
-                                    0.03674014696058784
+                                    0.012024048096192385,
+                                    0.012024048096192385
                                 ],
                                 "Metadata": {
                                     "Color": "HalfLight",
@@ -616,7 +616,7 @@
                     "RootNode": {
                     }
                 },
-                "Date": 14099.302093384245,
+                "Date": 31629.84784835805,
                 "Extent": [
                     0.4,
                     0.6
@@ -673,7 +673,7 @@
             "EndTimeNode": {
                 "Components": [
                 ],
-                "Date": 14099.302093384245,
+                "Date": 31629.84784835805,
                 "Events": [
                     1
                 ],

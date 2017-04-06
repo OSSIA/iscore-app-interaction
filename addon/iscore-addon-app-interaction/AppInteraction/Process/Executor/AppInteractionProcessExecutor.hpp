@@ -4,6 +4,7 @@
 #include <State/Address.hpp>
 #include <qobject.h>
 #include <State/Value.hpp>
+#include <Engine/iscore2OSSIA.hpp>
 
 namespace Device
 {
@@ -45,8 +46,7 @@ private:
     double m_duration;
     double m_min;
     double m_max;
-
-    ossia::value m_val;
+    State::Message m_msg;
 };
 
 //! Component and bridge between the GUI / Edition thread and the execution thread.
