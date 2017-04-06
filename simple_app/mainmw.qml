@@ -23,6 +23,25 @@ ApplicationWindow {
     color: "#ffffff"
 
     property int  countdown: 3
+    property string iname: ""
+    property string idesc: ""
+
+    Component.onCompleted: {
+    function myParserInit()
+    {
+       if (initReq.readyState == 4)
+       {
+           var doc = eval('(' + initReq.responseText + ')');
+           var ino = 0;  //numero de l'interaction reçue par i-score
+           iname = doc.interactions[ino].name;
+           idesc = doc.interactions[ino].description;
+       }
+    }
+    var initReq = new XMLHttpRequest();
+    initReq.open("GET", "interactions.json", true);
+    initReq.onreadystatechange = myParserInit;
+    initReq.send(null);
+    }
 
 
 
@@ -66,7 +85,7 @@ ApplicationWindow {
         Text {
             x: 121
             y: 93
-            text: "Interaction Name"
+            text: iname
 
         }
 
@@ -85,13 +104,24 @@ ApplicationWindow {
             source: "qrc:/volume_cursor.png"
         }
 
-        Label {
-            x: 105
-            text: "Interaction Description"
+        Text {
+            /*x: 0 //105
+            text: idesc
             anchors.topMargin: 58
             anchors.margins: 20
 
             anchors.top: logo.bottom
+            maximumLineCount: 2
+            wrapMode: Text.WordWrap*/
+            anchors.bottom: parent.bottom
+            x: 8
+            width: 344
+            height: 20
+            text: idesc
+            fontSizeMode: Text.FixedSize
+            anchors.bottomMargin: 20
+            maximumLineCount: 2
+            wrapMode: Text.WordWrap
 }
 }
   }

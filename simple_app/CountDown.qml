@@ -19,6 +19,24 @@ Page{
     property int  interactionTime: 15
     property real slidVal : 0
 
+    property string iname: ""
+
+    Component.onCompleted: {
+    function myParserInit()
+    {
+       if (initReq.readyState == 4)
+       {
+           var doc = eval('(' + initReq.responseText + ')');
+           var ino = 0;  //numero de l'interaction reçue par i-score
+           iname = doc.interactions[ino].name;
+       }
+    }
+    var initReq = new XMLHttpRequest();
+    initReq.open("GET", "interactions.json", true);
+    initReq.onreadystatechange = myParserInit;
+    initReq.send(null);
+    }
+
     Text {
         x: 83
         y: 25
@@ -32,7 +50,7 @@ Page{
     Text {
         x: 137
         y: 88
-        text: "Interaction Name"
+        text: iname
 
     }
 
