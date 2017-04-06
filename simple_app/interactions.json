@@ -6,7 +6,7 @@
             "feasible" : true,
             "name" : "VolumeUI",
             "icon" : "volume_cursor2.png",
-            "description" : "Deplacez le curseur vers la droite pour augmenter le volume, et vers la gauche pour le diminuer"
+            "description" : "Move the cursor to the right to increase the volume, and to the left to decrease it"
     },
     {
             "eindex" : 1,
@@ -15,7 +15,7 @@
             "feasible" : true,
             "name" : "VolumeMove",
             "icon" : "volume_shakeupdown2.png",
-            "description" : "Secouez votre dispositif vers le haut pour augmenter le volume, et vers le bas pour le diminuer"
+            "description" : "Shake up your device to increase the volume, and shake down to decrease it"
     },
     {
             "eindex" : 2,
@@ -24,7 +24,7 @@
             "feasible" : true,
             "name" : "MusicUI",
             "icon" : "music_button2.png",
-            "description" : "Appuyez sur le bouton pour lancer ou interrompre la musique"
+            "description" : "Push the button to play or stop the music"
     },
     {
             "eindex" : 3,
@@ -33,7 +33,7 @@
             "feasible" : true,
             "name" : "ColorMove",
             "icon" : "color_shake2.png",
-            "description" : "Secouez votre dispositif pour modifier la couleur des projecteurs"
+            "description" : "Shake your device to change the light color"
     }
 ]}
 	
