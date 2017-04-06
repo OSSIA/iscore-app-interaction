@@ -34,11 +34,14 @@ class ProcessModel final : public Process::ProcessModel
             vis.writeTo(*this);
         }
 
+        //Getters:
         ::State::AddressAccessor address() const;
         int interactionType() const;
         int mobileDevice() const;
         double min() const;
         double max() const;
+
+        //Setters:
         void setAddress(const ::State::AddressAccessor& arg);
         void setInteractionType(int);
         void setMobileDevice(int);
@@ -75,11 +78,12 @@ class ProcessModel final : public Process::ProcessModel
         void setDurationAndGrow(const TimeVal& newDuration) override;
         void setDurationAndShrink(const TimeVal& newDuration) override;
 
-     ::State::AddressAccessor m_address;
-     int m_interactionType;
-     int m_mobileDevice;
-     double m_min;
-     double m_max;
+    //Attributes :
+     ::State::AddressAccessor m_address; //device/parameter address (where to send the value received from app)
+     int m_interactionType; //index of chosen interaction type
+     int m_mobileDevice; //index of chosen connected mobile device
+     double m_min; //min value to send to m_address
+     double m_max; //max value to send to m_address
 
 };
 }

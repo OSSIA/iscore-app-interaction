@@ -45,8 +45,15 @@ class DocumentPlugin final :
         Q_OBJECT
 
         private:
+            /**
+             * @brief m_connectionManager : instance of ConnectionManager used in this AppInteraction Process
+             */
             connectionFaussaire::ConnectionManagerFaussaire* m_connectionManager = new connectionFaussaire::ConnectionManagerFaussaire();
         public:
+            /**
+             * @brief connectionManager
+             * @return getter for attribute m_connectionManager
+             */
             connectionFaussaire::ConnectionManagerFaussaire* connectionManager();
 
             explicit DocumentPlugin(

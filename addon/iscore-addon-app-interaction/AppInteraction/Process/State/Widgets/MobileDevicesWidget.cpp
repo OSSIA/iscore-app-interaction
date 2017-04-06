@@ -40,6 +40,6 @@ MobileDevicesWidget::MobileDevicesWidget( QWidget* parent, const iscore::Documen
 void MobileDevicesWidget::setMobileDevice(int i)
 {
     QSignalBlocker b(this);
-    m_combobox->setCurrentIndex(i);
+    m_combobox->setCurrentIndex(i); //modify current menu index --> set on i
 }
 }

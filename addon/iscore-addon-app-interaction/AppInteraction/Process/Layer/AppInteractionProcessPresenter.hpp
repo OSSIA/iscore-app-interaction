@@ -38,6 +38,7 @@ class AppInteractionPresenter final :
         const Id<Process::ProcessModel>& modelId() const override;
 
     private:
+        //Methods called when particular signals received :
         void on_nameChanges();
         void on_doubleClicked();
 

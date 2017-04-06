@@ -3,8 +3,6 @@
 #include <QObject>
 #include <ossia/ossia.hpp>
 
-
-
 namespace connectionFaussaire
 {
 
@@ -22,14 +20,13 @@ public:
 
     ossia::net::generic_device& getMDevice();
     const std::string getDeviceName() const;
-    /*!
-     * \brief sendInteraction
-     * \param interaction
-     * \return
-     */
+
     void sendInteraction(const std::string interaction);
 
 signals:
+    /**
+     * @brief interactionValueReturned : signal sent when there is a received value from the app
+     */
     void interactionValueReturned(const ossia::value&);
 };
 }

@@ -1,11 +1,11 @@
 #include "AppInteractionProcessInspector.hpp"
-#include "AppInteraction/Process/AppInteractionProcessModel.hpp"
-#include "AppInteraction/Commands/ChangeAddress.hpp"
-#include "AppInteraction/Commands/ChangeInteractionType.hpp"
-#include "AppInteraction/Commands/ChangeMobileDevice.hpp"
-#include "AppInteraction/Commands/SetAppInteractionMax.hpp"
-#include "AppInteraction/Commands/SetAppInteractionMin.hpp"
-#include "AppInteraction/DocumentPlugin/AppInteractionDocumentPlugin.hpp"
+#include <AppInteraction/Process/AppInteractionProcessModel.hpp>
+#include <AppInteraction/Commands/ChangeAddress.hpp>
+#include <AppInteraction/Commands/ChangeInteractionType.hpp>
+#include <AppInteraction/Commands/ChangeMobileDevice.hpp>
+#include <AppInteraction/Commands/SetAppInteractionMax.hpp>
+#include <AppInteraction/Commands/SetAppInteractionMin.hpp>
+#include <AppInteraction/DocumentPlugin/AppInteractionDocumentPlugin.hpp>
 
 #include <iscore/document/DocumentContext.hpp>
 #include <Explorer/Widgets/AddressAccessorEditWidget.hpp>
@@ -17,8 +17,8 @@
 #include <QSpinBox>
 #include <iscore/widgets/SpinBoxes.hpp>
 #include <QWidget>
-#include "AppInteraction/Process/State/Widgets/InteractionTypeWidget.hpp"
-#include "AppInteraction/Process/State/Widgets/MobileDevicesWidget.hpp"
+#include <AppInteraction/Process/State/Widgets/InteractionTypeWidget.hpp>
+#include <AppInteraction/Process/State/Widgets/MobileDevicesWidget.hpp>
 #include <string.h>
 #include <AppInteraction/Connection/ConnectionManagerFaussaire.hpp>
 #include <AppInteraction/Connection/ConnectionFaussaire.hpp>

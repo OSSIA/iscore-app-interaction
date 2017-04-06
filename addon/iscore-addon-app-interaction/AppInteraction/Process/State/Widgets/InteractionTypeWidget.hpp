@@ -22,6 +22,10 @@ private:
 
    QHBoxLayout* m_layout{};
    QComboBox* m_combobox{};
+
+   /**
+    * @brief InteractionTypeList : HCI possibilities list
+    */
    std::vector<const char*> InteractionTypeList;
  };
  }

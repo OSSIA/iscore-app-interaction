@@ -6,7 +6,7 @@
 
 #include "ChangeMobileDevice.hpp"
 #include <ossia/editor/value/value_conversion.hpp>
-#include "AppInteraction/Process/AppInteractionProcessModel.hpp"
+#include <AppInteraction/Process/AppInteractionProcessModel.hpp>
 #include <State/Value.hpp>
 #include <State/ValueConversion.hpp>
 #include <iscore/serialization/DataStreamVisitor.hpp>

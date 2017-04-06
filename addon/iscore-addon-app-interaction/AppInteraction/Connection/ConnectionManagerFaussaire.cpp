@@ -3,16 +3,15 @@
 using namespace connectionFaussaire;
 
 ConnectionManagerFaussaire::ConnectionManagerFaussaire(){
-    ConnectionFaussaire* co1 = new ConnectionFaussaire("co1");
-    ConnectionFaussaire* co2 = new ConnectionFaussaire("co2");
+    ConnectionFaussaire* co1 = new ConnectionFaussaire("first connection");
+    ConnectionFaussaire* co2 = new ConnectionFaussaire("second connection");
     connectedDevices.insert(connectedDevices.end(), co1);
     connectedDevices.insert(connectedDevices.end(), co2);
-//    qDebug("Connections named \"co1\" and \"co2\" opened.");
 }
 
 ConnectionManagerFaussaire::~ConnectionManagerFaussaire()
 {
-
+qDebug("ConnectionManager destroyed.");
 }
 
 
@@ -24,7 +23,7 @@ int ConnectionManagerFaussaire::getNumConnections() const
 void ConnectionManagerFaussaire::closeConnection(ConnectionFaussaire* c)
 {
     connectedDevices.erase(connectedDevices.begin(),connectedDevices.end());
-//    qDebug("Connection closed.");
+    qDebug("All connections closed.");
 }
 
 

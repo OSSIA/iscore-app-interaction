@@ -41,16 +41,20 @@ class InspectorWidget final :
                 QWidget* parent);
 
     private:
+    // Methods called when particular signals received :
     void on_addressChange(const Device::FullAddressAccessorSettings& newText);
     void on_interactionTypeChange(int);
     void on_mobileDeviceChange(int);
     void on_minValueChanged();
     void on_maxValueChanged();
+
+    //Widgets used in the inspector:
     Explorer::AddressAccessorEditWidget* m_lineEdit{};
     State::InteractionTypeWidget* m_itw{};
     State::MobileDevicesWidget* m_mdw{};
-    CommandDispatcher<> m_dispatcher;
     QDoubleSpinBox *m_minsb{}, *m_maxsb{};
+
+    CommandDispatcher<> m_dispatcher;
 };
 
 

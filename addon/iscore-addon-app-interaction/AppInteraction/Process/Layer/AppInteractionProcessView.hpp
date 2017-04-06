@@ -13,7 +13,15 @@ class AppInteractionView final : public Process::LayerView
     public:
         explicit AppInteractionView(QGraphicsItem* parent);
 
+        /**
+         * @brief setText : set text displayed in an AppInteraction rack
+         **/
         void setText(const QString&);
+
+        /**
+         * @brief setDisplayedName : display the selected device address on an AppInteraction rack
+         * @param address to display
+         */
         void setDisplayedName(const QString& s);
 
     signals:

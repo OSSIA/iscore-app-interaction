@@ -33,12 +33,23 @@ public:
     void resume() override;
 
     ossia::state_element offset(ossia::time_value) override;
+
+    /**
+     * @brief state (called at each clock tick)
+     * @return real message made of m_msg
+     */
     ossia::state_element state() override;
 
+    /**
+     * @brief interactionValueReceived : called when signal interactionValueReceived received from a Connection
+     * Creates a message, save it into m_msg
+     */
     void interactionValueReceived(const ossia::value &);
 
 private:
     const Device::DeviceList& m_devices;
+
+    //Data provided by the ProcessModel and DocumentPlugin :
     int m_mobileDevice;
     connectionFaussaire::ConnectionManagerFaussaire* m_connectionManager;
     ::State::AddressAccessor m_address;
@@ -46,7 +57,8 @@ private:
     double m_duration;
     double m_min;
     double m_max;
-    State::Message m_msg;
+
+    State::Message m_msg; //msg ready to be sent
 };
 
 //! Component and bridge between the GUI / Edition thread and the execution thread.

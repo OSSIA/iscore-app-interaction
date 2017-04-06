@@ -6,8 +6,7 @@
 
 #include "ChangeAddress.hpp"
 #include <ossia/editor/value/value_conversion.hpp>
-#include "AppInteraction/Process/AppInteractionProcessModel.hpp"
-//#include <Curve/Point/CurvePointModel.hpp>
+#include <AppInteraction/Process/AppInteractionProcessModel.hpp>
 #include <Device/Address/AddressSettings.hpp>
 #include <Device/Address/Domain.hpp>
 #include <State/Address.hpp>
@@ -17,7 +16,6 @@
 #include <iscore/model/path/Path.hpp>
 #include <iscore/model/path/PathSerialization.hpp>
 #include <iscore/model/tree/TreeNode.hpp>
-
 #include <ossia/editor/state/destination_qualifiers.hpp>
 #include <ossia/network/domain/domain.hpp>
 

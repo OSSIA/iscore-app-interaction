@@ -22,7 +22,10 @@ signals:
 private:
    QHBoxLayout* m_layout{};
    QComboBox* m_combobox{};
-//  std::vector<const char*> MobileList;
+
+   /**
+   * @brief MobileList : existing connected mobile devices list
+   */
   std::vector<connectionFaussaire::ConnectionFaussaire*> MobileList;
 
  };

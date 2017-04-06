@@ -1,5 +1,5 @@
 #pragma once
-#include "AppInteraction/Commands/AppInteractionCommandFactory.hpp"
+#include <AppInteraction/Commands/AppInteractionCommandFactory.hpp>
 #include <iscore/command/Command.hpp>
 #include <iscore/model/path/Path.hpp>
 
