@@ -11,7 +11,7 @@
     {
             "eindex" : 1,
             "type" : "volume",
-            "sensor" : "AccHautBas",
+            "sensor" : "AccUpDown",
             "name" : "VolumeMove",
             "icon" : "volume_shakeupdown2.png",
             "file" : "CountDown1.qml",
