@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>main.qml</file>
-        <file>MainForm.qml</file>
-        <file>Search.qml</file>
-    </qresource>
-</RCC>
