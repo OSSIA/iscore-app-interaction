@@ -1,9 +1,9 @@
-#include "ConnectionFaussaire.hpp"
+#include "MockConnection.hpp"
 #include <State/Value.hpp>
 
-using namespace connectionFaussaire;
+using namespace mockConnection;
 
-ConnectionFaussaire::ConnectionFaussaire(const std::string device_name):
+MockConnection::MockConnection(const std::string device_name):
     mDevice(std::make_unique<ossia::net::local_protocol>(), device_name),
     mDeviceName(device_name)
 {
@@ -11,15 +11,15 @@ ConnectionFaussaire::ConnectionFaussaire(const std::string device_name):
 }
 
 
-ConnectionFaussaire::~ConnectionFaussaire(){
+MockConnection::~MockConnection(){
 }
 
-const std::string ConnectionFaussaire::getDeviceName() const
+const std::string MockConnection::getDeviceName() const
 {
     return mDeviceName;
 }
 
-void ConnectionFaussaire::sendInteraction(const std::string interaction){
+void MockConnection::sendInteraction(const std::string interaction){
 
     qDebug("Interaction msg : %s, sent to %s. ", interaction.c_str(),mDeviceName.c_str());
 
@@ -35,6 +35,6 @@ void ConnectionFaussaire::sendInteraction(const std::string interaction){
     return;
 }
 
-ossia::net::generic_device& ConnectionFaussaire::getMDevice(){
+ossia::net::generic_device& MockConnection::getMDevice(){
     return mDevice;
 }

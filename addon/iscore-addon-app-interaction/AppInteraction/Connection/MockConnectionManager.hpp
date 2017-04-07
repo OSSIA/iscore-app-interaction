@@ -1,26 +1,26 @@
 #pragma once
 
-#include "ConnectionFaussaire.hpp"
+#include "MockConnection.hpp"
 
 
 
-namespace connectionFaussaire
+namespace mockConnection
 {
 
-class ConnectionManagerFaussaire  final : public QObject
+class MockConnectionManager  final : public QObject
 {
 
     Q_OBJECT
 private:
-    std::vector<ConnectionFaussaire*> connectedDevices;
+    std::vector<MockConnection*> connectedDevices;
 
 
 public:
-    ConnectionManagerFaussaire ();
-    ~ConnectionManagerFaussaire ();
+    MockConnectionManager ();
+    ~MockConnectionManager ();
 
     int getNumConnections() const;
-    void closeConnection(ConnectionFaussaire *c);
-    std::vector<ConnectionFaussaire*> getDevices() const;
+    void closeConnection(MockConnection *c);
+    std::vector<MockConnection*> getDevices() const;
 };
 }

@@ -15,7 +15,7 @@ DocumentPlugin::~DocumentPlugin()
 {
 }
 
-connectionFaussaire::ConnectionManagerFaussaire* DocumentPlugin::connectionManager(){
+mockConnection::MockConnectionManager* DocumentPlugin::connectionManager(){
 
     return m_connectionManager;
 }

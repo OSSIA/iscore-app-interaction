@@ -20,8 +20,8 @@
 #include <AppInteraction/Process/State/Widgets/InteractionTypeWidget.hpp>
 #include <AppInteraction/Process/State/Widgets/MobileDevicesWidget.hpp>
 #include <string.h>
-#include <AppInteraction/Connection/ConnectionManagerFaussaire.hpp>
-#include <AppInteraction/Connection/ConnectionFaussaire.hpp>
+#include <AppInteraction/Connection/MockConnectionManager.hpp>
+#include <AppInteraction/Connection/MockConnection.hpp>
 
 namespace AppInteraction
 {

@@ -26,9 +26,9 @@ ProcessExecutor::ProcessExecutor(AppInteraction::ProcessModel& element,
 {
     if(m_mobileDevice != 0)
     {
-        std::vector<connectionFaussaire::ConnectionFaussaire*> m_connections = m_connectionManager->getDevices();
+        std::vector<mockConnection::MockConnection*> m_connections = m_connectionManager->getDevices();
         QObject::connect(
-                    m_connections[m_mobileDevice-1], &connectionFaussaire::ConnectionFaussaire::interactionValueReturned,
+                    m_connections[m_mobileDevice-1], &mockConnection::MockConnection::interactionValueReturned,
                 [=] (const auto& val) { this->interactionValueReceived(val); }); // activated when new ossia value received from app
     }
 }
@@ -37,8 +37,8 @@ ProcessExecutor::~ProcessExecutor()
 {
     if (m_mobileDevice != 0)
     {
-        std::vector<connectionFaussaire::ConnectionFaussaire*> m_connections = m_connectionManager->getDevices();
-        QObject::disconnect(m_connections[m_mobileDevice-1], &connectionFaussaire::ConnectionFaussaire::interactionValueReturned,
+        std::vector<mockConnection::MockConnection*> m_connections = m_connectionManager->getDevices();
+        QObject::disconnect(m_connections[m_mobileDevice-1], &mockConnection::MockConnection::interactionValueReturned,
                 NULL, (void**)0);
     }
 }

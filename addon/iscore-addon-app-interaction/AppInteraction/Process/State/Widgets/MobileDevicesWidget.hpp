@@ -2,7 +2,7 @@
 #include <QWidget>
 #include <iscore_addon_app_interaction_export.h>
 #include <AppInteraction/DocumentPlugin/AppInteractionDocumentPlugin.hpp>
-#include "AppInteraction/Connection/ConnectionManagerFaussaire.hpp"
+#include "AppInteraction/Connection/MockConnectionManager.hpp"
 #include <AppInteraction/Connection/Connection.hpp>
 
  class QComboBox;
@@ -26,7 +26,7 @@ private:
    /**
    * @brief MobileList : existing connected mobile devices list
    */
-  std::vector<connectionFaussaire::ConnectionFaussaire*> MobileList;
+  std::vector<mockConnection::MockConnection*> MobileList;
 
  };
  }

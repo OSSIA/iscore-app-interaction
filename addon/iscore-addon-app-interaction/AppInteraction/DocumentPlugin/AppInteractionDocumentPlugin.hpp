@@ -1,6 +1,6 @@
 #pragma once
 #include <iscore/plugins/documentdelegate/plugin/DocumentPlugin.hpp>
-#include <AppInteraction/Connection/ConnectionManagerFaussaire.hpp>
+#include <AppInteraction/Connection/MockConnectionManager.hpp>
 
 namespace AppInteraction
 {
@@ -48,13 +48,13 @@ class DocumentPlugin final :
             /**
              * @brief m_connectionManager : instance of ConnectionManager used in this AppInteraction Process
              */
-            connectionFaussaire::ConnectionManagerFaussaire* m_connectionManager = new connectionFaussaire::ConnectionManagerFaussaire();
+            mockConnection::MockConnectionManager* m_connectionManager = new mockConnection::MockConnectionManager();
         public:
             /**
              * @brief connectionManager
              * @return getter for attribute m_connectionManager
              */
-            connectionFaussaire::ConnectionManagerFaussaire* connectionManager();
+            mockConnection::MockConnectionManager* connectionManager();
 
             explicit DocumentPlugin(
                     const iscore::DocumentContext& ctx,

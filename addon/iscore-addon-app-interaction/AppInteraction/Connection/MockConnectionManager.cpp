@@ -1,33 +1,33 @@
-#include "ConnectionManagerFaussaire.hpp"
+#include "MockConnectionManager.hpp"
 
-using namespace connectionFaussaire;
+using namespace mockConnection;
 
-ConnectionManagerFaussaire::ConnectionManagerFaussaire(){
-    ConnectionFaussaire* co1 = new ConnectionFaussaire("first connection");
-    ConnectionFaussaire* co2 = new ConnectionFaussaire("second connection");
+MockConnectionManager::MockConnectionManager(){
+    MockConnection* co1 = new MockConnection("first connection");
+    MockConnection* co2 = new MockConnection("second connection");
     connectedDevices.insert(connectedDevices.end(), co1);
     connectedDevices.insert(connectedDevices.end(), co2);
 }
 
-ConnectionManagerFaussaire::~ConnectionManagerFaussaire()
+MockConnectionManager::~MockConnectionManager()
 {
 qDebug("ConnectionManager destroyed.");
 }
 
 
-int ConnectionManagerFaussaire::getNumConnections() const
+int MockConnectionManager::getNumConnections() const
 {
     return connectedDevices.size();
 }
 
-void ConnectionManagerFaussaire::closeConnection(ConnectionFaussaire* c)
+void MockConnectionManager::closeConnection(MockConnection* c)
 {
     connectedDevices.erase(connectedDevices.begin(),connectedDevices.end());
     qDebug("All connections closed.");
 }
 
 
-std::vector<ConnectionFaussaire*> ConnectionManagerFaussaire::getDevices() const
+std::vector<MockConnection*> MockConnectionManager::getDevices() const
 {
     return connectedDevices;
 }

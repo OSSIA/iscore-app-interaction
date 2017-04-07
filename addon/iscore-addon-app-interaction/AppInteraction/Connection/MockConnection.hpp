@@ -3,10 +3,10 @@
 #include <QObject>
 #include <ossia/ossia.hpp>
 
-namespace connectionFaussaire
+namespace mockConnection
 {
 
-class ConnectionFaussaire final : public QObject
+class MockConnection final : public QObject
 {
 
     Q_OBJECT
@@ -15,8 +15,8 @@ private:
     const std::string mDeviceName;
 
 public:
-    ConnectionFaussaire(const std::string device_name);
-    ~ConnectionFaussaire();
+    MockConnection(const std::string device_name);
+    ~MockConnection();
 
     ossia::net::generic_device& getMDevice();
     const std::string getDeviceName() const;

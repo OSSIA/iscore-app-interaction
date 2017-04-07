@@ -1,6 +1,6 @@
 #pragma once
 #include <Engine/Executor/ProcessComponent.hpp>
-#include <AppInteraction/Connection/ConnectionManagerFaussaire.hpp>
+#include <AppInteraction/Connection/MockConnectionManager.hpp>
 #include <State/Address.hpp>
 #include <qobject.h>
 #include <State/Value.hpp>
@@ -51,7 +51,7 @@ private:
 
     //Data provided by the ProcessModel and DocumentPlugin :
     int m_mobileDevice;
-    connectionFaussaire::ConnectionManagerFaussaire* m_connectionManager;
+    mockConnection::MockConnectionManager* m_connectionManager;
     ::State::AddressAccessor m_address;
     int m_interaction;
     double m_duration;
