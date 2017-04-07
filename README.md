@@ -1,5 +1,22 @@
 # PFA
 Application pour les arts interactifs
+=====================================
+
+
+Localisation des rendus
+-----------------------
+
+* Le rapport et le manuel de maintenance et d'utilisation se trouvent dans le dossier racine du dépôt.
+
+
+Installation & Compilation
+--------------------------
+
+* Les informations concernant l'installation et la compilation se trouvent dans le Manuel d'Utilisation et de Maintenance.
+
+
+Organisation des sources du projet
+-----------------------------------
 
 * Le dossier addon/ est relatif au plugin :
   ** Le sous-dossier iscore-addon-app-interaction/ comprend le code source du plugin
