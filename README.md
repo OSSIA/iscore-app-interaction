@@ -6,7 +6,7 @@ Application pour les arts interactifs
 Localisation des rendus
 -----------------------
 
-* Le rapport et le manuel de maintenance et d'utilisation se trouvent dans le dossier racine du dépôt.
+* Le rapport et le manuel de maintenance et d'utilisation se trouvent dans le dossier racine du dépôt. Notez que le manuel est également joint en annexe du rapport. 
 
 
 Installation & Compilation
